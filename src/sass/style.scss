@@ -1,7 +1,7 @@
 :root {
     color-scheme: dark light;
 
-    --space-1: 2px;
+    --space-1: 4px;
 }
 
 *,
@@ -37,7 +37,7 @@ h6 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: lighter;
     font-style: italic;
-    margin-block: 0;
+    text-transform: uppercase;
 }
 
 h1 {
@@ -54,10 +54,6 @@ h3 {
 
 h4 {
     font-size: 1.25em;
-}
-
-p {
-    margin-block: 0;
 }
 
 a,

@@ -1,0 +1,74 @@
+:root {
+  color-scheme: dark light;
+  --space-1: 4px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+}
+
+html,
+body {
+  max-width: 100vw;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  max-width: 100px;
+  margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: lighter;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.25em;
+}
+
+a,
+a:hover,
+a:focus,
+a:visited {
+  color: currentColor;
+}
+
+a {
+  font-weight: 600;
+}
+
+a:hover,
+a:focus {
+  text-decoration-thickness: 3px;
+}
+
+/*# sourceMappingURL=style.css.map */
