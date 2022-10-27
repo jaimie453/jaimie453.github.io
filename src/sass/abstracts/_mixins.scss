@@ -1,3 +1,48 @@
 // -----------------------------------------------------------------------------
 // This file contains all application-wide Sass mixins.
 // -----------------------------------------------------------------------------
+
+/// Mixin decorating the result of `test(..)` function to throw it as an error
+///
+/// @author Kitty Giraudel
+///
+/// @param {Map} $data - Return of `test(..)` function
+///
+/// @example scss - Printing the result of `double` function test
+///   @include run(test('double', $tests-double));
+///
+/// @example scss - Result of `double` function test
+///   Started tests for function `double`
+///   ----------
+///   Test 1 out of 4... ✔
+///   Test 2 out of 4... ✔
+///   Test 3 out of 4... ✔
+///   Test 4 out of 4... ✔
+///   ----------
+///   Finished: 0 test(s) failing out of 4
+@mixin run($data) {
+    $output: '';
+    $length: map-get($data, 'length');
+    $tests: map-get($data, 'tests');
+  
+    @each $test in $tests {
+      $output: $output + 'Test #{index($tests, $test)} out of #{$length}... '
+      + if(map-get($test, 'pass'), '✔', '✘\A   Expected : `#{map-get($test, "expected")}`\A   Actual   : `#{map-get($test, "actual")}`')+'\A ';
+    }
+  
+    $message: "Started tests for function `#{map-get($data, "function")}()` \A "
+      + '----------\A '
+      + $output + '\A '
+      + '----------\A '
+      + 'Finished: #{map-get($data, "pass")} test(s) passing out of #{$length}';
+  
+    @if map-get($data, "fail") > 0 {
+      // @error doesn't respect \a formatting
+      @warn $message;
+      @error "Tests failed.";
+    }
+  
+    @else {
+      @warn $message;
+    }
+  }

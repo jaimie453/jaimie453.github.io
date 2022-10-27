@@ -1,0 +1,32 @@
+// -----------------------------------------------------------------------------
+// This file contains tests for Sass functions and mixins.
+// -----------------------------------------------------------------------------
+
+//
+// generate-fibonacci-sequence($length)
+//
+$list: ();
+$tests-fibonacci: (
+  -1: (),
+  0: (),
+  1: append($list, 0),  // only way I could get single element lists to be equal
+  2: 0 1,
+  3: 0 1 1,
+  10: 0 1 1 2 3 5 8 13 21 34,
+);
+ 
+@include run(test('generate-fibonacci-sequence', $tests-fibonacci));
+
+//
+// get-color-contrast($bg-color, $fg-color)
+//
+$tests-get-color-contrast: (
+  (rgb(255, 255, 255), rgb(0, 0, 0)): 21,
+  (rgb(0, 0, 0), rgb(255, 255, 255)): 21,
+  (rgb(0, 0, 0), rgb(0, 0, 0)): 1,
+  (rgb(28, 27, 34), rgb(255, 255, 255)): 17.08,
+  (rgb(227, 228, 234), rgb(0, 0, 0)): 16.55,
+);
+ 
+@include run(test('get-color-contrast', $tests-get-color-contrast));
+

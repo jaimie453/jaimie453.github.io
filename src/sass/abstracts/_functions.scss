@@ -2,64 +2,112 @@
 // This file contains all application-wide Sass functions.
 // -----------------------------------------------------------------------------
 
-@function fibonacci($n) {
-  $list: ();
+@function generate-fibonacci-sequence($length) {
+  $sequence: ();
+  $i: 0;
 
-  @if $n == 0 {
-    @debug append($list, 0);
-  } @else if $n == 1 or $n == 2 {
-    @debug append($list, 1);
-  } @else {
-    @return fibonacci($n - 1) + fibonacci($n - 2);
+  @while $i < $length {
+    @if $i == 0 {
+      $sequence: append($sequence, 0);
+    } @else if $i == 1 or $i == 2 {
+      $sequence: append($sequence, 1);
+    } @else {
+      // sass is 1-indexed
+      $value: nth($sequence, $i) + nth($sequence, $i - 1);
+      $sequence: append($sequence, $value);
+    }
+
+    $i: $i + 1;
   }
+
+  @return $sequence;
 }
 
-/*
-# Function for nth Fibonacci number
-def Fibonacci(n):
-   
-    # Check if input is 0 then it will
-    # print incorrect input
-    if n < 0:
-        print("Incorrect input")
- 
-    # Check if n is 0
-    # then it will return 0
-    elif n == 0:
-        return 0
- 
-    # Check if n is 1,2
-    # it will return 1
-    elif n == 1 or n == 2:
-        return 1
- 
-    else:
-        return Fibonacci(n-1) + Fibonacci(n-2)
-
-/// Native `url(..)` function wrapper
-/// @param {String} $base - base URL for the asset
-/// @param {String} $type - asset type folder (e.g. `fonts/`)
-/// @param {String} $path - asset path
-/// @return {Url}
-@function asset($base, $type, $path) {
-  @return url($base + $type + $path);
+/// Returns contrast ratio between provided colors
+/// 
+/// @param {RGB} $bg-color - Background color
+/// @param {RGB} $fg-color - Foreground color
+///
+/// @return {Decimal} - contrast ratio (1-21), rounded to 2 decimals
+@function get-color-contrast($bg-color, $fg-color) {
+  @return 1;
 }
 
-/// Returns URL to an image based on its path
-/// @param {String} $path - image path
-/// @param {String} $base [$base-url] - base URL
-/// @return {Url}
-/// @require $base-url
-@function image($path, $base: $base-url) {
-  @return asset($base, "images/", $path);
-}
 
-/// Returns URL to a font based on its path
-/// @param {String} $path - font path
-/// @param {String} $base [$base-url] - base URL
-/// @return {Url}
-/// @require $base-url
-@function font($path, $base: $base-url) {
-  @return asset($base, "fonts/", $path);
+/// Test `$function` with `$spec` test suite
+///
+/// @author Kitty Giraudel
+///
+/// @param {String} $function - Name of function to test
+/// @param {Map} $spec - Test suite to run `$function` against
+///
+/// @return {Map}
+///   * `function`: `$function`
+///   * `length`: the length of `$tests`
+///   * `pass`: number of passing tests out of `length`
+///   * `fail`: number of failing tests out of `length`
+///   * `tests`: list of maps containing:
+///       * `input`: test input (key from `$tests`)
+///       * `expected`: expected result from `input`
+///       * `actual`: actual result from `input`
+///       * `pass`: whether the test passed or not
+///       * `fail`: whether the test failed or not
+///
+/// @example scss - Testing of a `double` function
+///   @function double($value) { @return $value * 2 }
+///
+///   $test: test('double', (
+///     1: 2,
+///     2: 4,
+///     3: 6,
+///     4: 8,
+///   ));
+///
+/// @example scss - Result of `double` tests
+///   (
+///     'function': 'double',
+///     'length': 4,
+///     'pass': 4,
+///     'fail': 0,
+///     'tests': ( ... ),
+///   )
+///
+/// @example scss - `tests` value from result of `double` tests
+///   (
+///     (
+///       'input': 1,
+///       'expected': 2,
+///       'actual': 2,
+///       'pass': true,
+///       'fail': false,
+///     ),
+///     // ...
+///   )
+@function test($function, $spec) {
+  $passing-tests: 0;
+  $tests: ();
+
+  @each $arguments,
+  $expected-result in $spec {
+    $actual-result: call(get-function($function), $arguments...);
+    $passed: $actual-result ==$expected-result;
+
+    $tests: append($tests, ('input': $arguments,
+        'expected': $expected-result,
+        'actual': $actual-result,
+        'pass': $passed,
+        'fail': not $passed,
+      ), 'comma');
+
+    @if $passed {
+      $passing-tests: $passing-tests + 1;
+    }
+  }
+
+  @return ('function': $function,
+    'length': length($tests),
+    'tests': $tests,
+    'pass': $passing-tests,
+    'fail': length($tests) - $passing-tests,
+  );
 }
-*/
