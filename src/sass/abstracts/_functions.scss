@@ -23,15 +23,47 @@
   @return $sequence;
 }
 
-/// Returns contrast ratio between provided colors
-/// 
-/// @param {RGB} $bg-color - Background color
-/// @param {RGB} $fg-color - Foreground color
-///
-/// @return {Decimal} - contrast ratio (1-21), rounded to 2 decimals
-@function get-color-contrast($bg-color, $fg-color) {
-  @return 1;
+
+@function slice($list, $start: 1, $end: length($list)) {
+  $result: null;
+
+  @if type-of($start) != number or type-of($end) != number {
+    @warn "Either $start or $end are not a number for `slice`.";
+  }
+
+  @else if $start > $end {
+    @warn "The start index has to be lesser than or equals to the end index for `slice`.";
+  }
+
+  @else if $start < 1 or $end < 1 {
+    @warn "List indexes must be non-zero integers for `slice`.";
+  }
+
+  @else if $start > length($list) {
+    @warn "List index is #{$start} but list is only #{length($list)} item long for `slice`.";
+  }
+
+  @else if $end > length($list) {
+    @warn "List index is #{$end} but list is only #{length($list)} item long for `slice`.";
+  }
+
+  @else {
+    $result: ();
+
+    @for $i from $start through $end {
+      $result: append($result, nth($list, $i));
+    }
+  }
+
+  @return $result;
 }
+
+// also works for em
+@function convert-px-to-rem($px) {
+  @return $px / 16;
+}
+
+
 
 
 /// Test `$function` with `$spec` test suite

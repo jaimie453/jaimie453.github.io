@@ -1,10 +1,10 @@
-/* Error: "Tests failed."
+/* Error: expected "$".
  *    ,
- * 31 | @include run(test('get-color-contrast', $tests-get-color-contrast));
- *    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ * 33 | @for 
+ *    |      ^
  *    '
- *   src\sass\abstracts\_tests.scss 31:1  @import
- *   src\sass\style.scss 7:3              root stylesheet */
+ *   src\sass\base\_typography.scss 33:6  @import
+ *   src\sass\style.scss 14:3             root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -14,5 +14,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: \"Tests failed.\"\a    \2577 \a 31 \2502  @include run(test('get-color-contrast', $tests-get-color-contrast));\d\a    \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   src\\sass\\abstracts\\_tests.scss 31:1  @import\a   src\\sass\\style.scss 7:3              root stylesheet";
+  content: 'Error: expected "$".\a    \2577 \a 33 \2502  @for \d\a    \2502       ^\a    \2575 \a   src\\sass\\base\\_typography.scss 33:6  @import\a   src\\sass\\style.scss 14:3             root stylesheet';
 }

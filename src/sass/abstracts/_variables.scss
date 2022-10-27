@@ -2,21 +2,10 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 
-$fibonacci: generateFibonacciSequence(18);
-@debug $fibonacci;
-/*
-@each $value in $fibonacci {
-  @debug $value;
-}
-*/
+$fibonacci: generate-fibonacci-sequence(18);
 
-/// Container's maximum width
-/// @type Length
 $max-width: 1180px !default;
 
-/// Breakpoints map
-/// @prop {String} keys - Keys are identifiers mapped to a given length
-/// @prop {Map} values - Values are actual breakpoints expressed in pixels
 $breakpoints: (
   "small": 320px,
   "medium": 768px,
