@@ -17,6 +17,7 @@ $tests-fibonacci: (
  
 @include run(test('generate-fibonacci-sequence', $tests-fibonacci));
 
+/*
 //
 // get-color-contrast($bg-color, $fg-color)
 //
@@ -29,4 +30,5 @@ $tests-get-color-contrast: (
 );
  
 @include run(test('get-color-contrast', $tests-get-color-contrast));
+*/
 
