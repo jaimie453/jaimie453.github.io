@@ -3,19 +3,30 @@
 // @font-face declarations in <head> (google fonts)
 // -----------------------------------------------------------------------------
 
+html {
+  font-size: 100%;
+}
+
+body {
+  color: white;
+  font-family: "Montserrat", Arial, sans-serif;
+  line-height: 1.5;
+}
+
 $font-size-start: 16;
 // 3, 5, 8, 13, 21, 34
 $font-size-steps: slice($fibonacci, 5, 10);
 
-$font-sizes: (convert-px-to-rem($font-size-start),);
-$i: 1;
-@each $step in $font-size-steps {
-  $font-size: nth($font-sizes, $i) + convert-px-to-rem($step);
-  $font-sizes: append($font-sizes, $font-size);
-  $i: $i + 1;
-}
+$font-sizes: (
+  convert-px-to-rem($font-size-start),
+);
 
-@debug $font-sizes;
+@for $i from 1 through length($font-size-steps) {
+  $step: convert-px-to-rem(nth($font-size-steps, $i));
+  $font-size: nth($font-sizes, $i)+$step;
+
+  $font-sizes: append($font-sizes, $font-size);
+}
 
 //  Map of 
 //    "size-label": html element 
@@ -30,40 +41,32 @@ $font-size-labels: (
   "3xl": h1
 );
 
-@for 
-@debug $font-size-labels;
+@for $j from 1 through length($font-sizes) {
+  $element: nth(nth($font-size-labels, $j), 2);
+  $label: nth(nth($font-size-labels, $j), 1);
+  $font-size: nth($font-sizes, $j);
 
-html {
-  font-size: 100%;
-}
+  $font-size-name: font-size-#{$label};
 
-body {
-  color: white;
-  font-family: "Montserrat", Arial, sans-serif;
+  :root {
+    --#{$font-size-name}: #{$font-size}rem;
+  }
+
+  #{$element},
+  .#{$font-size-name} {
+    font-size: var(--#{$font-size-name});
+  }
 }
 
 h1,
 h2,
 h3,
-h4{
+h4,
+h5,
+h6 {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: lighter;
   font-style: italic;
   text-transform: uppercase;
-}
-
-h1 {
-  font-size: 4em;
-}
-
-h2 {
-  font-size: 2em;
-}
-
-h3 {
-  font-size: 1.5em;
-}
-
-h4 {
-  font-size: 1.25em;
+  line-height: 1;
 }

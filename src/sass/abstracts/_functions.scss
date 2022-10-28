@@ -60,7 +60,7 @@
 
 // also works for em
 @function convert-px-to-rem($px) {
-  @return $px / 16;
+  @return calc($px / 16);
 }
 
 

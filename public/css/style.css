@@ -1,18 +1,131 @@
-/* Error: expected "$".
- *    ,
- * 33 | @for 
- *    |      ^
- *    '
- *   src\sass\base\_typography.scss 33:6  @import
- *   src\sass\style.scss 14:3             root stylesheet */
+/*
+//
+// get-color-contrast($bg-color, $fg-color)
+//
+$tests-get-color-contrast: (
+  (rgb(255, 255, 255), rgb(0, 0, 0)): 21,
+  (rgb(0, 0, 0), rgb(255, 255, 255)): 21,
+  (rgb(0, 0, 0), rgb(0, 0, 0)): 1,
+  (rgb(28, 27, 34), rgb(255, 255, 255)): 17.08,
+  (rgb(227, 228, 234), rgb(0, 0, 0)): 16.55,
+);
 
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: expected "$".\a    \2577 \a 33 \2502  @for \d\a    \2502       ^\a    \2575 \a   src\\sass\\base\\_typography.scss 33:6  @import\a   src\\sass\\style.scss 14:3             root stylesheet';
+@include run(test('get-color-contrast', $tests-get-color-contrast));
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+html,
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+:focus-visible {
+  outline: 3px solid currentcolor;
+  outline-offset: 3px;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  color: white;
+  font-family: "Montserrat", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+:root {
+  --font-size-s: 1rem;
+}
+
+small,
+.font-size-s {
+  font-size: var(--font-size-s);
+}
+
+:root {
+  --font-size-base: 1.1875rem;
+}
+
+p,
+.font-size-base {
+  font-size: var(--font-size-base);
+}
+
+:root {
+  --font-size-m: 1.5rem;
+}
+
+h5,
+.font-size-m {
+  font-size: var(--font-size-m);
+}
+
+:root {
+  --font-size-l: 2rem;
+}
+
+h4,
+.font-size-l {
+  font-size: var(--font-size-l);
+}
+
+:root {
+  --font-size-xl: 2.8125rem;
+}
+
+h3,
+.font-size-xl {
+  font-size: var(--font-size-xl);
+}
+
+:root {
+  --font-size-2xl: 4.125rem;
+}
+
+h2,
+.font-size-2xl {
+  font-size: var(--font-size-2xl);
+}
+
+:root {
+  --font-size-3xl: 6.25rem;
+}
+
+h1,
+.font-size-3xl {
+  font-size: var(--font-size-3xl);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: lighter;
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/*# sourceMappingURL=style.css.map */
