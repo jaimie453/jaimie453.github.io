@@ -1,3 +1,79 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    height: 55px;
+}
+
+.nav {
+    &__list {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    &__list-item {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__logo {
+        width: #{convert-px-to-rem(44)}rem;
+        fill: var(--text-color-darkest);
+        margin-right: var(--space-m);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__link {
+        @include heading-font-style;
+        font-size: var(--font-size-m);
+        text-decoration: none;
+        padding: 0 var(--space-s);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+}
+
+.socials {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    gap: var(--space-m);
+    align-items: center;
+
+    &__list-item {
+
+    }
+
+    &__link {
+        font-size: var(--font-size-s);
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+}
+
+.flowers {
+    margin: auto;
+
+    &__g {
+        fill: var(--text-color-lightest);
+    }
+}

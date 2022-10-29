@@ -6,9 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="color-scheme" content="dark light">
         <title>{{ title }}</title>
-        <link rel="stylesheet" href="{{ 'css/style.css' | url }}">
-
-        <!-- Fonts -->
+        <link
+        rel="stylesheet" href="{{ 'css/style.css' | url }}"> <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link
@@ -16,14 +15,12 @@
             rel="stylesheet">
     </head>
     <body>
-        <header>
-            
-        </header>
+        {% include "nav.njk" %}
+
         <main>
             {{ content | safe }}
         </main>
-        <footer>
-            
-        </footer>
+
+        {% include "footer.njk" %}
     </body>
 </html>

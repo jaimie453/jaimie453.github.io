@@ -7,17 +7,18 @@ $fibonacci: generate-fibonacci-sequence(18);
 
 // anytime a width or media query is used, use these values
 $widths: (
-  "xs": #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 4))}em,   // 233
-  "s": #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 3))}em,    // 377
-  "m": #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 2))}em,    // 610
-  "l": #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 1))}em,    // 987
-  "xl": #{convert-px-to-rem(nth($fibonacci, length($fibonacci)))}em        // 1597
+  "xs": #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 4))}rem,   // 233
+  "s": #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 3))}rem,    // 377
+  "m": #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 2))}rem,    // 610
+  "l": #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 1))}rem,    // 987
+  "xl": #{convert-px-to-rem(nth($fibonacci, length($fibonacci)))}rem        // 1597
 );
 
 $container-width: map-get($widths, "l");
 $text-width: map-get($widths, "m");
 
-$background-color: #1C1B22;
+//$background-color: #1C1B22;
+$background-color: #1c1c1c;
 
 // dark/light refer to contrast here
 $text-color-darkest: #fff; 
@@ -45,7 +46,8 @@ $text-color-base: mix($text-color-darkest, $text-color-lightest);
 }
 
 @media (prefers-color-scheme: light) {
-  $background-color: #E3E4EA;
+  //$background-color: #E3E4EA;
+  $background-color: #e4e4e4;
 
   // dark/light refer to contrast here
   $text-color-darkest: #000; 

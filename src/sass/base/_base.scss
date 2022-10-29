@@ -13,6 +13,7 @@
 html {
   font-size: 100%;
   overflow-x: hidden;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 body {
@@ -22,9 +23,15 @@ body {
   line-height: 1.5;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   max-width: #{$container-width};
   margin: auto;
+  padding: var(--space-s);
+}
+
+@media screen and (max-width: $container-width){
+  body {
+    padding: var(--space-base);
+  }
 }
 
 html,
@@ -32,7 +39,11 @@ body {
   min-height: 100vh;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
@@ -41,7 +52,10 @@ button {
   all: unset;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
@@ -51,12 +65,17 @@ input, button, textarea, select {
 }
 
 a {
-  color: var(--text-color-darkest);
+  color: currentColor;
   font-weight: 500;
 
-  &:visited {
+  // &:visited {
+  //   color: currentColor;
+  // }
+
+  &:hover,
+  &:focus {
     color: var(--text-color-darkest);
-  } 
+  }
 }
 
 h1,

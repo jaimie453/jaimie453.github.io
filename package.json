@@ -10,7 +10,7 @@
     "build:sass": "sass src/sass:public/css",
     "build:eleventy": "eleventy",
     "start": "npm-run-all build:sass --parallel watch:*",
-    "build": "npm-run-all lint build:*",
+    "build": "npm-run-all build:*",
     "deploy": "gh-pages -d public"
   },
   "repository": {
