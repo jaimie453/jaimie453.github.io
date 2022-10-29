@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// This file contains very basic styles.
+// Resets and base element styling
 // -----------------------------------------------------------------------------
 
 *,
@@ -10,13 +10,66 @@
   padding: 0;
 }
 
+html {
+  font-size: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color-base);
+  font-family: Montserrat, Arial, sans-serif;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  max-width: #{$container-width};
+  margin: auto;
+}
+
 html,
 body {
-  overflow-x: hidden;
   min-height: 100vh;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  all: unset;
+}
+
+input, button, textarea, select {
+  font: inherit;
 }
 
 :focus-visible {
   outline: 3px solid currentcolor;
   outline-offset: 3px;
+}
+
+a {
+  color: var(--text-color-darkest);
+  font-weight: 500;
+
+  &:visited {
+    color: var(--text-color-darkest);
+  } 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include heading-font-style;
+  line-height: 1;
+  padding: var(--space-base) 0;
+}
+
+p {
+  padding-bottom: var(--space-m);
 }

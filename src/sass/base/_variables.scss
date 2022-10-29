@@ -1,0 +1,95 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+// 0 - 1597
+$fibonacci: generate-fibonacci-sequence(18);
+
+// anytime a width or media query is used, use these values
+$widths: (
+  "xs": #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 4))}em,   // 233
+  "s": #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 3))}em,    // 377
+  "m": #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 2))}em,    // 610
+  "l": #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 1))}em,    // 987
+  "xl": #{convert-px-to-rem(nth($fibonacci, length($fibonacci)))}em        // 1597
+);
+
+$container-width: map-get($widths, "l");
+$text-width: map-get($widths, "m");
+
+$background-color: #1C1B22;
+
+// dark/light refer to contrast here
+$text-color-darkest: #fff; 
+$text-color-lightest: #adadad;
+$text-color-base: mix($text-color-darkest, $text-color-lightest);
+@debug $text-color-base;
+
+:root {
+  --background-color: #{$background-color};
+
+  // dark/light refer to contrast here
+  --text-color-darkest: #{$text-color-darkest}; 
+  --text-color-lightest: #{$text-color-lightest};
+  --text-color-base: #{$text-color-base};
+
+  $space-values: slice($fibonacci, 5, 12);
+  $space-labels: "xxs", "xs", "s", "base", "m", "l", "xl", "xxl";
+
+  @for $i from 1 through length($space-values) {
+    $value: nth($space-values, $i);
+    $label: nth($space-labels, $i);
+
+    --space-#{$label}: #{convert-px-to-rem($value)}em;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  $background-color: #E3E4EA;
+
+  // dark/light refer to contrast here
+  $text-color-darkest: #000; 
+  $text-color-lightest: #454545;
+  $text-color-base: mix($text-color-darkest, $text-color-lightest);
+
+  :root {
+    --background-color: #{$background-color};
+
+    // dark/light refer to contrast here
+    --text-color-darkest: #{$text-color-darkest}; 
+    --text-color-lightest: #{$text-color-lightest};
+    --text-color-base: #{$text-color-base};
+  }
+}
+
+// 2, 3, 5, 8, 13, 21, 34
+$font-size-range: generate-font-size-range(14, slice($fibonacci, 4, 10));
+$fluid-font-sizes: generate-fluid-font-sizes($font-size-range);
+
+//  Map of
+//    "size-label": html element
+//  for font-sizes
+$font-size-labels: ("s": small,
+  "base": body,
+  "m": h5,
+  "l": h4,
+  "xl": h3,
+  "2xl": h2,
+  "3xl": h1);
+
+
+
+@for $j from 1 through length($fluid-font-sizes) {
+  $element: nth(nth($font-size-labels, $j), 2);
+  $label: nth(nth($font-size-labels, $j), 1);
+  $font-size-name: font-size-#{$label};
+
+  :root {
+    --#{$font-size-name}: #{nth($fluid-font-sizes, $j)};
+  }
+
+  #{$element},
+  .#{$font-size-name} {
+    font-size: var(--#{$font-size-name});
+  }
+}

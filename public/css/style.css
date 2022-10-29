@@ -16,36 +16,29 @@ $tests-get-fluid-text-size: (
 @include run(test('get-fluid-text-size', $tests-get-fluid-text-size));
 
 */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+  --background-color: #1C1B22;
+  --text-color-darkest: #fff;
+  --text-color-lightest: #adadad;
+  --text-color-base: #d6d6d6;
+  --space-xxs: 0.1875em;
+  --space-xs: 0.3125em;
+  --space-s: 0.5em;
+  --space-base: 0.8125em;
+  --space-m: 1.3125em;
+  --space-l: 2.125em;
+  --space-xl: 3.4375em;
+  --space-xxl: 5.5625em;
 }
 
-html,
-body {
-  overflow-x: hidden;
-  min-height: 100vh;
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: #E3E4EA;
+    --text-color-darkest: #000;
+    --text-color-lightest: #454545;
+    --text-color-base: #232323;
+  }
 }
-
-:focus-visible {
-  outline: 3px solid currentcolor;
-  outline-offset: 3px;
-}
-
-html {
-  font-size: 100%;
-}
-
-body {
-  color: white;
-  font-family: Montserrat, Arial, sans-serif;
-  line-height: 1.5;
-  word-break: break-word;
-}
-
 :root {
   --font-size-s: clamp(0.875rem, 0.2vw + 0.8rem, 1rem);
 }
@@ -109,6 +102,62 @@ h1,
   font-size: var(--font-size-3xl);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color-base);
+  font-family: Montserrat, Arial, sans-serif;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  max-width: 61.6875em;
+  margin: auto;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  all: unset;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid currentcolor;
+  outline-offset: 3px;
+}
+
+a {
+  color: var(--text-color-darkest);
+  font-weight: 500;
+}
+a:visited {
+  color: var(--text-color-darkest);
+}
+
 h1,
 h2,
 h3,
@@ -119,7 +168,13 @@ h6 {
   font-weight: lighter;
   font-style: italic;
   text-transform: uppercase;
+  color: var(--text-color-darkest);
   line-height: 1;
+  padding: var(--space-base) 0;
+}
+
+p {
+  padding-bottom: var(--space-m);
 }
 
 .visually-hidden {
