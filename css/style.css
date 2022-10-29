@@ -1,30 +1,161 @@
+/*
+Returning the right values, but calculations aren't equal for some reason
+
+//
+// get-fluid-text-size($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width)
+//  https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/#calculating-preferred-value-parameters-based-on-specific-starting-and-ending-points
+//
+
+$tests-get-fluid-text-size: (
+  (16, 16, 0, 1920):clamp(1rem, 0vw + 1rem, 1rem),
+  (36, 52, 600, 1400):clamp(2.25rem, 2vw + 1.5rem, 3.25rem),       // example from article
+  (66, 100, 610, 1597):clamp(4.125rem, 3.44vw + 2.81rem, 6.25rem), // expected function for h1
+  (16, 19, 610, 1597):clamp(1rem, 0.30vw + 0.88rem, 1.1875rem)      // expected function for p
+);
+
+@include run(test('get-fluid-text-size', $tests-get-fluid-text-size));
+
+*/
 :root {
-  color-scheme: dark light;
-  --space-1: 4px;
+  --background-color: #1C1B22;
+  --text-color-darkest: #fff;
+  --text-color-lightest: #adadad;
+  --text-color-base: #d6d6d6;
+  --space-xxs: 0.1875em;
+  --space-xs: 0.3125em;
+  --space-s: 0.5em;
+  --space-base: 0.8125em;
+  --space-m: 1.3125em;
+  --space-l: 2.125em;
+  --space-xl: 3.4375em;
+  --space-xxl: 5.5625em;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: #E3E4EA;
+    --text-color-darkest: #000;
+    --text-color-lightest: #454545;
+    --text-color-base: #232323;
+  }
+}
+:root {
+  --font-size-s: clamp(0.875rem, 0.2vw + 0.8rem, 1rem);
+}
+
+small,
+.font-size-s {
+  font-size: var(--font-size-s);
+}
+
+:root {
+  --font-size-base: clamp(1rem, 0.3vw + 0.88rem, 1.1875rem);
+}
+
+body,
+.font-size-base {
+  font-size: var(--font-size-base);
+}
+
+:root {
+  --font-size-m: clamp(1.1875rem, 0.51vw + 0.99rem, 1.5rem);
+}
+
+h5,
+.font-size-m {
+  font-size: var(--font-size-m);
+}
+
+:root {
+  --font-size-l: clamp(1.5rem, 0.81vw + 1.19rem, 2rem);
+}
+
+h4,
+.font-size-l {
+  font-size: var(--font-size-l);
+}
+
+:root {
+  --font-size-xl: clamp(2rem, 1.32vw + 1.5rem, 2.8125rem);
+}
+
+h3,
+.font-size-xl {
+  font-size: var(--font-size-xl);
+}
+
+:root {
+  --font-size-2xl: clamp(2.8125rem, 2.13vw + 2rem, 4.125rem);
+}
+
+h2,
+.font-size-2xl {
+  font-size: var(--font-size-2xl);
+}
+
+:root {
+  --font-size-3xl: clamp(4.125rem, 3.44vw + 2.81rem, 6.25rem);
+}
+
+h1,
+.font-size-3xl {
+  font-size: var(--font-size-3xl);
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-:focus-visible {
-  outline: 2px solid currentColor;
+html {
+  font-size: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color-base);
+  font-family: Montserrat, Arial, sans-serif;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  max-width: 61.6875em;
+  margin: auto;
 }
 
 html,
 body {
-  max-width: 100vw;
   min-height: 100vh;
-  font-family: "Montserrat", sans-serif;
 }
 
-body {
-  max-width: 800px;
-  margin: auto;
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  all: unset;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid currentcolor;
+  outline-offset: 3px;
+}
+
+a {
+  color: var(--text-color-darkest);
+  font-weight: 500;
+}
+a:visited {
+  color: var(--text-color-darkest);
 }
 
 h1,
@@ -37,38 +168,24 @@ h6 {
   font-weight: lighter;
   font-style: italic;
   text-transform: uppercase;
+  color: var(--text-color-darkest);
+  line-height: 1;
+  padding: var(--space-base) 0;
 }
 
-h1 {
-  font-size: 4em;
+p {
+  padding-bottom: var(--space-m);
 }
 
-h2 {
-  font-size: 2em;
-}
-
-h3 {
-  font-size: 1.5em;
-}
-
-h4 {
-  font-size: 1.25em;
-}
-
-a,
-a:hover,
-a:focus,
-a:visited {
-  color: currentColor;
-}
-
-a {
-  font-weight: 600;
-}
-
-a:hover,
-a:focus {
-  text-decoration-thickness: 3px;
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 /*# sourceMappingURL=style.css.map */
