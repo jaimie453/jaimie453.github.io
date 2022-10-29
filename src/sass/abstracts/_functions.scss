@@ -7,9 +7,9 @@
   $i: 0;
 
   @while $i < $length {
-    @if $i == 0 {
+    @if $i==0 {
       $sequence: append($sequence, 0);
-    } @else if $i == 1 or $i == 2 {
+    } @else if $i==1 or $i==2 {
       $sequence: append($sequence, 1);
     } @else {
       // sass is 1-indexed
@@ -17,37 +17,93 @@
       $sequence: append($sequence, $value);
     }
 
-    $i: $i + 1;
+    $i: $i+1;
   }
 
   @return $sequence;
 }
 
+// also works for em
+@function convert-px-to-rem($px) {
+  @return calc($px / 16);
+}
+
+// also works for em
+@function convert-rem-to-px($rem) {
+  @return $rem * 16;
+}
+
+/// Generates viewport step for the fluid sizing function
+///   #{viewport-step}vw + #{relative-step}rem
+///
+/// @param {Number} $min-font-size - (px) text will never be smaller than this value
+/// @param {Number} $max-font-size - (px) text will never be larger than this value
+/// @param {Number} $min-viewport-width - (px) stop fluid sizing function below this viewport width
+/// @param {Number} $max-viewport-width - (px) stop fluid sizing function above this viewport width
+///
+/// @return {Number} - viewport-step with 2 digits of precision
+
+@function get-fluid-text-viewport-step($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width) {
+  $font-size-difference: $max-font-size - $min-font-size;
+  $viewport-difference: $max-viewport-width - $min-viewport-width;
+  $step: calc((100 * $font-size-difference) / $viewport-difference);
+
+  @return decimal-round($step, 2);
+}
+
+/// Generates relative step for the fluid sizing function
+///   #{viewport-step}vw + #{relative-step}rem
+///
+/// @param {Number} $min-font-size - (px) text will never be smaller than this value
+/// @param {Number} $max-font-size - (px) text will never be larger than this value
+/// @param {Number} $min-viewport-width - (px) stop fluid sizing function below this viewport width
+/// @param {Number} $max-viewport-width - (px) stop fluid sizing function above this viewport width
+///
+/// @return {Number} - relative-step in rem with 2 digits of precision
+
+@function get-fluid-text-relative-step($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width) {
+  $combined-difference: ($max-font-size * $min-viewport-width) - ($min-font-size * $max-viewport-width);
+  $viewport-difference: $min-viewport-width - $max-viewport-width;
+  $step: convert-px-to-rem(calc($combined-difference / $viewport-difference));
+
+  @return decimal-round($step, 2);
+}
+
+/// Generates a fluid typography font size value using clamp()
+///   clamp consists of 3 parts: a min font size, a max font size, and a fluid sizing function
+///   https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/#calculating-preferred-value-parameters-based-on-specific-starting-and-ending-points
+///
+/// @param {Number} $min-font-size - (px) text will never be smaller than this value
+/// @param {Number} $max-font-size - (px) text will never be larger than this value
+/// @param {Number} $min-viewport-width - (px) stop fluid sizing function below this viewport width
+/// @param {Number} $max-viewport-width - (px) stop fluid sizing function above this viewport width
+///
+/// @return {String}
+///   returns clamp(#{min-font-size}rem, #{viewport-step}vw + #{relative-step}rem , #{max-font-size}rem)
+
+@function get-fluid-text-size($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width) {
+  $vw-step: get-fluid-text-viewport-step($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width);
+  $r-step: get-fluid-text-relative-step($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width);
+  $min: #{convert-px-to-rem($min-font-size)}rem;
+  $max: #{convert-px-to-rem($max-font-size)}rem;
+
+  @return clamp(#{$min}, #{$vw-step}vw + #{$r-step}rem, #{$max});
+}
 
 @function slice($list, $start: 1, $end: length($list)) {
   $result: null;
 
-  @if type-of($start) != number or type-of($end) != number {
+  @if type-of($start) !=number or type-of($end) !=number {
     @warn "Either $start or $end are not a number for `slice`.";
-  }
-
-  @else if $start > $end {
+  } @else if $start>$end {
     @warn "The start index has to be lesser than or equals to the end index for `slice`.";
-  }
-
-  @else if $start < 1 or $end < 1 {
+  } @else if $start < 1 or $end < 1 {
     @warn "List indexes must be non-zero integers for `slice`.";
-  }
-
-  @else if $start > length($list) {
+  } @else if $start>length($list) {
     @warn "List index is #{$start} but list is only #{length($list)} item long for `slice`.";
-  }
-
-  @else if $end > length($list) {
+  } @else if $end>length($list) {
     @warn "List index is #{$end} but list is only #{length($list)} item long for `slice`.";
-  }
-
-  @else {
+  } @else {
     $result: ();
 
     @for $i from $start through $end {
@@ -57,14 +113,6 @@
 
   @return $result;
 }
-
-// also works for em
-@function convert-px-to-rem($px) {
-  @return calc($px / 16);
-}
-
-
-
 
 /// Test `$function` with `$spec` test suite
 ///
@@ -115,31 +163,118 @@
 ///     ),
 ///     // ...
 ///   )
+
 @function test($function, $spec) {
   $passing-tests: 0;
   $tests: ();
 
   @each $arguments,
-  $expected-result in $spec {
+    $expected-result in $spec {
     $actual-result: call(get-function($function), $arguments...);
-    $passed: $actual-result ==$expected-result;
-
-    $tests: append($tests, ('input': $arguments,
-        'expected': $expected-result,
-        'actual': $actual-result,
-        'pass': $passed,
-        'fail': not $passed,
-      ), 'comma');
+    $passed: $actual-result==$expected-result;
+    $tests: append(
+      $tests,
+      ("input": $arguments,
+      "expected": $expected-result,
+      "actual": $actual-result,
+      "pass": $passed,
+      "fail": not $passed,
+    ),
+    "comma"
+  );
 
     @if $passed {
       $passing-tests: $passing-tests + 1;
     }
   }
 
-  @return ('function': $function,
-    'length': length($tests),
-    'tests': $tests,
-    'pass': $passing-tests,
-    'fail': length($tests) - $passing-tests,
-  );
+  @return ("function": $function,
+  "length": length($tests),
+    "tests": $tests,
+    "pass": $passing-tests,
+    "fail": length($tests) - $passing-tests);
+}
+
+// _decimal.scss | MIT License | gist.github.com/terkel/4373420
+
+// Round a number to specified digits.
+//
+// @param  {Number} $number A number to round
+// @param  {Number} [$digits:0] Digits to output
+// @param  {String} [$mode:round] (round|ceil|floor) How to round a number
+// @return {Number} A rounded number
+// @example
+//     decimal-round(0.333)    => 0
+//     decimal-round(0.333, 1) => 0.3
+//     decimal-round(0.333, 2) => 0.33
+//     decimal-round(0.666)    => 1
+//     decimal-round(0.666, 1) => 0.7
+//     decimal-round(0.666, 2) => 0.67
+//
+@function decimal-round($number, $digits: 0, $mode: round) {
+  $n: 1;
+
+  // $number must be a number
+  @if type-of($number) !=number {
+    @warn "#{ $number } is not a number.";
+    @return $number;
+  }
+
+  // $digits must be a unitless number
+  @if type-of($digits) !=number {
+    @warn "#{ $digits } is not a number.";
+    @return $number;
+  } @else if not unitless($digits) {
+    @warn "#{ $digits } has a unit.";
+    @return $number;
+  }
+
+  @for $i from 1 through $digits {
+    $n: $n * 10;
+  }
+
+  @if $mode==round {
+    @return calc(round($number * $n) / $n);
+  } @else if $mode==ceil {
+    @return calc(ceil($number * $n) / $n);
+  } @else if $mode==floor {
+    @return calc(floor($number * $n) / $n);
+  } @else {
+    @warn "#{ $mode } is undefined keyword.";
+    @return $number;
+  }
+}
+
+// Ceil a number to specified digits.
+//
+// @param  {Number} $number A number to round
+// @param  {Number} [$digits:0] Digits to output
+// @return {Number} A ceiled number
+// @example
+//     decimal-ceil(0.333)    => 1
+//     decimal-ceil(0.333, 1) => 0.4
+//     decimal-ceil(0.333, 2) => 0.34
+//     decimal-ceil(0.666)    => 1
+//     decimal-ceil(0.666, 1) => 0.7
+//     decimal-ceil(0.666, 2) => 0.67
+//
+@function decimal-ceil($number, $digits: 0) {
+  @return decimal-round($number, $digits, ceil);
+}
+
+// Floor a number to specified digits.
+//
+// @param  {Number} $number A number to round
+// @param  {Number} [$digits:0] Digits to output
+// @return {Number} A floored number
+// @example
+//     decimal-floor(0.333)    => 0
+//     decimal-floor(0.333, 1) => 0.3
+//     decimal-floor(0.333, 2) => 0.33
+//     decimal-floor(0.666)    => 0
+//     decimal-floor(0.666, 1) => 0.6
+//     decimal-floor(0.666, 2) => 0.66
+//
+@function decimal-floor($number, $digits: 0) {
+  @return decimal-round($number, $digits, floor);
 }

@@ -9,31 +9,29 @@ html {
 
 body {
   color: white;
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: Montserrat, Arial, sans-serif;
   line-height: 1.5;
+  word-break: break-word;
 }
 
-$font-size-start: 16;
-// 3, 5, 8, 13, 21, 34
-$font-size-steps: slice($fibonacci, 5, 10);
+$font-size-start: 14;
 
-$font-sizes: (
-  convert-px-to-rem($font-size-start),
-);
+// 2, 3, 5, 8, 13, 21, 34
+$font-size-steps: slice($fibonacci, 4, 10);
+$font-sizes: ($font-size-start, );
 
 @for $i from 1 through length($font-size-steps) {
-  $step: convert-px-to-rem(nth($font-size-steps, $i));
-  $font-size: nth($font-sizes, $i)+$step;
-
+  $step: nth($font-size-steps, $i);
+  $font-size: nth($font-sizes, $i) + $step;
   $font-sizes: append($font-sizes, $font-size);
-}  
+}
 
-//  Map of 
-//    "size-label": html element 
+//  Map of
+//    "size-label": html element
 //  for font-sizes
 $font-size-labels: (
   "s": small,
-  "base": p,
+  "base": body,
   "m": h5,
   "l": h4,
   "xl": h3,
@@ -41,15 +39,21 @@ $font-size-labels: (
   "3xl": h1
 );
 
-@for $j from 1 through length($font-sizes) {
+$min-viewport-width: 610;
+$max-viewport-width: 1597;
+
+@for $j from 1 through length($font-sizes) - 1 {
   $element: nth(nth($font-size-labels, $j), 2);
   $label: nth(nth($font-size-labels, $j), 1);
-  $font-size: nth($font-sizes, $j);
 
+  $min-font-size: nth($font-sizes, $j);
+  $max-font-size: nth($font-sizes, $j + 1);
+
+  $fluid-font-size: get-fluid-text-size($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width);
   $font-size-name: font-size-#{$label};
 
   :root {
-    --#{$font-size-name}: #{$font-size}rem;
+    --#{$font-size-name}: #{$fluid-font-size};
   }
 
   #{$element},
@@ -57,6 +61,7 @@ $font-size-labels: (
     font-size: var(--#{$font-size-name});
   }
 }
+
 
 h1,
 h2,

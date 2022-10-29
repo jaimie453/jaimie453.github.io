@@ -2,12 +2,13 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 
+// 0 - 1597
 $fibonacci: generate-fibonacci-sequence(18);
 
-$max-width: 1180px !default;
+$max-width: 1180px;
 
 $breakpoints: (
   "small": 320px,
   "medium": 768px,
   "large": 1024px,
-) !default;
+);

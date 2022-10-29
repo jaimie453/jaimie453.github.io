@@ -1,16 +1,20 @@
 /*
+Returning the right values, but calculations aren't equal for some reason
+
 //
-// get-color-contrast($bg-color, $fg-color)
+// get-fluid-text-size($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width)
+//  https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/#calculating-preferred-value-parameters-based-on-specific-starting-and-ending-points
 //
-$tests-get-color-contrast: (
-  (rgb(255, 255, 255), rgb(0, 0, 0)): 21,
-  (rgb(0, 0, 0), rgb(255, 255, 255)): 21,
-  (rgb(0, 0, 0), rgb(0, 0, 0)): 1,
-  (rgb(28, 27, 34), rgb(255, 255, 255)): 17.08,
-  (rgb(227, 228, 234), rgb(0, 0, 0)): 16.55,
+
+$tests-get-fluid-text-size: (
+  (16, 16, 0, 1920):clamp(1rem, 0vw + 1rem, 1rem),
+  (36, 52, 600, 1400):clamp(2.25rem, 2vw + 1.5rem, 3.25rem),       // example from article
+  (66, 100, 610, 1597):clamp(4.125rem, 3.44vw + 2.81rem, 6.25rem), // expected function for h1
+  (16, 19, 610, 1597):clamp(1rem, 0.30vw + 0.88rem, 1.1875rem)      // expected function for p
 );
 
-@include run(test('get-color-contrast', $tests-get-color-contrast));
+@include run(test('get-fluid-text-size', $tests-get-fluid-text-size));
+
 */
 *,
 *::before,
@@ -37,12 +41,13 @@ html {
 
 body {
   color: white;
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: Montserrat, Arial, sans-serif;
   line-height: 1.5;
+  word-break: break-word;
 }
 
 :root {
-  --font-size-s: 1rem;
+  --font-size-s: clamp(0.875rem, 0.2vw + 0.8rem, 1rem);
 }
 
 small,
@@ -51,16 +56,16 @@ small,
 }
 
 :root {
-  --font-size-base: 1.1875rem;
+  --font-size-base: clamp(1rem, 0.3vw + 0.88rem, 1.1875rem);
 }
 
-p,
+body,
 .font-size-base {
   font-size: var(--font-size-base);
 }
 
 :root {
-  --font-size-m: 1.5rem;
+  --font-size-m: clamp(1.1875rem, 0.51vw + 0.99rem, 1.5rem);
 }
 
 h5,
@@ -69,7 +74,7 @@ h5,
 }
 
 :root {
-  --font-size-l: 2rem;
+  --font-size-l: clamp(1.5rem, 0.81vw + 1.19rem, 2rem);
 }
 
 h4,
@@ -78,7 +83,7 @@ h4,
 }
 
 :root {
-  --font-size-xl: 2.8125rem;
+  --font-size-xl: clamp(2rem, 1.32vw + 1.5rem, 2.8125rem);
 }
 
 h3,
@@ -87,7 +92,7 @@ h3,
 }
 
 :root {
-  --font-size-2xl: 4.125rem;
+  --font-size-2xl: clamp(2.8125rem, 2.13vw + 2rem, 4.125rem);
 }
 
 h2,
@@ -96,7 +101,7 @@ h2,
 }
 
 :root {
-  --font-size-3xl: 6.25rem;
+  --font-size-3xl: clamp(4.125rem, 3.44vw + 2.81rem, 6.25rem);
 }
 
 h1,

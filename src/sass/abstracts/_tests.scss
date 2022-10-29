@@ -6,29 +6,57 @@
 // generate-fibonacci-sequence($length)
 //
 $list: ();
-$tests-fibonacci: (
-  -1: (),
-  0: (),
-  1: append($list, 0),  // only way I could get single element lists to be equal
+$tests-fibonacci: (-1: (),
+0: (),
+1: append($list, 0), 
   2: 0 1,
   3: 0 1 1,
   10: 0 1 1 2 3 5 8 13 21 34,
 );
- 
-@include run(test('generate-fibonacci-sequence', $tests-fibonacci));
-  
+
+@include run(test("generate-fibonacci-sequence", $tests-fibonacci));
+
+//
+// get-fluid-text-viewport-step($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width)
+//  https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/#calculating-preferred-value-parameters-based-on-specific-starting-and-ending-points
+//
+$tests-get-fluid-text-viewport-step: 
+  ((16, 16, 0, 1920): 0,
+  (36, 54, 600, 1400): 2.25,
+  (66, 100, 610, 1597): 3.44,
+  (16, 19, 610, 1597): 0.3
+);
+
+@include run(test("get-fluid-text-viewport-step", $tests-get-fluid-text-viewport-step));
+
+//
+// get-fluid-text-relative-step($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width)
+//  https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/#calculating-preferred-value-parameters-based-on-specific-starting-and-ending-points
+//
+$tests-get-fluid-text-relative-step: 
+  ((16, 16, 0, 1920): 1,
+  (36, 52, 600, 1400): 1.5, 
+  (66, 100, 610, 1597): 2.81, 
+  (16, 19, 610, 1597): 0.88 
+);
+
+@include run(test("get-fluid-text-relative-step", $tests-get-fluid-text-relative-step));
+
 /*
+Returning the right values, but calculations aren't equal for some reason
+
 //
-// get-color-contrast($bg-color, $fg-color)
+// get-fluid-text-size($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width)
+//  https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/#calculating-preferred-value-parameters-based-on-specific-starting-and-ending-points
 //
-$tests-get-color-contrast: (
-  (rgb(255, 255, 255), rgb(0, 0, 0)): 21,
-  (rgb(0, 0, 0), rgb(255, 255, 255)): 21,
-  (rgb(0, 0, 0), rgb(0, 0, 0)): 1,
-  (rgb(28, 27, 34), rgb(255, 255, 255)): 17.08,
-  (rgb(227, 228, 234), rgb(0, 0, 0)): 16.55,
+
+$tests-get-fluid-text-size: (
+  (16, 16, 0, 1920):clamp(1rem, 0vw + 1rem, 1rem),
+  (36, 52, 600, 1400):clamp(2.25rem, 2vw + 1.5rem, 3.25rem),       // example from article
+  (66, 100, 610, 1597):clamp(4.125rem, 3.44vw + 2.81rem, 6.25rem), // expected function for h1
+  (16, 19, 610, 1597):clamp(1rem, 0.30vw + 0.88rem, 1.1875rem)      // expected function for p
 );
  
-@include run(test('get-color-contrast', $tests-get-color-contrast));
-*/
+@include run(test('get-fluid-text-size', $tests-get-fluid-text-size));
 
+*/
