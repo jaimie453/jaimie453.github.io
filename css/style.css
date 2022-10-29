@@ -17,7 +17,7 @@ $tests-get-fluid-text-size: (
 
 */
 :root {
-  --background-color: #1C1B22;
+  --background-color: #1c1c1c;
   --text-color-darkest: #fff;
   --text-color-lightest: #adadad;
   --text-color-base: #d6d6d6;
@@ -33,7 +33,7 @@ $tests-get-fluid-text-size: (
 
 @media (prefers-color-scheme: light) {
   :root {
-    --background-color: #E3E4EA;
+    --background-color: #e4e4e4;
     --text-color-darkest: #000;
     --text-color-lightest: #454545;
     --text-color-base: #232323;
@@ -113,6 +113,7 @@ h1,
 html {
   font-size: 100%;
   overflow-x: hidden;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
 body {
@@ -122,17 +123,26 @@ body {
   line-height: 1.5;
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-  max-width: 61.6875em;
+  max-width: 61.6875rem;
   margin: auto;
+  padding: var(--space-s);
 }
 
+@media screen and (max-width: 61.6875rem) {
+  body {
+    padding: var(--space-base);
+  }
+}
 html,
 body {
   min-height: 100vh;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
@@ -141,7 +151,10 @@ button {
   all: unset;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
@@ -151,10 +164,10 @@ input, button, textarea, select {
 }
 
 a {
-  color: var(--text-color-darkest);
+  color: currentColor;
   font-weight: 500;
 }
-a:visited {
+a:hover, a:focus {
   color: var(--text-color-darkest);
 }
 
@@ -186,6 +199,71 @@ p {
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 55px;
+}
+
+.nav__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.nav__list-item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav__logo {
+  width: 2.75rem;
+  fill: var(--text-color-darkest);
+  margin-right: var(--space-m);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav__link {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: lighter;
+  font-style: italic;
+  text-transform: uppercase;
+  color: var(--text-color-darkest);
+  font-size: var(--font-size-m);
+  text-decoration: none;
+  padding: 0 var(--space-s);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav__link:hover, .nav__link:focus {
+  text-decoration: underline;
+}
+
+.socials {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  gap: var(--space-m);
+  align-items: center;
+}
+.socials__link {
+  font-size: var(--font-size-s);
+  text-decoration: none;
+}
+.socials__link:hover, .socials__link:focus {
+  text-decoration: underline;
+}
+
+.flowers {
+  margin: auto;
+}
+.flowers__g {
+  fill: var(--text-color-lightest);
 }
 
 /*# sourceMappingURL=style.css.map */
