@@ -8,4 +8,29 @@
     font-style: italic;
     text-transform: uppercase;
     color: var(--text-color-darkest);
+    line-height: 1;
 }
+
+@mixin light-theme {
+    $text-color-darkest: #000; 
+    $text-color-lightest: #454545;
+    $text-color-base: mix($text-color-darkest, $text-color-lightest);
+  
+    // #E3E4EA;
+    --background-color: #e4e4e4;
+    --text-color-darkest: #{$text-color-darkest}; 
+    --text-color-lightest: #{$text-color-lightest};
+    --text-color-base: #{$text-color-base};
+  }
+  
+  @mixin dark-theme {
+    $text-color-darkest: #fff; 
+    $text-color-lightest: #adadad;
+    $text-color-base: mix($text-color-darkest, $text-color-lightest);
+  
+    // #1C1B22
+    --background-color: #1c1c1c;
+    --text-color-darkest: #{$text-color-darkest}; 
+    --text-color-lightest: #{$text-color-lightest};
+    --text-color-base: #{$text-color-base};
+  }

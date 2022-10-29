@@ -16,11 +16,31 @@
     </head>
     <body>
         {% include "nav.njk" %}
-
         <main>
             {{ content | safe }}
         </main>
+        {% include "footer.html" %}
+        {# <script src="index.js"></script> #}
+        <script>
+            const htmlTag = document.getElementsByTagName("html")[0];
+            const themeOptions = document.getElementsByClassName("theme-switcher__radio");
 
-        {% include "footer.njk" %}
+            const theme = localStorage.getItem("theme");
+            if(theme) {
+                htmlTag.classList.add(theme);
+            }
+
+            Array.from(themeOptions).forEach(option => {
+                option.addEventListener("change", () => {
+                    htmlTag.removeAttribute("class");
+                    if (option.value === "system") {
+                        localStorage.removeItem("theme");
+                    } else {
+                        localStorage.setItem("theme", option.value);
+                        htmlTag.classList.add(option.value);
+                    }
+                });
+            });
+        </script>
     </body>
 </html>

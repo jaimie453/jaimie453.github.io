@@ -30,7 +30,6 @@ $tests-get-fluid-text-size: (
   --space-xl: 3.4375em;
   --space-xxl: 5.5625em;
 }
-
 @media (prefers-color-scheme: light) {
   :root {
     --background-color: #e4e4e4;
@@ -39,6 +38,21 @@ $tests-get-fluid-text-size: (
     --text-color-base: #232323;
   }
 }
+
+.dark {
+  --background-color: #1c1c1c;
+  --text-color-darkest: #fff;
+  --text-color-lightest: #adadad;
+  --text-color-base: #d6d6d6;
+}
+
+.light {
+  --background-color: #e4e4e4;
+  --text-color-darkest: #000;
+  --text-color-lightest: #454545;
+  --text-color-base: #232323;
+}
+
 :root {
   --font-size-s: clamp(0.875rem, 0.2vw + 0.8rem, 1rem);
 }
@@ -125,7 +139,7 @@ body {
   -webkit-font-smoothing: antialiased;
   max-width: 61.6875rem;
   margin: auto;
-  padding: var(--space-s);
+  padding: var(--space-base) var(--space-s);
 }
 
 @media screen and (max-width: 61.6875rem) {
@@ -136,6 +150,11 @@ body {
 html,
 body {
   min-height: 100vh;
+}
+
+main {
+  padding-bottom: var(--space-l);
+  padding-top: var(--space-xxl);
 }
 
 img,
@@ -156,6 +175,7 @@ button,
 textarea,
 select {
   font: inherit;
+  filter: grayscale(1);
 }
 
 :focus-visible {
@@ -183,11 +203,28 @@ h6 {
   text-transform: uppercase;
   color: var(--text-color-darkest);
   line-height: 1;
-  padding: var(--space-base) 0;
 }
 
-p {
+h1 {
+  padding-bottom: var(--space-xs);
+}
+
+h2,
+h3,
+h4 {
+  padding: var(--space-s) 0;
+}
+
+main p {
   padding-bottom: var(--space-m);
+}
+
+small {
+  color: var(--text-color-lightest);
+}
+
+fieldset {
+  border: none;
 }
 
 .visually-hidden {
@@ -233,6 +270,7 @@ p {
   font-style: italic;
   text-transform: uppercase;
   color: var(--text-color-darkest);
+  line-height: 1;
   font-size: var(--font-size-m);
   text-decoration: none;
   padding: 0 var(--space-s);
@@ -264,6 +302,29 @@ p {
 }
 .flowers__g {
   fill: var(--text-color-lightest);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-s);
+  color: var(--text-color-lightest);
+}
+
+.theme-switcher__legend {
+  padding-right: var(--space-xs);
+}
+.theme-switcher__wrapper {
+  display: flex;
+  gap: var(--space-s);
+}
+.theme-switcher__option {
+  display: flex;
+  gap: var(--space-xs);
+}
+.theme-switcher__radio:checked + label {
+  color: var(--text-color-base);
 }
 
 /*# sourceMappingURL=style.css.map */

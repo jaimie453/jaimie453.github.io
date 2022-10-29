@@ -17,22 +17,15 @@ $widths: (
 $container-width: map-get($widths, "l");
 $text-width: map-get($widths, "m");
 
-//$background-color: #1C1B22;
-$background-color: #1c1c1c;
-
 // dark/light refer to contrast here
 $text-color-darkest: #fff; 
 $text-color-lightest: #adadad;
 $text-color-base: mix($text-color-darkest, $text-color-lightest);
-@debug $text-color-base;
+
+
 
 :root {
-  --background-color: #{$background-color};
-
-  // dark/light refer to contrast here
-  --text-color-darkest: #{$text-color-darkest}; 
-  --text-color-lightest: #{$text-color-lightest};
-  --text-color-base: #{$text-color-base};
+  @include dark-theme;
 
   $space-values: slice($fibonacci, 5, 12);
   $space-labels: "xxs", "xs", "s", "base", "m", "l", "xl", "xxl";
@@ -43,26 +36,34 @@ $text-color-base: mix($text-color-darkest, $text-color-lightest);
 
     --space-#{$label}: #{convert-px-to-rem($value)}em;
   }
-}
 
-@media (prefers-color-scheme: light) {
-  //$background-color: #E3E4EA;
-  $background-color: #e4e4e4;
-
-  // dark/light refer to contrast here
-  $text-color-darkest: #000; 
-  $text-color-lightest: #454545;
-  $text-color-base: mix($text-color-darkest, $text-color-lightest);
-
-  :root {
-    --background-color: #{$background-color};
-
-    // dark/light refer to contrast here
-    --text-color-darkest: #{$text-color-darkest}; 
-    --text-color-lightest: #{$text-color-lightest};
-    --text-color-base: #{$text-color-base};
+  @media (prefers-color-scheme: light) {
+    & {
+      @include light-theme;
+    }
   }
 }
+
+.dark {
+  @include dark-theme;
+}
+
+.light {
+  @include light-theme;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // 2, 3, 5, 8, 13, 21, 34
 $font-size-range: generate-font-size-range(14, slice($fibonacci, 4, 10));

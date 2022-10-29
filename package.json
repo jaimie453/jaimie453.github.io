@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "npx stylelint \"**/*.scss\" --fix",
     "watch:sass": "sass --watch src/sass:public/css",
     "watch:eleventy": "eleventy --serve",
     "build:sass": "sass src/sass:public/css",

@@ -25,10 +25,10 @@ body {
   -webkit-font-smoothing: antialiased;
   max-width: #{$container-width};
   margin: auto;
-  padding: var(--space-s);
+  padding: var(--space-base) var(--space-s);
 }
 
-@media screen and (max-width: $container-width){
+@media screen and (max-width: $container-width) {
   body {
     padding: var(--space-base);
   }
@@ -37,6 +37,11 @@ body {
 html,
 body {
   min-height: 100vh;
+}
+
+main {
+  padding-bottom: var(--space-l);
+  padding-top: var(--space-xxl);
 }
 
 img,
@@ -57,6 +62,7 @@ button,
 textarea,
 select {
   font: inherit;
+  filter: grayscale(1);
 }
 
 :focus-visible {
@@ -85,10 +91,26 @@ h4,
 h5,
 h6 {
   @include heading-font-style;
-  line-height: 1;
-  padding: var(--space-base) 0;
 }
 
-p {
+h1 {
+  padding-bottom: var(--space-xs);
+}
+
+h2,
+h3,
+h4 {
+  padding: var(--space-s) 0;
+}
+
+main p {
   padding-bottom: var(--space-m);
+}
+
+small {
+  color: var(--text-color-lightest);
+}
+
+fieldset {
+  border: none;
 }

@@ -1,3 +1,41 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-s);
+    color: var(--text-color-lightest);
+}
+
+.theme-switcher {
+    &__legend {
+        padding-right: var(--space-xs);
+    }
+
+    &__wrapper {
+        display: flex;
+        gap: var(--space-s);
+    }
+
+    &__option {
+        display: flex;
+        gap: var(--space-xs);
+        // &:focus-within {
+        //     outline: 3px solid currentcolor;
+        //     outline-offset: 3px;
+        // }
+
+        // & input:focus-visible {
+        //     outline: none;
+        // }
+    }
+
+    &__radio {
+        &:checked + label {
+            color: var(--text-color-base);
+        }
+    }
+}
