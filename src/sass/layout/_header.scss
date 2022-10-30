@@ -41,6 +41,7 @@
         text-decoration: none;
         padding: 0 var(--space-s);
         @include flex-center;
+        height: 100%;
 
         &:hover,
         &:focus {

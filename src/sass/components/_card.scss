@@ -1,0 +1,61 @@
+.card {
+    &__image {
+        aspect-ratio: 2.2 / 1;
+        width: 100%;
+        object-fit: cover;
+        filter: grayscale(1);
+        margin-bottom: var(--space-m);
+    }
+
+    &__link {
+        text-decoration: none;
+
+        &::after {
+            content: " ";
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+        }
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+
+    &__title {
+        padding-top: 0;
+        padding-bottom: var(--space-xs);
+    }
+
+    &__clickable-area {
+        position: relative;
+    }
+
+    &__body {
+        padding-bottom: var(--space-xxs);
+    }
+
+    &__tags {
+        list-style: none;
+        font-size: var(--font-size-s);
+        color: var(--text-color-lightest);
+        display: flex;
+        gap: var(--space-xs);
+    }
+}
+
+// should probably go in layout.scss or something
+.card-grid {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    
+    @media screen and (min-width: $article-max-width) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
