@@ -10,8 +10,10 @@ $fibonacci: generate-fibonacci-sequence(18);
 //  Width variables
 //
 
-$page-max-width: #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 1))}rem; // 610
-$article-max-width: #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 2))}rem; // 987
+$page-max-width: #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 1))}rem;    // 987
+$article-max-width: #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 2))}rem; // 610
+$nav-menu-max-width: #{convert-px-to-rem(720)}rem;      // nav menu will be present below this width
+                                                        // will need to be bumped to ~905px with 4 main items + 3 socials
 
 //
 //  Font-size variables

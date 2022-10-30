@@ -42,21 +42,19 @@ $tests-get-fluid-text-relative-step:
 
 @include run(test("get-fluid-text-relative-step", $tests-get-fluid-text-relative-step));
 
-/*
-Returning the right values, but calculations aren't equal for some reason
 
-//
-// get-fluid-text-size($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width)
-//  https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/#calculating-preferred-value-parameters-based-on-specific-starting-and-ending-points
-//
+// Returning the right values, but calculations aren't equal for some reason
 
-$tests-get-fluid-text-size: (
-  (16, 16, 0, 1920):clamp(1rem, 0vw + 1rem, 1rem),
-  (36, 52, 600, 1400):clamp(2.25rem, 2vw + 1.5rem, 3.25rem),       // example from article
-  (66, 100, 610, 1597):clamp(4.125rem, 3.44vw + 2.81rem, 6.25rem), // expected function for h1
-  (16, 19, 610, 1597):clamp(1rem, 0.30vw + 0.88rem, 1.1875rem)      // expected function for p
-);
+// //
+// // get-fluid-text-size($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width)
+// //  https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/#calculating-preferred-value-parameters-based-on-specific-starting-and-ending-points
+// //
+
+// $tests-get-fluid-text-size: (
+//   (16, 16, 0, 1920):clamp(1rem, 0vw + 1rem, 1rem),
+//   (36, 52, 600, 1400):clamp(2.25rem, 2vw + 1.5rem, 3.25rem),       // example from article
+//   (66, 100, 610, 1597):clamp(4.125rem, 3.44vw + 2.81rem, 6.25rem), // expected function for h1
+//   (16, 19, 610, 1597):clamp(1rem, 0.30vw + 0.88rem, 1.1875rem)      // expected function for p
+// );
  
-@include run(test('get-fluid-text-size', $tests-get-fluid-text-size));
-
-*/
+// @include run(test('get-fluid-text-size', $tests-get-fluid-text-size));
