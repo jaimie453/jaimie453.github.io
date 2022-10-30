@@ -1,0 +1,42 @@
+// -----------------------------------------------------------------------------
+// This file contains app-wide Sass variables
+// -----------------------------------------------------------------------------
+
+// 0 - 1597
+// used for font-size scaling, spacing, and some widths/media queries
+$fibonacci: generate-fibonacci-sequence(18);
+
+//
+//  Width variables
+//
+
+$page-max-width: #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 1))}rem; // 610
+$article-max-width: #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 2))}rem; // 987
+
+//
+//  Font-size variables
+//
+
+// 2, 3, 5, 8, 13, 21, 34
+$font-size-start: 14;
+$font-size-range: generate-font-size-range($font-size-start, slice($fibonacci, 4, 10));
+$fluid-font-sizes: generate-fluid-font-sizes($font-size-range);
+
+//  Map of
+//    "size-label": html element
+//  for font-sizes
+$font-size-labels: ("s": small,
+    "base": body,
+    "m": h5,
+    "l": h4,
+    "xl": h3,
+    "2xl": h2,
+    "3xl": h1);
+
+
+//
+//  Spacing variables
+//
+
+$space-values: slice($fibonacci, 5, 12);
+$space-labels: "xxs", "xs", "s", "base", "m", "l", "xl", "xxl";

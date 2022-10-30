@@ -15,22 +15,23 @@
             rel="stylesheet">
     </head>
     <body>
-        {% include "nav.njk" %}
+        {% include "header.njk" %}
         <main>
             {{ content | safe }}
         </main>
-        {% include "footer.html" %}
+        {% include "footer.njk" %}
         {# <script src="index.js"></script> #}
+        {# todo: move to js file #}
         <script>
             const htmlTag = document.getElementsByTagName("html")[0];
-            const themeOptions = document.getElementsByClassName("theme-switcher__radio");
-
-            const theme = localStorage.getItem("theme");
-            if(theme) {
+            const themeRadios = Array.from(document.getElementsByClassName("theme-switcher__radio"));
+            const theme = localStorage.getItem("theme") ?? "system";
+            if (theme !== "system") {
                 htmlTag.classList.add(theme);
             }
-
-            Array.from(themeOptions).forEach(option => {
+            const selectedRadio = themeRadios.find(option => option.value === theme);
+            selectedRadio.setAttribute("checked", null);
+            themeRadios.forEach(option => {
                 option.addEventListener("change", () => {
                     htmlTag.removeAttribute("class");
                     if (option.value === "system") {

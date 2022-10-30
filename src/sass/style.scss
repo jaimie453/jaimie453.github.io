@@ -6,28 +6,25 @@
   'abstracts/imported',
   'abstracts/functions',
   'abstracts/mixins',
-  'abstracts/tests';
+  'abstracts/tests',
+  'abstracts/variables';
 
-// 3. Base stuff
+// 2. Base stuff
 @import
-  'base/variables',
+  'base/root',
   'base/base',
   'base/typography',
   'base/utilities';
 
-// 4. Layout-related sections
+// 3. Layout-related sections
 @import
   'layout/header',
   'layout/footer';
 
-// 5. Components
-@import
-  'components/button';
+// 4. Components
+// @import
+//   'components/button';
 
-// 6. Page-specific styles
-@import
-  'pages/home';
-
-// 7. Themes
-@import
-  'themes/default';
+// 5. Page-specific styles
+// @import
+//   'pages/home';

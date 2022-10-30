@@ -5,31 +5,33 @@
 .header {
     display: flex;
     justify-content: space-between;
-    height: 55px;
+    min-height: var(--min-target-area);
 }
 
 .nav {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
     &__list {
         list-style: none;
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         height: 100%;
     }
 
     &__list-item {
         height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex-center;
     }
 
     &__logo {
-        width: #{convert-px-to-rem(44)}rem;
+        width: var(--min-target-area);
         fill: var(--text-color-darkest);
+        @include flex-center;
+        flex-shrink: 0;
         margin-right: var(--space-m);
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 
     &__link {
@@ -37,9 +39,7 @@
         font-size: var(--font-size-m);
         text-decoration: none;
         padding: 0 var(--space-s);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex-center;
 
         &:hover,
         &:focus {
@@ -54,6 +54,7 @@
     display: flex;
     gap: var(--space-m);
     align-items: center;
+    margin-left: auto;
 
     &__list-item {
 
@@ -70,10 +71,10 @@
     }
 }
 
-.flowers {
-    margin: auto;
+// .flowers {
+//     margin: auto;
 
-    &__g {
-        fill: var(--text-color-lightest);
-    }
-}
+//     &__g {
+//         fill: var(--text-color-lightest);
+//     }
+// }

@@ -1,0 +1,27 @@
+// -----------------------------------------------------------------------------
+// This file contains all CSS variables
+// -----------------------------------------------------------------------------
+
+:root {
+  @include dark-theme-variables;
+  @include font-size-variables($fluid-font-sizes, $font-size-labels);
+  @include spacing-variables($space-values, $space-labels);
+
+  --min-target-area: #{convert-px-to-rem(44)}rem;
+  --page-max-width: #{$page-max-width};
+  --article-max-width: #{$article-max-width};
+
+  @media (prefers-color-scheme: light) {
+    & {
+      @include light-theme-variables;
+    }
+  }
+}
+
+.dark {
+  @include dark-theme-variables;
+}
+
+.light {
+  @include light-theme-variables;
+}

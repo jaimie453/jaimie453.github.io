@@ -2,3 +2,32 @@
 // Typographic styles
 // @font-face declarations in <head> (google fonts)
 // -----------------------------------------------------------------------------
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include heading-font-style;
+}
+
+h1 {
+  padding-bottom: var(--space-xs);
+}
+
+h2,
+h3,
+h4 {
+  padding: var(--space-s) 0;
+}
+
+main p {
+  padding-bottom: var(--space-m);
+}
+
+small {
+  color: var(--text-color-lightest);
+}
+
+@include font-size-rulesets($fluid-font-sizes, $font-size-labels);

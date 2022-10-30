@@ -2,46 +2,16 @@
 // Resets and base element styling
 // -----------------------------------------------------------------------------
 
+//
+//  Reset
+//
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-html {
-  font-size: 100%;
-  overflow-x: hidden;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-}
-
-body {
-  background-color: var(--background-color);
-  color: var(--text-color-base);
-  font-family: Montserrat, Arial, sans-serif;
-  line-height: 1.5;
-  overflow-wrap: break-word;
-  -webkit-font-smoothing: antialiased;
-  max-width: #{$container-width};
-  margin: auto;
-  padding: var(--space-base) var(--space-s);
-}
-
-@media screen and (max-width: $container-width) {
-  body {
-    padding: var(--space-base);
-  }
-}
-
-html,
-body {
-  min-height: 100vh;
-}
-
-main {
-  padding-bottom: var(--space-l);
-  padding-top: var(--space-xxl);
 }
 
 img,
@@ -55,6 +25,7 @@ svg {
 
 button {
   all: unset;
+  cursor: pointer;
 }
 
 input,
@@ -65,52 +36,67 @@ select {
   filter: grayscale(1);
 }
 
+fieldset {
+  border: none;
+}
+
+//
+//  Layout
+//
+
+html {
+  font-size: 100%;
+  overflow-x: hidden;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color-base);
+  font-family: Montserrat, Arial, sans-serif;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  max-width: var(--page-max-width);
+  margin: auto;
+  padding: var(--space-base) var(--space-s);
+}
+
+@media screen and (max-width: $page-max-width) {
+  body {
+    padding: var(--space-m);
+    padding-bottom: var(--space-base);
+  }
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+main {
+  padding-bottom: var(--space-l);
+  padding-top: var(--space-xxl);
+}
+
+//
+//  Interactive styling
+//
+
 :focus-visible {
   outline: 3px solid currentcolor;
   outline-offset: 3px;
+  // outline: none;
+  // background-color: white;
+  // color: black; 
+  // text-decoration: none;
 }
 
 a {
   color: currentColor;
-  font-weight: 500;
-
-  // &:visited {
-  //   color: currentColor;
-  // }
 
   &:hover,
-  &:focus {
+  &:active {
     color: var(--text-color-darkest);
+    text-decoration-thickness: 0.09em;
   }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @include heading-font-style;
-}
-
-h1 {
-  padding-bottom: var(--space-xs);
-}
-
-h2,
-h3,
-h4 {
-  padding: var(--space-s) 0;
-}
-
-main p {
-  padding-bottom: var(--space-m);
-}
-
-small {
-  color: var(--text-color-lightest);
-}
-
-fieldset {
-  border: none;
 }
