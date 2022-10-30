@@ -94,8 +94,13 @@ main {
 a {
   color: currentColor;
 
+  @media (prefers-reduced-motion: no-preference) {
+    transition: color 100ms ease-in-out;
+  }
+
   &:hover,
-  &:active {
+  &:active,
+  &:focus-visible {
     color: var(--text-color-darkest);
     text-decoration-thickness: 0.09em;
   }

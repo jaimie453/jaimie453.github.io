@@ -18,11 +18,28 @@
 
 @mixin flex-center($center-vertically: true, $center-horizontally: true) {
   display: flex;
+
   @if ($center-vertically) {
     align-items: center;
   }
+
   @if ($center-horizontally) {
     justify-content: center;
+  }
+}
+
+@mixin hover-underline-style {
+  text-underline-offset: 0.3em;
+  text-decoration-color: transparent;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: text-decoration-color 150ms ease-in-out;
+  }
+
+  &:hover,
+  &:active,
+  &:focus-visible {
+    text-decoration-color: currentColor;
   }
 }
 
@@ -67,7 +84,7 @@
   @for $i from 1 through length($space-values) {
     $value: nth($space-values, $i);
     $label: nth($space-labels, $i);
-  
+
     --space-#{$label}: #{convert-px-to-rem($value)}em;
   }
 }
