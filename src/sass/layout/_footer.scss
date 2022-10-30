@@ -8,10 +8,21 @@
     align-items: center;
     font-size: var(--font-size-s);
     color: var(--text-color-lightest);
+    flex-wrap: wrap-reverse;
+
+    &__socials {
+        display: none;
+        height: var(--min-target-area);
+    }
 
     @media screen and (max-width: $nav-menu-max-width) {
         &__theme-switcher {
             display: none;
+        }
+
+        &__socials {
+            display: flex;
+            flex-wrap: wrap;
         }
     }
 }

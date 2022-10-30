@@ -1,0 +1,19 @@
+.socials {
+    list-style: none;
+    display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+    height: 100%;
+    flex-wrap: wrap;
+
+    &__list-item {
+        height: 100%;
+    }
+
+    &__link {
+        font-size: var(--font-size-s);
+        height: 100%;
+        @include flex-center;
+        padding: var(--space-s);
+    }
+}
