@@ -19,6 +19,12 @@
         align-items: center;
         flex-wrap: wrap;
         height: 100%;
+
+        @media screen and (max-width: $article-max-width) {
+            & {
+                display: none;
+            }
+        }
     }
 
     &__list-item {
@@ -67,6 +73,12 @@
         &:hover,
         &:focus {
             text-decoration: underline;
+        }
+    }
+
+    @media screen and (max-width: $article-max-width) {
+        & {
+            display: none;
         }
     }
 }
