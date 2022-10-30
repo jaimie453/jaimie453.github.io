@@ -226,13 +226,15 @@ h1,
   justify-content: center;
 }
 .nav__logo {
-  width: var(--min-target-area);
   fill: var(--text-color-darkest);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   margin-right: var(--space-m);
+}
+.nav__logo svg {
+  width: var(--min-target-area);
 }
 .nav__link {
   font-family: Georgia, "Times New Roman", Times, serif;
