@@ -17,10 +17,8 @@
     <body>
         <header class="header">
     <nav class="nav">
-        <ul class="nav__list">
-            <li class="nav__list-item">
-                <a class="nav__logo" href="#">
-                    <svg
+        <a class="nav__logo" href="#">
+            <svg
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     viewbox="0 0 463.003 463.003"
@@ -90,8 +88,8 @@
     1.088-4.87 5.289-15.429 10.429-27.486 12.612,12.302 20.721,35.652
     20.673,43.064-11.256,5.591-21.922,18.176-32.259,30.374z"/>
 </svg>
-                </a>
-            </li>
+        </a>
+        <ul class="nav__list">
             <li class="nav__list-item">
                 <a class="nav__link" href="#">Projects</a>
             </li>
@@ -99,23 +97,22 @@
                 <a class="nav__link" href="#">About</a>
             </li>
         </ul>
+        <ul class="socials">
+            <li>
+                <a class="socials__link" href="#">Resume</a>
+            </li>
+            <li>
+                <a class="socials__link" href="#">Github</a>
+            </li>
+            <li>
+                <a class="socials__link" href="#">LinkedIn</a>
+            </li>
+            <li>
+                <a class="socials__link" href="mailto:hello@gmail.com">Email me</a>
+            </li>
+        </ul>
     </nav>
-    <ul class="socials">
-        <li>
-            <a class="socials__link" href="#">Resume</a>
-        </li>
-        <li>
-            <a class="socials__link" href="#">Github</a>
-        </li>
-        <li>
-            <a class="socials__link" href="#">LinkedIn</a>
-        </li>
-        <li>
-            <a class="socials__link" href="mailto:hello@gmail.com">Email me</a>
-        </li>
-    </ul>
 </header>
-
         <main>
             
 <h1>Jaimie Bowen</h1>
@@ -233,34 +230,39 @@
     <p>
         <small>© Jaimie Bowen 2022</small>
     </p>
-    <fieldset class="theme-switcher">
-        <div class="theme-switcher__wrapper">
-            <legend class="theme-switcher__legend">Theme:</legend>
-            <div class="theme-switcher__option">
-                <input class="theme-switcher__radio" type="radio" id="system" name="theme" value="system" checked="checked">
-                <label for="system">System</label>
-            </div>
-            <div class="theme-switcher__option">
-                <input class="theme-switcher__radio" type="radio" id="dark" name="theme" value="dark">
-                <label for="dark">Dark</label>
-            </div>
-            <div class="theme-switcher__option">
-                <input class="theme-switcher__radio" type="radio" id="light" name="theme" value="light">
-                <label for="light">Light</label>
-            </div>
-    </fieldset>
+    
+    <div class="footer__theme-switcher">
+        <fieldset class="theme-switcher">
+    <div class="theme-switcher__wrapper">
+        <legend class="theme-switcher__legend">Theme:</legend>
+        <div class="theme-switcher__option">
+            <input class="theme-switcher__radio" type="radio" id="system" name="theme" value="system">
+            <label for="system">System</label>
+        </div>
+        <div class="theme-switcher__option">
+            <input class="theme-switcher__radio" type="radio" id="dark" name="theme" value="dark">
+            <label for="dark">Dark</label>
+        </div>
+        <div class="theme-switcher__option">
+            <input class="theme-switcher__radio" type="radio" id="light" name="theme" value="light">
+            <label for="light">Light</label>
+        </div>
+    </div>
+</fieldset>
+    </div>
 </footer>
+        
         
         <script>
             const htmlTag = document.getElementsByTagName("html")[0];
-            const themeOptions = document.getElementsByClassName("theme-switcher__radio");
-
-            const theme = localStorage.getItem("theme");
-            if(theme) {
+            const themeRadios = Array.from(document.getElementsByClassName("theme-switcher__radio"));
+            const theme = localStorage.getItem("theme") ?? "system";
+            if (theme !== "system") {
                 htmlTag.classList.add(theme);
             }
-
-            Array.from(themeOptions).forEach(option => {
+            const selectedRadio = themeRadios.find(option => option.value === theme);
+            selectedRadio.setAttribute("checked", null);
+            themeRadios.forEach(option => {
                 option.addEventListener("change", () => {
                     htmlTag.removeAttribute("class");
                     if (option.value === "system") {
