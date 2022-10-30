@@ -6,79 +6,17 @@
     display: flex;
     justify-content: space-between;
     min-height: var(--min-target-area);
-    //transition: background-color 0.2s linear;
-
-    @media screen and (max-width: $nav-menu-max-width) {
-        &__open {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-            padding: var(--space-m);
-            background-color: var(--background-color);
-        }
-    }
 }
-
-@media screen and (max-width: $nav-menu-max-width) {
-    html {
-        overflow-y: hidden;
-    }
-}
-
 
 .nav {
     display: flex;
     width: 100%;
-
-    &__menu-trigger {
-        display: none; 
-        font-weight: 500;
-
-        &:hover, 
-        &:focus {
-            color: var(--text-color-darkest);
-        }
-    }
-
-    @media screen and (max-width: $nav-menu-max-width) {
-        & {
-            flex-direction: column;
-        }
-
-        &__menu {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-        }
-    
-        &__menu-trigger {
-            display: inline-block;
-            padding: 0 var(--space-s);
-        }
-    }
-
-    &__content {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-
-        // @media screen and (max-width: $nav-menu-max-width) {
-        //     & {
-        //         display: none;
-        //     }
-        // }
-    }
 
     &__list {
         list-style: none;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-
-        
     }
 
     &__list-item {
