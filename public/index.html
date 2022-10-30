@@ -17,8 +17,9 @@
     <body>
         <header class="header">
     <nav class="nav">
-        <a class="nav__logo" href="#">
-            <svg
+        <div class="nav__menu">
+            <a class="nav__logo" href="#">
+                <svg
     version="1.1"
     xmlns="http://www.w3.org/2000/svg"
     viewbox="0 0 463.003 463.003"
@@ -88,29 +89,33 @@
     1.088-4.87 5.289-15.429 10.429-27.486 12.612,12.302 20.721,35.652
     20.673,43.064-11.256,5.591-21.922,18.176-32.259,30.374z"/>
 </svg>
-        </a>
-        <ul class="nav__list">
-            <li class="nav__list-item">
-                <a class="nav__link" href="#">Projects</a>
-            </li>
-            <li class="nav__list-item">
-                <a class="nav__link" href="#">About</a>
-            </li>
-        </ul>
-        <ul class="socials">
-            <li>
-                <a class="socials__link" href="#">Resume</a>
-            </li>
-            <li>
-                <a class="socials__link" href="#">Github</a>
-            </li>
-            <li>
-                <a class="socials__link" href="#">LinkedIn</a>
-            </li>
-            <li>
-                <a class="socials__link" href="mailto:hello@gmail.com">Email me</a>
-            </li>
-        </ul>
+            </a>
+            <button class="nav__menu-trigger" onclick="toggleMenu();">Menu</button>
+        </div>
+        <div class="nav__content">
+            <ul class="nav__list">
+                <li class="nav__list-item">
+                    <a class="nav__link" href="#">Projects</a>
+                </li>
+                <li class="nav__list-item">
+                    <a class="nav__link" href="#">About</a>
+                </li>
+            </ul>
+            <ul class="socials">
+                <li>
+                    <a class="socials__link" href="#">Resume</a>
+                </li>
+                <li>
+                    <a class="socials__link" href="#">Github</a>
+                </li>
+                <li>
+                    <a class="socials__link" href="#">LinkedIn</a>
+                </li>
+                <li>
+                    <a class="socials__link" href="mailto:hello@gmail.com">Email me</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 </header>
         <main>
@@ -273,6 +278,34 @@
                     }
                 });
             });
+
+            const header = document.getElementsByClassName("header")[0];
+            const menuTrigger = document.getElementsByClassName("nav__menu-trigger")[0];
+
+            function toggleMenu() {
+                header.classList.toggle("header__open");
+                const isMenuOpen = header.classList.contains("header__open");
+                
+                if(isMenuOpen) {
+                    menuTrigger.innerHTML = "Close";
+                    document.addEventListener("keydown", handleMenuEscape);
+                } else {
+                    menuTrigger.innerHTML = "Menu";
+                    document.removeEventListener("keydown", handleMenuEscape);
+                }
+            }
+
+            function handleMenuEscape(event) {
+                if (event.key === 'Escape') {
+                    header.classList.remove("header__open");
+
+                    menuTrigger.innerHTML = "Menu";
+                    document.removeEventListener("keydown", handleMenuEscape);
+                    
+                    menuTrigger.focus();
+                }
+            }
+            
         </script>
     </body>
 </html>

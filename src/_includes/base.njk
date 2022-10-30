@@ -42,6 +42,34 @@
                     }
                 });
             });
+
+            const header = document.getElementsByClassName("header")[0];
+            const menuTrigger = document.getElementsByClassName("nav__menu-trigger")[0];
+
+            function toggleMenu() {
+                header.classList.toggle("header__open");
+                const isMenuOpen = header.classList.contains("header__open");
+                
+                if(isMenuOpen) {
+                    menuTrigger.innerHTML = "Close";
+                    document.addEventListener("keydown", handleMenuEscape);
+                } else {
+                    menuTrigger.innerHTML = "Menu";
+                    document.removeEventListener("keydown", handleMenuEscape);
+                }
+            }
+
+            function handleMenuEscape(event) {
+                if (event.key === 'Escape') {
+                    header.classList.remove("header__open");
+
+                    menuTrigger.innerHTML = "Menu";
+                    document.removeEventListener("keydown", handleMenuEscape);
+                    
+                    menuTrigger.focus();
+                }
+            }
+            
         </script>
     </body>
 </html>
