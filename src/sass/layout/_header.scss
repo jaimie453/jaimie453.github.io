@@ -25,11 +25,14 @@
     }
 
     &__logo {
-        width: var(--min-target-area);
         fill: var(--text-color-darkest);
         @include flex-center;
         flex-shrink: 0;
         margin-right: var(--space-m);
+
+        & svg {
+            width: var(--min-target-area);
+        }
     }
 
     &__link {
