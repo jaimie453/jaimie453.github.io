@@ -1,3 +1,20 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
+
+.skip-nav {
+    width: 100%;
+    overflow: hidden;
+    height: 0;
+
+    @media (prefers-reduced-motion: no-preference) {
+        & {
+            transition: height 100ms ease-in-out;
+        }
+    }
+
+    &:focus-within {
+        height: var(--min-target-area);
+        overflow: visible;
+    }
+}

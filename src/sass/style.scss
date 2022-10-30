@@ -18,12 +18,13 @@
 
 // 3. Layout-related sections
 @import
+  'layout/layout',
   'layout/header',
   'layout/footer';
 
 // 4. Components
 @import
-  'components/theme-switcher',
+  //'components/theme-switcher',
   'components/socials',
   'components/card';
 

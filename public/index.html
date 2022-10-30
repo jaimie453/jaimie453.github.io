@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,9 @@
             rel="stylesheet">
     </head>
     <body>
+        <div class="skip-nav">
+            <a class="skip-nav__link" href="#main">Skip to main content</a>
+        </div>
         <header class="header">
     <nav class="nav">
         <a class="nav__logo" href="#" aria-label="Home">
@@ -50,7 +53,7 @@
         </div>
     </nav>
 </header>
-        <main>
+        <main id="main">
             
 <h1>Jaimie Bowen</h1>
 <p class="font-size-m">
@@ -65,56 +68,48 @@
 <ul class="card-grid">
 
 <li class="card">
-    <div class="card__clickable-area">
-        <img class="card__image" src="https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg" />
-        <a href="#" class="card__link">
-            <h3 class="card__title">Project Title</h3>
-        </a>
-        <p class="card__body">This is a longer description about the project. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit, sed. This is another sentence. This is a longer description about the project.</p>
-    </div>
+    <img class="card__image" src="https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg" alt=""/>
+    <a href="#" class="card__link">
+        <h3 class="card__title">Project Title</h3>
+    </a>
+    <p class="card__body">This is a longer description about the project. Lorem ipsum dolor sit amet, consectetur adipiscing
+        elit, sed. This is another sentence. This is a longer description about the project.</p>
     <ul class="card__tags">
         <li>vue</li>
         <li>a11y</li>
         <li>testing</li>
     </ul>
 </li><li class="card">
-    <div class="card__clickable-area">
-        <img class="card__image" src="https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg" />
-        <a href="#" class="card__link">
-            <h3 class="card__title">Project Title</h3>
-        </a>
-        <p class="card__body">This is a longer description about the project. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit, sed. This is another sentence. This is a longer description about the project.</p>
-    </div>
+    <img class="card__image" src="https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg" alt=""/>
+    <a href="#" class="card__link">
+        <h3 class="card__title">Project Title</h3>
+    </a>
+    <p class="card__body">This is a longer description about the project. Lorem ipsum dolor sit amet, consectetur adipiscing
+        elit, sed. This is another sentence. This is a longer description about the project.</p>
     <ul class="card__tags">
         <li>vue</li>
         <li>a11y</li>
         <li>testing</li>
     </ul>
 </li><li class="card">
-    <div class="card__clickable-area">
-        <img class="card__image" src="https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg" />
-        <a href="#" class="card__link">
-            <h3 class="card__title">Project Title</h3>
-        </a>
-        <p class="card__body">This is a longer description about the project. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit, sed. This is another sentence. This is a longer description about the project.</p>
-    </div>
+    <img class="card__image" src="https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg" alt=""/>
+    <a href="#" class="card__link">
+        <h3 class="card__title">Project Title</h3>
+    </a>
+    <p class="card__body">This is a longer description about the project. Lorem ipsum dolor sit amet, consectetur adipiscing
+        elit, sed. This is another sentence. This is a longer description about the project.</p>
     <ul class="card__tags">
         <li>vue</li>
         <li>a11y</li>
         <li>testing</li>
     </ul>
 </li><li class="card">
-    <div class="card__clickable-area">
-        <img class="card__image" src="https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg" />
-        <a href="#" class="card__link">
-            <h3 class="card__title">Project Title</h3>
-        </a>
-        <p class="card__body">This is a longer description about the project. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit, sed. This is another sentence. This is a longer description about the project.</p>
-    </div>
+    <img class="card__image" src="https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg" alt=""/>
+    <a href="#" class="card__link">
+        <h3 class="card__title">Project Title</h3>
+    </a>
+    <p class="card__body">This is a longer description about the project. Lorem ipsum dolor sit amet, consectetur adipiscing
+        elit, sed. This is another sentence. This is a longer description about the project.</p>
     <ul class="card__tags">
         <li>vue</li>
         <li>a11y</li>
@@ -126,10 +121,6 @@
 
         </main>
         <footer class="footer">
-    <p>
-        <small>© Jaimie Bowen 2022</small>
-    </p>
-
     <div class="footer__socials">
         <ul class="socials">
     <li class="socials__list-item">
@@ -146,77 +137,12 @@
     </li>
 </ul>
     </div>
-    
-    <div class="footer__theme-switcher">
-        <fieldset class="theme-switcher">
-    <div class="theme-switcher__wrapper">
-        <legend class="theme-switcher__legend">Theme:</legend>
-        <div class="theme-switcher__option">
-            <input class="theme-switcher__radio" type="radio" id="system" name="theme" value="system">
-            <label for="system">System</label>
-        </div>
-        <div class="theme-switcher__option">
-            <input class="theme-switcher__radio" type="radio" id="dark" name="theme" value="dark">
-            <label for="dark">Dark</label>
-        </div>
-        <div class="theme-switcher__option">
-            <input class="theme-switcher__radio" type="radio" id="light" name="theme" value="light">
-            <label for="light">Light</label>
-        </div>
-    </div>
-</fieldset>
+    <div class="footer__bottom">
+        <p>
+            <small>© Jaimie Bowen 2022</small>
+        </p>
+        <a href="#html" class="footer__back-to-top">Back to top</a>
     </div>
 </footer>
-        
-        
-        <script>
-            const htmlTag = document.getElementsByTagName("html")[0];
-            const themeRadios = Array.from(document.getElementsByClassName("theme-switcher__radio"));
-            const theme = localStorage.getItem("theme") ?? "system";
-            if (theme !== "system") {
-                htmlTag.classList.add(theme);
-            }
-            const selectedRadio = themeRadios.find(option => option.value === theme);
-            selectedRadio.setAttribute("checked", null);
-            themeRadios.forEach(option => {
-                option.addEventListener("change", () => {
-                    htmlTag.removeAttribute("class");
-                    if (option.value === "system") {
-                        localStorage.removeItem("theme");
-                    } else {
-                        localStorage.setItem("theme", option.value);
-                        htmlTag.classList.add(option.value);
-                    }
-                });
-            });
-
-            const header = document.getElementsByClassName("header")[0];
-            const menuTrigger = document.getElementsByClassName("nav__menu-trigger")[0];
-
-            function toggleMenu() {
-                header.classList.toggle("header__open");
-                const isMenuOpen = header.classList.contains("header__open");
-                
-                if(isMenuOpen) {
-                    menuTrigger.innerHTML = "Close";
-                    document.addEventListener("keydown", handleMenuEscape);
-                } else {
-                    menuTrigger.innerHTML = "Menu";
-                    document.removeEventListener("keydown", handleMenuEscape);
-                }
-            }
-
-            function handleMenuEscape(event) {
-                if (event.key === 'Escape') {
-                    header.classList.remove("header__open");
-
-                    menuTrigger.innerHTML = "Menu";
-                    document.removeEventListener("keydown", handleMenuEscape);
-                    
-                    menuTrigger.focus();
-                }
-            }
-            
-        </script>
     </body>
 </html>

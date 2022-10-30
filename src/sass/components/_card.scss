@@ -1,4 +1,11 @@
 .card {
+    position: relative;
+
+    &:hover,
+    &:focus-within {
+        @include outline-style;
+    }
+    
     &__image {
         aspect-ratio: 2.2 / 1;
         width: 100%;
@@ -18,15 +25,16 @@
             left: 0;
             bottom: 0;
         }
+
+        // putting outline on the entire card
+        &:focus-visible {
+            outline: 0;
+        }
     }
 
     &__title {
         padding-top: 0;
         padding-bottom: var(--space-xs);
-    }
-
-    &__clickable-area {
-        position: relative;
     }
 
     &__body {

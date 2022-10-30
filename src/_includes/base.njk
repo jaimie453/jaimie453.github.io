@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,61 +15,13 @@
             rel="stylesheet">
     </head>
     <body>
+        <div class="skip-nav">
+            <a class="skip-nav__link" href="#main">Skip to main content</a>
+        </div>
         {% include "header.njk" %}
-        <main>
+        <main id="main">
             {{ content | safe }}
         </main>
         {% include "footer.njk" %}
-        {# <script src="index.js"></script> #}
-        {# todo: move to js file #}
-        <script>
-            const htmlTag = document.getElementsByTagName("html")[0];
-            const themeRadios = Array.from(document.getElementsByClassName("theme-switcher__radio"));
-            const theme = localStorage.getItem("theme") ?? "system";
-            if (theme !== "system") {
-                htmlTag.classList.add(theme);
-            }
-            const selectedRadio = themeRadios.find(option => option.value === theme);
-            selectedRadio.setAttribute("checked", null);
-            themeRadios.forEach(option => {
-                option.addEventListener("change", () => {
-                    htmlTag.removeAttribute("class");
-                    if (option.value === "system") {
-                        localStorage.removeItem("theme");
-                    } else {
-                        localStorage.setItem("theme", option.value);
-                        htmlTag.classList.add(option.value);
-                    }
-                });
-            });
-
-            const header = document.getElementsByClassName("header")[0];
-            const menuTrigger = document.getElementsByClassName("nav__menu-trigger")[0];
-
-            function toggleMenu() {
-                header.classList.toggle("header__open");
-                const isMenuOpen = header.classList.contains("header__open");
-                
-                if(isMenuOpen) {
-                    menuTrigger.innerHTML = "Close";
-                    document.addEventListener("keydown", handleMenuEscape);
-                } else {
-                    menuTrigger.innerHTML = "Menu";
-                    document.removeEventListener("keydown", handleMenuEscape);
-                }
-            }
-
-            function handleMenuEscape(event) {
-                if (event.key === 'Escape') {
-                    header.classList.remove("header__open");
-
-                    menuTrigger.innerHTML = "Menu";
-                    document.removeEventListener("keydown", handleMenuEscape);
-                    
-                    menuTrigger.focus();
-                }
-            }
-            
-        </script>
     </body>
 </html>

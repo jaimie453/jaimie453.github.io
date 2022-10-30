@@ -3,18 +3,34 @@
     display: flex;
     gap: var(--space-xs);
     align-items: center;
-    height: 100%;
     flex-wrap: wrap;
+    height: 100%;
 
     &__list-item {
         height: 100%;
+        height: var(--min-target-area);
+        display: flex;
     }
 
     &__link {
-        font-size: var(--font-size-s);
         height: 100%;
         @include flex-center;
         padding: var(--space-s);
-        @include hover-underline-style;
+        
+        .header & {
+            @include hover-underline-style;
+        }
+
+        .footer & {
+            padding-left: 0;
+            padding-right: var(--space-m);
+            text-decoration: underline;
+            text-underline-offset: 0.3em;
+            font-size: var(--font-size-s);
+        }
+    }
+
+    .footer & {
+        gap: 0;
     }
 }

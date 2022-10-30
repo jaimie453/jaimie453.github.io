@@ -31,20 +31,6 @@
   }
 }
 
-.dark {
-  --background-color: #1c1c1c;
-  --text-color-darkest: #fff;
-  --text-color-lightest: #adadad;
-  --text-color-base: #d6d6d6;
-}
-
-.light {
-  --background-color: #e4e4e4;
-  --text-color-darkest: #000;
-  --text-color-lightest: #454545;
-  --text-color-base: #232323;
-}
-
 *,
 *::before,
 *::after {
@@ -113,8 +99,13 @@ main {
 }
 
 :focus-visible {
-  outline: 3px solid currentcolor;
-  outline-offset: 3px;
+  outline: 0.1875rem solid currentcolor;
+  outline-offset: 0.1875rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  :focus-visible {
+    transition: outline-offset 150ms linear;
+  }
 }
 
 a {
@@ -127,7 +118,6 @@ a {
 }
 a:hover, a:active, a:focus-visible {
   color: var(--text-color-darkest);
-  text-decoration-thickness: 0.09em;
 }
 
 h1,
@@ -208,6 +198,21 @@ h1,
   width: 1px;
 }
 
+.skip-nav {
+  width: 100%;
+  overflow: hidden;
+  height: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .skip-nav {
+    transition: height 100ms ease-in-out;
+  }
+}
+.skip-nav:focus-within {
+  height: var(--min-target-area);
+  overflow: visible;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -259,7 +264,7 @@ h1,
 }
 @media (prefers-reduced-motion: no-preference) {
   .nav__link {
-    transition: text-decoration-color 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
   }
 }
 .nav__link:hover, .nav__link:active, .nav__link:focus-visible {
@@ -280,35 +285,28 @@ h1,
   align-items: center;
   font-size: var(--font-size-s);
   color: var(--text-color-lightest);
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
 }
 .footer__socials {
   display: none;
+}
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.footer__back-to-top {
   height: var(--min-target-area);
+  display: inline-flex;
+  align-items: center;
 }
 @media screen and (max-width: 45rem) {
-  .footer__theme-switcher {
-    display: none;
-  }
   .footer__socials {
     display: flex;
     flex-wrap: wrap;
   }
-}
-
-.theme-switcher__legend {
-  padding-right: var(--space-xs);
-}
-.theme-switcher__wrapper {
-  display: flex;
-  gap: var(--space-s);
-}
-.theme-switcher__option {
-  display: flex;
-  gap: var(--space-xs);
-}
-.theme-switcher__radio:checked + label {
-  color: var(--text-color-base);
 }
 
 .socials {
@@ -316,31 +314,56 @@ h1,
   display: flex;
   gap: var(--space-xs);
   align-items: center;
-  height: 100%;
   flex-wrap: wrap;
+  height: 100%;
 }
 .socials__list-item {
   height: 100%;
+  height: var(--min-target-area);
+  display: flex;
 }
 .socials__link {
-  font-size: var(--font-size-s);
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--space-s);
+}
+.header .socials__link {
   text-underline-offset: 0.3em;
   text-decoration-color: transparent;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .socials__link {
-    transition: text-decoration-color 150ms ease-in-out;
+  .header .socials__link {
+    transition: all 150ms ease-in-out;
   }
 }
-.socials__link:hover, .socials__link:active, .socials__link:focus-visible {
+.header .socials__link:hover, .header .socials__link:active, .header .socials__link:focus-visible {
   text-decoration-color: currentColor;
 }
+.footer .socials__link {
+  padding-left: 0;
+  padding-right: var(--space-m);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  font-size: var(--font-size-s);
+}
+.footer .socials {
+  gap: 0;
+}
 
+.card {
+  position: relative;
+}
+.card:hover, .card:focus-within {
+  outline: 0.1875rem solid currentcolor;
+  outline-offset: 0.1875rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .card:hover, .card:focus-within {
+    transition: outline-offset 150ms linear;
+  }
+}
 .card__image {
   aspect-ratio: 2.2/1;
   width: 100%;
@@ -354,7 +377,7 @@ h1,
 }
 @media (prefers-reduced-motion: no-preference) {
   .card__link {
-    transition: text-decoration-color 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
   }
 }
 .card__link:hover, .card__link:active, .card__link:focus-visible {
@@ -368,12 +391,12 @@ h1,
   left: 0;
   bottom: 0;
 }
+.card__link:focus-visible {
+  outline: 0;
+}
 .card__title {
   padding-top: 0;
   padding-bottom: var(--space-xs);
-}
-.card__clickable-area {
-  position: relative;
 }
 .card__body {
   padding-bottom: var(--space-xxs);

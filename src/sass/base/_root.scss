@@ -17,11 +17,3 @@
     }
   }
 }
-
-.dark {
-  @include dark-theme-variables;
-}
-
-.light {
-  @include light-theme-variables;
-}

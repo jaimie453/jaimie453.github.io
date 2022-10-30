@@ -83,12 +83,7 @@ main {
 //
 
 :focus-visible {
-  outline: 3px solid currentcolor;
-  outline-offset: 3px;
-  // outline: none;
-  // background-color: white;
-  // color: black; 
-  // text-decoration: none;
+  @include outline-style;
 }
 
 a {
@@ -102,6 +97,5 @@ a {
   &:active,
   &:focus-visible {
     color: var(--text-color-darkest);
-    text-decoration-thickness: 0.09em;
   }
 }

@@ -8,18 +8,27 @@
     align-items: center;
     font-size: var(--font-size-s);
     color: var(--text-color-lightest);
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
 
     &__socials {
         display: none;
+    }
+
+    &__bottom {
+        display: flex;
+        flex-wrap: wrap-reverse;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__back-to-top {
         height: var(--min-target-area);
+        display: inline-flex;
+        align-items: center;
     }
 
     @media screen and (max-width: $nav-menu-max-width) {
-        &__theme-switcher {
-            display: none;
-        }
-
         &__socials {
             display: flex;
             flex-wrap: wrap;
