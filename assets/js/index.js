@@ -65,10 +65,10 @@ function handleResize() {
 }
 
 function handleFocusOutside(event) {
-    const isFocusInsideHeader = header.contains(event.relatedTarget)
-    if (!isFocusInsideHeader) {
-        closeMenu();
-    }
+    if(!event.relatedTarget) return;
+
+    const isFocusInsideHeader = header.contains(event.relatedTarget);
+    if (!isFocusInsideHeader) closeMenu();
 }
 
 function closeMenu() {
