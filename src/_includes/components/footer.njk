@@ -1,10 +1,10 @@
 <footer class="footer">
     <div class="footer__socials">
-        {% include "./socials.html" %}
+        {% include "./socials.njk" %}
     </div>
     <div class="footer__bottom">
         <p>
-            <small>© Jaimie Bowen 2022</small>
+            <small>© Jaimie Bowen 2022{% if currentYear > 2022 %}–{{ currentYear }}{% endif %}</small>
         </p>
         <a href="#html" class="footer__back-to-top">Back to top</a>
     </div>

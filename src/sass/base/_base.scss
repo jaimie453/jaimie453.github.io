@@ -43,6 +43,7 @@ fieldset {
 html {
   font-size: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
@@ -60,7 +61,6 @@ body {
 @media screen and (max-width: $page-max-width) {
   body {
       padding: var(--space-m);
-      padding-bottom: var(--space-s);
   }
 }
 

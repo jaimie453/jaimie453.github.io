@@ -68,6 +68,7 @@ fieldset {
 html {
   font-size: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
@@ -85,7 +86,6 @@ body {
 @media screen and (max-width: 61.6875rem) {
   body {
     padding: var(--space-m);
-    padding-bottom: var(--space-s);
   }
 }
 html,
@@ -221,8 +221,6 @@ h1,
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
   min-height: var(--min-target-area);
 }
 
@@ -293,6 +291,7 @@ h1,
   font-size: var(--font-size-s);
   color: var(--text-color-lightest);
   flex-wrap: wrap;
+  min-height: var(--min-target-area);
 }
 .footer__socials {
   display: none;

@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- seo -->
+        <!-- <meta name="description" content=""> -->
         <meta name="color-scheme" content="dark light">
         <title>Projects | Jaimie Bowen</title>
         <link
@@ -13,12 +15,13 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400&display=swap"
             rel="stylesheet">
+        <link rel="icon" id="faviconPng" type="image/png" href="/assets/images/favicon-dark.png"> 
     </head>
     <body>
-        <div class="skip-nav">
-            <a class="skip-nav__link" href="#main">Skip to main content</a>
-        </div>
         <header class="header">
+    <div class="skip-nav">
+        <a class="skip-nav__link" href="#main">Skip to main content</a>
+    </div>
     <nav class="nav">
         <a class="nav__logo" href="/" aria-label="Home">
             <?xml version='1.0' encoding='iso-8859-1'?>
@@ -38,7 +41,7 @@
         <div class="nav__socials">
             <ul class="socials">
     <li class="socials__list-item">
-        <a class="socials__link" href="assets/resume.pdf">Resume</a>
+        <a class="socials__link" href="/assets/resume.pdf">Resume</a>
     </li>
     <li class="socials__list-item">
         <a class="socials__link" href="https://github.com/jaimie453">Github</a>
@@ -47,7 +50,7 @@
         <a class="socials__link" href="https://www.linkedin.com/in/jaimie-bowen-8275151a2/">LinkedIn</a>
     </li>
     <li class="socials__list-item">
-        <a class="socials__link" href="mailto:hello@gmail.com">Email me</a>
+        <a class="socials__link" href="mailto:jaimie6453@gmail.com">Email me</a>
     </li>
 </ul>
         </div>
@@ -57,7 +60,7 @@
             
 <h1>Projects</h1>
 <p class="font-size-m">
-  Featured collection of interesting projects I've worked on over the years. Code can generally be found on
+  Collection of interesting projects I've worked on over the years. Code can generally be found on
   <a href="https://github.com/jaimie453">my Github</a>, as
       well as linked inside the project itself.
 </p>
@@ -165,7 +168,7 @@
     <div class="footer__socials">
         <ul class="socials">
     <li class="socials__list-item">
-        <a class="socials__link" href="assets/resume.pdf">Resume</a>
+        <a class="socials__link" href="/assets/resume.pdf">Resume</a>
     </li>
     <li class="socials__list-item">
         <a class="socials__link" href="https://github.com/jaimie453">Github</a>
@@ -174,7 +177,7 @@
         <a class="socials__link" href="https://www.linkedin.com/in/jaimie-bowen-8275151a2/">LinkedIn</a>
     </li>
     <li class="socials__list-item">
-        <a class="socials__link" href="mailto:hello@gmail.com">Email me</a>
+        <a class="socials__link" href="mailto:jaimie6453@gmail.com">Email me</a>
     </li>
 </ul>
     </div>
@@ -185,5 +188,18 @@
         <a href="#html" class="footer__back-to-top">Back to top</a>
     </div>
 </footer>
+
+        <script>
+            // show the correct favicon in light/dark mode
+            const faviconPngLink = document.getElementById("faviconPng");
+            const usingDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if(!usingDarkMode) faviconPngLink.href = `/assets/images/favicon-light.png`
+
+            window.matchMedia('(prefers-color-scheme: dark)').onchange = event => {
+                const theme = usingDarkMode ? "dark" : "light"; 
+                faviconPngLink.href =  `/assets/images/favicon-${theme}.png`
+            };
+        </script>
     </body>
 </html>
