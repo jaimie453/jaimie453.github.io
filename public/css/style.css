@@ -98,6 +98,24 @@ main {
   padding-top: var(--space-xxl);
 }
 
+pre,
+code {
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+code {
+  font-family: "Source Code Pro";
+  line-height: 1.25;
+  font-size: var(--font-size-s);
+  color: var(--text-color-lightest);
+  overflow-wrap: break-word;
+  display: block;
+}
+
+pre code {
+  display: block;
+}
+
 :focus-visible {
   outline: 0.1875rem solid currentcolor;
   outline-offset: 0.1875rem;
@@ -148,6 +166,31 @@ main p {
   padding-bottom: var(--space-m);
 }
 
+.article ul {
+  padding-bottom: var(--space-m);
+  padding-left: var(--space-l);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xxs);
+}
+
+.article :not(h1, h2, h3, h4, pre, code) {
+  max-width: var(--article-max-width);
+}
+
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: var(--space-xxs) 0;
+}
+
+.code-block {
+  font-size: var(--font-size-s);
+  border-bottom: 2px solid rgb(97, 97, 97);
+  padding-bottom: 0;
+}
+
 small {
   color: var(--text-color-lightest);
 }
@@ -185,11 +228,6 @@ h2,
 h1,
 .font-size-3xl {
   font-size: var(--font-size-3xl);
-}
-
-.article {
-  max-width: var(--article-max-width);
-  margin: auto;
 }
 
 .skip-nav {

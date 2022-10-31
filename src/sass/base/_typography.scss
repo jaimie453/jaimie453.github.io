@@ -22,8 +22,35 @@ h4 {
   padding: var(--space-s) 0;
 }
 
+
+
 main p {
   padding-bottom: var(--space-m);
+}
+
+.article ul {
+  padding-bottom: var(--space-m);
+  padding-left: var(--space-l);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xxs);
+}
+
+.article :not(h1, h2, h3, h4, pre, code) {
+  max-width: var(--article-max-width);
+}
+
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: var(--space-xxs) 0;
+}
+
+.code-block {
+  font-size: var(--font-size-s);
+  border-bottom: 2px solid rgb(97, 97, 97);
+  padding-bottom: 0;
 }
 
 small {

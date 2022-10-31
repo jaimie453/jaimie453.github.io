@@ -60,7 +60,7 @@ body {
 
 @media screen and (max-width: $page-max-width) {
   body {
-      padding: var(--space-m);
+    padding: var(--space-m);
   }
 }
 
@@ -73,6 +73,25 @@ main {
   padding-bottom: var(--space-xxl);
   padding-top: var(--space-xxl);
 }
+
+pre,
+code {
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+code {
+  font-family: "Source Code Pro";
+  line-height: 1.25;
+  font-size: var(--font-size-s);
+  color: var(--text-color-lightest);
+  overflow-wrap: break-word;
+  display: block;
+}
+
+pre code {
+  display: block;
+}
+
 
 //
 //  Interactive styling

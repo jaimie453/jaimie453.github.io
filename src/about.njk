@@ -5,26 +5,46 @@ isArticle: true
 ---
 
 <h1>About</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Consectetur lorem donec massa sapien faucibus et molestie. Vitae proin sagittis nisl rhoncus mattis.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua.
-    <a href="#">This is a link.</a>
-    Consectetur lorem donec massa sapien faucibus et molestie. Vitae proin sagittis nisl rhoncus
-                    mattis.</p>
+<p>Front-end developer with a passion for building simple, intuitive user interfaces. I love working at the intersection
+    of programming, design, and accessibility, and have growing experience building components and internal tools for design
+    systems.</p>
+<p>I love learning about anything related to programming, accessibilty, and design, but my main focus is in front-end,
+    especially the following areas:</p>
+<ul>
+    <li>Scalable CSS</li>
+    <li>Accessibility</li>
+    <li>Web performance</li>
+    <li>Usability</li>
+    <li>Minimalist design</li>
+    <li>Tech writing</li>
+</ul>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor interdum varius. Pellentesque habitant morbi
+    tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus bibendum velit eu elit consectetur suscipit.
+    Pellentesque mi est, elementum nec volutpat in, pretium vel magna. Nunc lorem urna, sodales quis libero non, ultrices
+    ultricies urna. Aenean sit amet velit metus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque
+    semper, massa eu gravida mollis, ex urna tincidunt velit, ac sollicitudin massa quam commodo ante.</p>
+<p class="code-block">index.js</p>
+<pre>
+<code>const faviconPngLink = document.getElementById("faviconPng");
+const usingDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (!usingDarkMode) faviconPngLink.href = `/assets/images/favicon-light.png`
+
+window.matchMedia('(prefers-color-scheme: dark)').onchange = (event) => {
+    const theme = event.matches ? "dark" : "light";
+    faviconPngLink.href = `/assets/images/favicon-${theme}.png`
+};
+</code>
+</pre>
+
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor interdum varius. Pellentesque habitant morbi
     tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus bibendum velit eu elit consectetur suscipit.
     Pellentesque mi est, elementum nec volutpat in, pretium vel magna. Nunc lorem urna, sodales quis libero non, ultrices
     ultricies urna. Aenean sit amet velit metus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque
     semper, massa eu gravida mollis, ex urna tincidunt velit, ac sollicitudin massa quam commodo ante.</p>
 <h2>This site</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua.
+<p>This site was built with Eleventy and is hosted on Github Pages.
+    <a href="">View source code</a>.
     <a href="#">This is a link.</a>
     Consectetur lorem donec massa sapien faucibus et molestie. Vitae proin sagittis nisl rhoncus
-                    mattis.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor interdum varius. Pellentesque habitant morbi
-    tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus bibendum velit eu elit consectetur suscipit.
-    Pellentesque mi est, elementum nec volutpat in, pretium vel magna. Nunc lorem urna, sodales quis libero non, ultrices
-    ultricies urna. Aenean sit amet velit metus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque
-    semper, massa eu gravida mollis, ex urna tincidunt velit, ac sollicitudin massa quam commodo ante.</p>
+        mattis.</p>
