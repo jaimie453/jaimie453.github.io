@@ -18,10 +18,10 @@
         <div class="skip-nav">
             <a class="skip-nav__link" href="#main">Skip to main content</a>
         </div>
-        {% include "header.njk" %}
+        {% include "./components/header.njk" %}
         <main id="main">
             {{ content | safe }}
         </main>
-        {% include "footer.njk" %}
+        {% include "./components/footer.njk" %}
     </body>
 </html>

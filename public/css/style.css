@@ -187,17 +187,6 @@ h1,
   font-size: var(--font-size-3xl);
 }
 
-.visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
 .skip-nav {
   width: 100%;
   overflow: hidden;
@@ -211,6 +200,19 @@ h1,
 .skip-nav:focus-within {
   height: var(--min-target-area);
   overflow: visible;
+}
+
+.card-grid {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+@media screen and (min-width: 38.125rem) {
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .header {
@@ -407,19 +409,6 @@ h1,
   color: var(--text-color-lightest);
   display: flex;
   gap: var(--space-xs);
-}
-
-.card-grid {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xl);
-}
-@media screen and (min-width: 38.125rem) {
-  .card-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -40,10 +40,6 @@ fieldset {
   border: none;
 }
 
-//
-//  Layout
-//
-
 html {
   font-size: 100%;
   overflow-x: hidden;
@@ -63,8 +59,8 @@ body {
 
 @media screen and (max-width: $page-max-width) {
   body {
-    padding: var(--space-m);
-    padding-bottom: var(--space-s);
+      padding: var(--space-m);
+      padding-bottom: var(--space-s);
   }
 }
 

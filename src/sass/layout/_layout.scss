@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// This file contains all styles related to the footer of the site/application.
+// This file contains all styles related to the layout of the site/application.
 // -----------------------------------------------------------------------------
 
 .skip-nav {
@@ -16,5 +16,18 @@
     &:focus-within {
         height: var(--min-target-area);
         overflow: visible;
+    }
+}
+
+// should probably go in layout.scss or something
+.card-grid {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    
+    @media screen and (min-width: $article-max-width) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 }

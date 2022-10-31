@@ -12,7 +12,7 @@ $fibonacci: generate-fibonacci-sequence(18);
 
 $page-max-width: #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 1))}rem;    // 987
 $article-max-width: #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 2))}rem; // 610
-$nav-menu-max-width: #{convert-px-to-rem(720)}rem;      // nav menu will be present below this width
+$nav-menu-max-width: #{convert-px-to-rem(720)}rem;      // nocials will be present on the nav menu above this width
                                                         // will need to be bumped to ~905px with 4 main items + 3 socials
 
 //
@@ -40,5 +40,6 @@ $font-size-labels: ("s": small,
 //  Spacing variables
 //
 
+// 3 - 89
 $space-values: slice($fibonacci, 5, 12);
 $space-labels: "xxs", "xs", "s", "base", "m", "l", "xl", "xxl";
