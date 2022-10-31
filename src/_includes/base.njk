@@ -17,7 +17,7 @@
     </head>
     <body>
         {% include "./components/header.njk" %}
-        <main id="main" {% if isArticle %} class="article" {% endif %}>
+        <main id="main">
             {{ content | safe }}
         </main>
         {% include "./components/footer.njk" %}

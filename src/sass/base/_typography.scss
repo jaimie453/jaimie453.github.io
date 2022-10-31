@@ -28,7 +28,7 @@ main p {
   padding-bottom: var(--space-m);
 }
 
-.article ul {
+article ul {
   padding-bottom: var(--space-m);
   padding-left: var(--space-l);
   
@@ -42,7 +42,7 @@ main p {
   }
 }
 
-.article :not(h1, h2, h3, h4) {
+article :not(h1, h2, h3, h4) {
   max-width: var(--article-max-width);
 }
 

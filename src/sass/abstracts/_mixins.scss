@@ -52,7 +52,7 @@
 }
 
 @mixin outline-style {
-  outline: .1875rem solid currentcolor;
+  outline: .1875rem solid var(--text-color-darkest);
   outline-offset: .1875rem;
   
   @media (prefers-reduced-motion: no-preference) {

@@ -1,50 +1,28 @@
 ---
 title: About | Jaimie Bowen
 layout: "base.njk"
-isArticle: true
 ---
 
-<h1>About a really long header</h1>
-<p>Front-end developer with a passion for building simple, intuitive user interfaces. I love working at the intersection
-    of programming, design, and accessibility, and have growing experience building components and internal tools for design
-    systems.</p>
-<p>I love learning about anything related to programming, accessibilty, and design, but my main focus is in front-end,
-    especially the following areas:</p>
-<ul>
-    <li>Scalable CSS</li>
-    <li>Accessibility</li>
-    <li>Web performance</li>
-    <li>Usability</li>
-    <li>Minimalist design</li>
-    <li>Tech writing</li>
-</ul>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor interdum varius. Pellentesque habitant morbi
-    tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus bibendum velit eu elit consectetur suscipit.
-    Pellentesque mi est, elementum nec volutpat in, pretium vel magna. Nunc lorem urna, sodales quis libero non, ultrices
-    ultricies urna. Aenean sit amet velit metus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque
-    semper, massa eu gravida mollis, ex urna tincidunt velit, ac sollicitudin massa quam commodo ante.</p>
-<p class="code-block">index.js</p>
-<pre>
-<code>const faviconPngLink = document.getElementById("faviconPng");
-const usingDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+<article>
+    <h1>About</h1>
+    <p>Hi, I'm Jaimie Bowen, a {{ currentYear - 1999 }} year old front-end developer based out of Lakewood, Ohio. I graduated from Kent State University with a major in Computer Science in 2021, and have been working full time since.</p>
+    <p>While I was into programming from a young age, I struggled to find my niche until I delved into front-end development. I love that my role allows me to work closely with designers to craft a pleasant user experience for everyone.
+<p>I enjoy learning about everything front-end related, but I'm especially interested in the following areas:</p>
+        <ul>
+            <li>Scalable CSS</li>
+            <li>Accessibility</li>
+            <li>Web performance</li>
+            <li>Usability</li>
+            <li>Design systems</li>
+            <li>Tech writing</li>
+        </ul>
+        <p>Outside of coding, I usually spend my free time reading, learning languages, cycling, or playing video games.</p>
 
-if (!usingDarkMode) faviconPngLink.href = `/assets/images/favicon-light.png`
+        <h2>This site</h2>
+        <p>This site was built with Eleventy and is hosted on Github Pages. <a href="https://github.com/jaimie453/jaimie453.github.io">View source code</a>.</p>
+        {# <p>Special thanks to ... ... for help with the site design.</p> #}
+        <p>Flower logo courtesy of <a href="https://www.svgrepo.com/">SVG repo</a>.</p>
 
-window.matchMedia('(prefers-color-scheme: dark)').onchange = (event) => {
-    const theme = event.matches ? "dark" : "light";
-    faviconPngLink.href = `/assets/images/favicon-${theme}.png`
-};
-</code>
-</pre>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porttitor interdum varius. Pellentesque habitant morbi
-    tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus bibendum velit eu elit consectetur suscipit.
-    Pellentesque mi est, elementum nec volutpat in, pretium vel magna. Nunc lorem urna, sodales quis libero non, ultrices
-    ultricies urna. Aenean sit amet velit metus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque
-    semper, massa eu gravida mollis, ex urna tincidunt velit, ac sollicitudin massa quam commodo ante.</p>
-<h2>This site is really dumb</h2>
-<p>This site was built with Eleventy and is hosted on Github Pages.
-    <a href="">View source code</a>.
-    <a href="#">This is a link.</a>
-    Consectetur lorem donec massa sapien faucibus et molestie. Vitae proin sagittis nisl rhoncus
-        mattis.</p>
+        <h2>Contact me</h2>
+        <p>If you notice any issues with this site, or just want to get in touch, you can contact me at <a href="mailto:jaimie6453@gmail.com">jaimie6453@gmail.com</a>, and I'll try to get back to you as soon as possible.</p>
+    </article>

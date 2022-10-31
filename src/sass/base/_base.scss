@@ -55,7 +55,7 @@ body {
   overflow-wrap: break-word;
   max-width: var(--page-max-width);
   margin: auto;
-  padding: var(--space-base) var(--space-s);
+  padding: var(--space-base);
 }
 
 @media screen and (max-width: $page-max-width) {

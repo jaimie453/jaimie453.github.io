@@ -6,7 +6,7 @@
     min-height: var(--min-target-area);
 
     @media screen and (max-width: $nav-menu-max-width) {
-        &__open {
+        &--open {
             position: fixed;
             top: 0;
             bottom: 0;
@@ -44,7 +44,7 @@
                 display: none;
             }
 
-            .header__open & {
+            .header--open & {
                 display: flex;
                 flex-direction: column;
             }
@@ -75,7 +75,7 @@
         flex-wrap: wrap;
 
         @media screen and (max-width: $nav-menu-max-width) {
-            .header__open & {
+            .header--open & {
                 margin-top: var(--space-xl);
                 gap: var(--space-s);
                 flex-direction: column;
@@ -89,7 +89,7 @@
         display: flex;
         
         @media screen and (max-width: $nav-menu-max-width) {
-            .header__open & {
+            .header--open & {
                 width: 100%;
             }
         }
@@ -116,7 +116,7 @@
         height: 100%;
 
         @media screen and (max-width: $nav-menu-max-width) {
-            .header__open & {
+            .header--open & {
                 padding: var(--space-base) 0;
                 height: 100%;
                 font-size: var(--font-size-xl);
@@ -138,7 +138,7 @@
         }
 
         @media screen and (max-width: $nav-menu-max-width) {
-            .header__open & {
+            .header--open & {
                 display: initial;
                 margin-left: 0;
                 margin-top: var(--space-xxl);

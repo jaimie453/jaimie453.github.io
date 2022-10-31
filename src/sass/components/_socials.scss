@@ -1,13 +1,11 @@
 .socials {
     list-style: none;
     display: flex;
-    gap: var(--space-xs);
     align-items: center;
     flex-wrap: wrap;
     height: 100%;
-
+    
     &__list-item {
-        height: 100%;
         height: var(--min-target-area);
         display: flex;
     }
@@ -15,21 +13,12 @@
     &__link {
         height: 100%;
         @include flex-center;
-        padding: var(--space-s);
-        
-        .header & {
-            @include hover-underline-style;
-        }
+        padding: var(--space-base);
+        @include hover-underline-style(false);
 
-        .footer & {
-            text-decoration: underline;
-            text-underline-offset: 0.3em;
+        .socials--footer & {
             font-size: var(--font-size-s);
         }
-    }
-
-    .footer & {
-        gap: 0;
     }
 
     @media screen and (max-width: $nav-menu-max-width) {
@@ -38,15 +27,23 @@
             grid-template-columns: 1fr 1fr;
         }
 
-        .header__open &__list-item {
+        .header--open &__list-item {
             display: initial;
             margin-left: 0;
         }
 
-        .header__open &__link {
+        .header--open &__link {
             justify-content: flex-start;
             padding: 0;
             width: 100%;
         }
+    }
+
+    &--header {
+
+    }
+
+    &--footer {
+
     }
 }
