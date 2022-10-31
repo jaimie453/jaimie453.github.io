@@ -24,17 +24,6 @@
         </main>
         {% include "./components/footer.njk" %}
 
-        <script>
-            // show the correct favicon in light/dark mode
-            const faviconPngLink = document.getElementById("faviconPng");
-            const usingDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            if(!usingDarkMode) faviconPngLink.href = `/assets/images/favicon-light.png`
-
-            window.matchMedia('(prefers-color-scheme: dark)').onchange = event => {
-                const theme = usingDarkMode ? "dark" : "light"; 
-                faviconPngLink.href =  `/assets/images/favicon-${theme}.png`
-            };
-        </script>
+        <script src="{{ '/assets/js/index.js' }}"></script>
     </body>
 </html>

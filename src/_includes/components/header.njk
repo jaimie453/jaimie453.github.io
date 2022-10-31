@@ -1,21 +1,26 @@
-<header class="header">
+<header class="header" id="header">
     <div class="skip-nav">
         <a class="skip-nav__link" href="#main">Skip to main content</a>
     </div>
     <nav class="nav">
-        <a class="nav__logo" href="{{ '/' | url }}" aria-label="Home">
-            {% include "../../assets/images/rose.svg" %}
-        </a>
-        <ul class="nav__list">
-            <li class="nav__list-item">
-                <a class="nav__link" href="{{ '/projects' | url }}">Projects</a>
-            </li>
-            <li class="nav__list-item">
-                <a class="nav__link" href="{{ '/about' | url }}">About</a>
-            </li>
-        </ul>
-        <div class="nav__socials">
-            {% include "./socials.njk" %}
+        <div class="nav__menu">
+            <a class="nav__logo" href="{{ '/' | url }}" aria-label="Home">
+                {% include "../../assets/images/rose.svg" %}
+            </a>
+            <button class="nav__menu-trigger" id="navMenuTrigger" onclick="toggleMenu();">Menu</button>
+        </div>
+        <div class="nav__content">
+            <ul class="nav__list">
+                <li class="nav__list-item">
+                    <a class="nav__link" href="{{ '/projects' | url }}">Projects</a>
+                </li>
+                <li class="nav__list-item">
+                    <a class="nav__link" href="{{ '/about' | url }}">About</a>
+                </li>
+            </ul>
+            <div class="nav__socials">
+                {% include "./socials.njk" %}
+            </div>
         </div>
     </nav>
 </header>
