@@ -1,14 +1,14 @@
 <header class="header">
     <nav class="nav">
-        <a class="nav__logo" href="#" aria-label="Home">
-            {% include "../../images/rose.svg" %}
+        <a class="nav__logo" href="{{ '/' | url }}" aria-label="Home">
+            {% include "../../assets/images/rose.svg" %}
         </a>
         <ul class="nav__list">
             <li class="nav__list-item">
-                <a class="nav__link" href="#">Projects</a>
+                <a class="nav__link" href="{{ '/projects' | url }}">Projects</a>
             </li>
             <li class="nav__list-item">
-                <a class="nav__link" href="#">About</a>
+                <a class="nav__link" href="{{ '/about' | url }}">About</a>
             </li>
         </ul>
         <div class="nav__socials">

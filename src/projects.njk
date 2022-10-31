@@ -1,0 +1,16 @@
+---
+title: Projects | Jaimie Bowen
+layout: "base.njk"
+---
+
+<h1>Projects</h1>
+<p class="font-size-m">
+  Featured collection of interesting projects I've worked on over the years. Code can generally be found on
+  <a href="https://github.com/jaimie453">my Github</a>, as
+      well as linked inside the project itself.
+</p>
+<ul class="card-grid">
+  {% for i in range(0, 8) -%}
+    {% include "components/card.njk" %}
+  {%- endfor %}
+</ul>

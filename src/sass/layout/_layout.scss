@@ -2,6 +2,11 @@
 // This file contains all styles related to the layout of the site/application.
 // -----------------------------------------------------------------------------
 
+.article {
+    max-width: var(--article-max-width);
+    margin: auto;
+}
+
 .skip-nav {
     width: 100%;
     overflow: hidden;

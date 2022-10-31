@@ -7,7 +7,7 @@
         <meta name="color-scheme" content="dark light">
         <title>{{ title }}</title>
         <link
-        rel="stylesheet" href="{{ 'css/style.css' | url }}"> <!-- Fonts -->
+        rel="stylesheet" href="{{ '/css/style.css' | url }}"> <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link
@@ -19,7 +19,7 @@
             <a class="skip-nav__link" href="#main">Skip to main content</a>
         </div>
         {% include "./components/header.njk" %}
-        <main id="main">
+        <main id="main" {% if isArticle %} class="article" {% endif %}>
             {{ content | safe }}
         </main>
         {% include "./components/footer.njk" %}
