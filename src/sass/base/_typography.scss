@@ -31,12 +31,18 @@ main p {
 .article ul {
   padding-bottom: var(--space-m);
   padding-left: var(--space-l);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-xxs);
+  
+
+  @media screen and (min-width: $nav-menu-max-width) {
+    & {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xxs);
+    }
+  }
 }
 
-.article :not(h1, h2, h3, h4, pre, code) {
+.article :not(h1, h2, h3, h4) {
   max-width: var(--article-max-width);
 }
 

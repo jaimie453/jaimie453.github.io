@@ -25,6 +25,7 @@ function toggleMenu() {
     htmlTag.classList.toggle("hide-scroll");
 
     const isMenuOpen = header.classList.contains("header__open");
+    menuTrigger.setAttribute("aria-expanded", isMenuOpen);
 
     if (isMenuOpen) {
         menuTrigger.innerHTML = "Close";
@@ -47,24 +48,20 @@ function handleMenuEscape(event) {
 }
 
 function handleResize() {
-    if (!!resizeTimeout) {
-        clearTimeout(resizeTimeout);
-    }
+    if (!!resizeTimeout) clearTimeout(resizeTimeout);
 
-    resizeTimeout = setTimeout(function () {
-        console.log("closing");
+    resizeTimeout = setTimeout(() => {
         const fontSizeInPx = window.getComputedStyle(htmlTag).fontSize;
         const fontSizeInRem = parseFloat(fontSizeInPx.substr(0, fontSizeInPx.indexOf("px")));
         const windowWidthInRem = window.innerWidth / fontSizeInRem;
         const navMenuMaxWidth = 36; // rem value in sass
 
-        if (windowWidthInRem > navMenuMaxWidth) {
-            closeMenu();
-        }
+        if (windowWidthInRem > navMenuMaxWidth) closeMenu();
     }, 250);
 }
 
 function handleFocusOutside(event) {
+    // prevent close on tap/click
     if(!event.relatedTarget) return;
 
     const isFocusInsideHeader = header.contains(event.relatedTarget);
@@ -75,7 +72,9 @@ function closeMenu() {
     header.classList.remove("header__open");
     htmlTag.classList.remove("hide-scroll");
 
+    menuTrigger.setAttribute("aria-expanded", false);
     menuTrigger.innerHTML = "Menu";
+
     document.removeEventListener("keydown", handleMenuEscape);
     document.removeEventListener("resize", handleResize);
 }
