@@ -103,6 +103,7 @@ pre code {
 
 a {
   color: currentColor;
+  text-decoration-thickness: 0;
 
   @media (prefers-reduced-motion: no-preference) {
     transition: color 100ms ease-in-out;

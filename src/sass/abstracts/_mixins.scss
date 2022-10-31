@@ -28,18 +28,26 @@
   }
 }
 
-@mixin hover-underline-style() {
+@mixin hover-underline-style($show-initial-underline: false) {
   text-underline-offset: 0.3em;
-  text-decoration-color: transparent;
+  @if ($show-initial-underline) {
+    text-decoration-color: currentColor;
+  } @else {
+    text-decoration-color: transparent;
+  }
+  
 
   @media (prefers-reduced-motion: no-preference) {
     transition: all 150ms ease-in-out;
   }
 
   &:hover,
-  &:active,
   &:focus-visible {
-      text-decoration-color: currentColor;
+      @if ($show-initial-underline) {
+        text-decoration-color: transparent;
+      } @else {
+        text-decoration-color: currentColor;
+      }
   }
 }
 

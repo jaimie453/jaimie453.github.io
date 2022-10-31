@@ -1,7 +1,6 @@
 .card {
     position: relative;
 
-    &:hover,
     &:focus-within {
         @include outline-style;
     }
@@ -15,7 +14,7 @@
     }
 
     &__link {
-        @include hover-underline-style;
+        @include hover-underline-style(true);
 
         &::after {
             content: " ";
