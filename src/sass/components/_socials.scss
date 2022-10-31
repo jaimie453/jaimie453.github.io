@@ -22,8 +22,6 @@
         }
 
         .footer & {
-            padding-left: 0;
-            padding-right: var(--space-m);
             text-decoration: underline;
             text-underline-offset: 0.3em;
             font-size: var(--font-size-s);
@@ -32,5 +30,23 @@
 
     .footer & {
         gap: 0;
+    }
+
+    @media screen and (max-width: $nav-menu-max-width) {
+        & {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .header__open &__list-item {
+            display: initial;
+            margin-left: 0;
+        }
+
+        .header__open &__link {
+            justify-content: flex-start;
+            padding: 0;
+            width: 100%;
+        }
     }
 }
