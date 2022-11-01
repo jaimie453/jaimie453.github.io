@@ -1,5 +1,6 @@
 :root {
   --background-color: #1c1c1c;
+  --ui-color: #696969;
   --text-color-darkest: #fff;
   --text-color-lightest: #adadad;
   --text-color-base: #d6d6d6;
@@ -25,6 +26,7 @@
 @media (prefers-color-scheme: light) {
   :root {
     --background-color: #e4e4e4;
+    --ui-color: #828282;
     --text-color-darkest: #000;
     --text-color-lightest: #454545;
     --text-color-base: #232323;
@@ -68,8 +70,12 @@ fieldset {
 html {
   font-size: 100%;
   overflow-x: hidden;
-  scroll-behavior: smooth;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -93,6 +99,14 @@ body {
   min-height: 100vh;
 }
 
+@media print {
+  .header {
+    display: none;
+  }
+  .footer {
+    display: none;
+  }
+}
 main {
   padding-bottom: var(--space-xxl);
   padding-top: var(--space-xxl);
@@ -137,6 +151,11 @@ a {
 }
 a:hover, a:active, a:focus-visible {
   color: var(--text-color-darkest);
+}
+
+.wrap-text {
+  display: inline-block;
+  word-wrap: anywhere;
 }
 
 h1,
@@ -192,8 +211,18 @@ pre {
 
 .code-block {
   font-size: var(--font-size-s);
-  border-bottom: 2px solid rgb(97, 97, 97);
+  border-bottom: 0.15em solid rgb(97, 97, 97);
   padding-bottom: 0;
+}
+
+blockquote {
+  font-style: italic;
+  color: var(--text-color-lightest);
+  font-size: var(--font-size-base);
+  margin-block-end: var(--space-m);
+  margin-left: var(--space-base);
+  border-left: 0.15em solid var(--ui-color);
+  padding-left: var(--space-s);
 }
 
 small {

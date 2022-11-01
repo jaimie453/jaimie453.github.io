@@ -43,8 +43,11 @@ fieldset {
 html {
   font-size: 100%;
   overflow-x: hidden;
-  scroll-behavior: smooth;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -67,6 +70,16 @@ body {
 html,
 body {
   min-height: 100vh;
+}
+
+@media print {
+  .header {
+    display: none;
+  }
+
+  .footer {
+    display: none;
+  }
 }
 
 main {
@@ -114,4 +127,10 @@ a {
   &:focus-visible {
     color: var(--text-color-darkest);
   }
+}
+
+// move to utilities
+.wrap-text {
+  display: inline-block;
+  word-wrap: anywhere;
 }

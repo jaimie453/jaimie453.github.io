@@ -31,7 +31,7 @@ main p {
 article ul {
   padding-bottom: var(--space-m);
   padding-left: var(--space-l);
-  
+
 
   @media screen and (min-width: $nav-menu-max-width) {
     & {
@@ -55,8 +55,18 @@ pre {
 
 .code-block {
   font-size: var(--font-size-s);
-  border-bottom: 2px solid rgb(97, 97, 97);
+  border-bottom: 0.15em solid rgb(97, 97, 97);
   padding-bottom: 0;
+}
+
+blockquote {
+  font-style: italic;
+  color: var(--text-color-lightest);
+  font-size: var(--font-size-base);
+  margin-block-end: var(--space-m);
+  margin-left: var(--space-base);
+  border-left: 0.15em solid var(--ui-color);
+  padding-left: var(--space-s);
 }
 
 small {
