@@ -1,5 +1,6 @@
 :root {
   --background-color: #1c1c1c;
+  --ui-color: #696969;
   --text-color-darkest: #fff;
   --text-color-lightest: #adadad;
   --text-color-base: #d6d6d6;
@@ -25,6 +26,7 @@
 @media (prefers-color-scheme: light) {
   :root {
     --background-color: #e4e4e4;
+    --ui-color: #828282;
     --text-color-darkest: #000;
     --text-color-lightest: #454545;
     --text-color-base: #232323;
@@ -68,8 +70,12 @@ fieldset {
 html {
   font-size: 100%;
   overflow-x: hidden;
-  scroll-behavior: smooth;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -80,7 +86,7 @@ body {
   overflow-wrap: break-word;
   max-width: var(--page-max-width);
   margin: auto;
-  padding: var(--space-base) var(--space-s);
+  padding: var(--space-base);
 }
 
 @media screen and (max-width: 61.6875rem) {
@@ -93,6 +99,14 @@ body {
   min-height: 100vh;
 }
 
+@media print {
+  .header {
+    display: none;
+  }
+  .footer {
+    display: none;
+  }
+}
 main {
   padding-bottom: var(--space-xxl);
   padding-top: var(--space-xxl);
@@ -117,7 +131,7 @@ pre code {
 }
 
 :focus-visible {
-  outline: 0.1875rem solid currentcolor;
+  outline: 0.1875rem solid var(--text-color-darkest);
   outline-offset: 0.1875rem;
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -128,6 +142,7 @@ pre code {
 
 a {
   color: currentColor;
+  text-decoration-thickness: 0;
 }
 @media (prefers-reduced-motion: no-preference) {
   a {
@@ -136,6 +151,11 @@ a {
 }
 a:hover, a:active, a:focus-visible {
   color: var(--text-color-darkest);
+}
+
+.wrap-text {
+  display: inline-block;
+  word-wrap: anywhere;
 }
 
 h1,
@@ -166,19 +186,19 @@ main p {
   padding-bottom: var(--space-m);
 }
 
-.article ul {
+article ul {
   padding-bottom: var(--space-m);
   padding-left: var(--space-l);
 }
 @media screen and (min-width: 36rem) {
-  .article ul {
+  article ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-xxs);
   }
 }
 
-.article :not(h1, h2, h3, h4) {
+article :not(h1, h2, h3, h4) {
   max-width: var(--article-max-width);
 }
 
@@ -191,8 +211,18 @@ pre {
 
 .code-block {
   font-size: var(--font-size-s);
-  border-bottom: 2px solid rgb(97, 97, 97);
+  border-bottom: 0.15em solid rgb(97, 97, 97);
   padding-bottom: 0;
+}
+
+blockquote {
+  font-style: italic;
+  color: var(--text-color-lightest);
+  font-size: var(--font-size-base);
+  margin-block-end: var(--space-m);
+  margin-left: var(--space-base);
+  border-left: 0.15em solid var(--ui-color);
+  padding-left: var(--space-s);
 }
 
 small {
@@ -267,7 +297,7 @@ h1,
   min-height: var(--min-target-area);
 }
 @media screen and (max-width: 36rem) {
-  .header__open {
+  .header--open {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -301,7 +331,7 @@ h1,
   .nav__content {
     display: none;
   }
-  .header__open .nav__content {
+  .header--open .nav__content {
     display: flex;
     flex-direction: column;
   }
@@ -326,7 +356,7 @@ h1,
   flex-wrap: wrap;
 }
 @media screen and (max-width: 36rem) {
-  .header__open .nav__list {
+  .header--open .nav__list {
     margin-top: var(--space-xl);
     gap: var(--space-s);
     flex-direction: column;
@@ -338,7 +368,7 @@ h1,
   display: flex;
 }
 @media screen and (max-width: 36rem) {
-  .header__open .nav__list-item {
+  .header--open .nav__list-item {
     width: 100%;
   }
 }
@@ -374,11 +404,11 @@ h1,
     transition: all 150ms ease-in-out;
   }
 }
-.nav__link:hover, .nav__link:active, .nav__link:focus-visible {
+.nav__link:hover, .nav__link:focus-visible {
   text-decoration-color: currentColor;
 }
 @media screen and (max-width: 36rem) {
-  .header__open .nav__link {
+  .header--open .nav__link {
     padding: var(--space-base) 0;
     height: 100%;
     font-size: var(--font-size-xl);
@@ -396,7 +426,7 @@ h1,
   }
 }
 @media screen and (max-width: 36rem) {
-  .header__open .nav__socials {
+  .header--open .nav__socials {
     display: initial;
     margin-left: 0;
     margin-top: var(--space-xxl);
@@ -428,13 +458,11 @@ h1,
 .socials {
   list-style: none;
   display: flex;
-  gap: var(--space-xs);
   align-items: center;
   flex-wrap: wrap;
   height: 100%;
 }
 .socials__list-item {
-  height: 100%;
   height: var(--min-target-area);
   display: flex;
 }
@@ -443,53 +471,45 @@ h1,
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-s);
-}
-.header .socials__link {
+  padding: var(--space-base);
   text-underline-offset: 0.3em;
   text-decoration-color: transparent;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .header .socials__link {
+  .socials__link {
     transition: all 150ms ease-in-out;
   }
 }
-.header .socials__link:hover, .header .socials__link:active, .header .socials__link:focus-visible {
+.socials__link:hover, .socials__link:focus-visible {
   text-decoration-color: currentColor;
 }
-.footer .socials__link {
-  text-decoration: underline;
-  text-underline-offset: 0.3em;
+.socials--footer .socials__link {
   font-size: var(--font-size-s);
-}
-.footer .socials {
-  gap: 0;
 }
 @media screen and (max-width: 36rem) {
   .socials {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .header__open .socials__list-item {
+  .header--open .socials__list-item {
     display: initial;
     margin-left: 0;
   }
-  .header__open .socials__link {
+  .header--open .socials__link {
     justify-content: flex-start;
     padding: 0;
     width: 100%;
   }
 }
-
 .card {
   position: relative;
 }
-.card:hover, .card:focus-within {
-  outline: 0.1875rem solid currentcolor;
+.card:focus-within {
+  outline: 0.1875rem solid var(--text-color-darkest);
   outline-offset: 0.1875rem;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .card:hover, .card:focus-within {
+  .card:focus-within {
     transition: outline-offset 150ms linear;
   }
 }
@@ -502,15 +522,15 @@ h1,
 }
 .card__link {
   text-underline-offset: 0.3em;
-  text-decoration-color: transparent;
+  text-decoration-color: currentColor;
 }
 @media (prefers-reduced-motion: no-preference) {
   .card__link {
     transition: all 150ms ease-in-out;
   }
 }
-.card__link:hover, .card__link:active, .card__link:focus-visible {
-  text-decoration-color: currentColor;
+.card__link:hover, .card__link:focus-visible {
+  text-decoration-color: transparent;
 }
 .card__link::after {
   content: " ";

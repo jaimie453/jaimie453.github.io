@@ -21,10 +21,10 @@ const menuTrigger = document.getElementById("navMenuTrigger");
 let resizeTimeout;
 
 function toggleMenu() {
-    header.classList.toggle("header__open");
+    header.classList.toggle("header--open");
     htmlTag.classList.toggle("hide-scroll");
 
-    const isMenuOpen = header.classList.contains("header__open");
+    const isMenuOpen = header.classList.contains("header--open");
     menuTrigger.setAttribute("aria-expanded", isMenuOpen);
 
     if (isMenuOpen) {
@@ -69,7 +69,7 @@ function handleFocusOutside(event) {
 }
 
 function closeMenu() {
-    header.classList.remove("header__open");
+    header.classList.remove("header--open");
     htmlTag.classList.remove("hide-scroll");
 
     menuTrigger.setAttribute("aria-expanded", false);
