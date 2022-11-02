@@ -87,11 +87,13 @@ body {
   max-width: var(--page-max-width);
   margin: auto;
   padding: var(--space-base);
+  padding-bottom: var(--space-s);
 }
 
 @media screen and (max-width: 61.6875rem) {
   body {
     padding: var(--space-m);
+    padding-bottom: var(--space-s);
   }
 }
 html,
@@ -298,7 +300,7 @@ h1,
 }
 @media screen and (max-width: 36rem) {
   .header--open {
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
@@ -306,6 +308,11 @@ h1,
     padding: var(--space-m);
     background-color: var(--background-color);
     z-index: 1;
+    overflow: auto;
+  }
+  .header--open + main {
+    height: 0;
+    overflow: hidden;
   }
 }
 
@@ -487,13 +494,11 @@ h1,
   font-size: var(--font-size-s);
 }
 @media screen and (max-width: 36rem) {
-  .socials {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
   .header--open .socials__list-item {
     display: initial;
     margin-left: 0;
+    flex-basis: 50%;
+    min-width: 8em;
   }
   .header--open .socials__link {
     justify-content: flex-start;

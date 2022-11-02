@@ -22,14 +22,11 @@
     }
 
     @media screen and (max-width: $nav-menu-max-width) {
-        & {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
         .header--open &__list-item {
             display: initial;
             margin-left: 0;
+            flex-basis: 50%;
+            min-width: 8em;
         }
 
         .header--open &__link {
