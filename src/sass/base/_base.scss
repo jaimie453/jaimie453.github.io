@@ -62,6 +62,17 @@ body {
   padding-bottom: var(--space-s);
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
 @media screen and (max-width: $page-max-width) {
   body {
     padding: var(--space-m);
@@ -87,7 +98,13 @@ body {
 main {
   padding-bottom: var(--space-xxl);
   padding-top: var(--space-xxl);
+  @media (prefers-reduced-motion: no-preference) {
+    animation: fade-in 0.3s ease-in-out;
+  }
 }
+
+
+
 
 pre,
 code {

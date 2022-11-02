@@ -16,11 +16,11 @@
         <link rel="icon" id="faviconPng" type="image/png" href="{{ '/assets/images/favicon-dark.png' }}">
     </head>
     <body>
-        {% include "./components/header.njk" %}
+        {% include "../layouts/header.njk" %}
         <main id="main">
             {{ content | safe }}
         </main>
-        {% include "./components/footer.njk" %}
+        {% include "../layouts/footer.njk" %}
         <script src="{{ '/assets/js/index.js' }}"></script>
     </body>
 </html>

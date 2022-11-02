@@ -13,9 +13,9 @@ $fibonacci: generate-fibonacci-sequence(18);
 $page-max-width: #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 1))}rem;    // 987
 $article-max-width: #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 2))}rem; // 610
 $footer-socials-max-width: 49.5rem;     // socials will be present on the nav menu above this width
-                                        // will need to be bumped with 4 main items + 3 socials
-$nav-menu-max-width: 36rem;     // socials will be present on the nav menu above this width
-// will need to be bumped with 4 main items + 3 socials
+                                        // will need to be bumped with additional main nav items
+$nav-menu-max-width: 36rem;             // nav menu will be shown below this width
+                                        // will need to be bumped with additional main nav items
 
                                                         
 
