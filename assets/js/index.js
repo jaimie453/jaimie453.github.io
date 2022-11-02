@@ -76,6 +76,7 @@ function closeMenu() {
     menuTrigger.innerHTML = "Menu";
 
     document.removeEventListener("keydown", handleMenuEscape);
-    document.removeEventListener("resize", handleResize);
+    header.removeEventListener("focusout", handleFocusOutside);
+    window.removeEventListener("resize", handleResize);
 }
 
