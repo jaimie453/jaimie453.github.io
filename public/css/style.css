@@ -121,11 +121,6 @@ main {
   padding-bottom: var(--space-xxl);
   padding-top: var(--space-xxl);
 }
-@media (prefers-reduced-motion: no-preference) {
-  main {
-    animation: fade-in 0.3s ease-in-out;
-  }
-}
 
 pre,
 code {
@@ -354,7 +349,6 @@ h1,
   .header--open .nav__content {
     display: flex;
     flex-direction: column;
-    animation: fade-in 0.3s ease-in-out;
   }
 }
 .nav__menu-trigger {
