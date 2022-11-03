@@ -16,6 +16,8 @@
         <link rel="icon" id="faviconPng" type="image/png" href="{{ '/assets/images/favicon-dark.png' }}">
     </head>
     <body>
+        {# flash of unstyled content in firefox fix #}
+        <script>0</script>
         {% include "../layouts/header.njk" %}
         <main id="main">
             {{ content | safe }}
