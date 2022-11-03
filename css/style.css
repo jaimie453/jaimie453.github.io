@@ -152,7 +152,7 @@ pre code {
 
 a {
   color: currentColor;
-  text-decoration-thickness: 0;
+  text-decoration-thickness: 0.02em;
 }
 @media (prefers-reduced-motion: no-preference) {
   a {
