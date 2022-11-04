@@ -364,6 +364,11 @@ h1,
     padding: 0 var(--space-s);
   }
 }
+@media (forced-colors: active) {
+  .nav__menu-trigger {
+    border: 1px solid ButtonText;
+  }
+}
 .nav__list {
   list-style: none;
   display: flex;
@@ -397,6 +402,11 @@ h1,
 }
 .nav__logo svg {
   width: var(--min-target-area);
+}
+@media (forced-colors: active) {
+  .nav__logo {
+    fill: ActiveText;
+  }
 }
 .nav__link {
   font-family: Georgia, "Times New Roman", Times, serif;

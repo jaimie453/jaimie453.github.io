@@ -17,7 +17,7 @@
             z-index: 1;
             overflow: auto;
 
-            & + main {
+            &+main {
                 height: 0;
                 overflow: hidden;
             }
@@ -73,6 +73,12 @@
                 padding: 0 var(--space-s);
             }
         }
+
+        @media (forced-colors: active) {
+            & {
+                border: 1px solid ButtonText;
+            }
+        }
     }
 
     &__list {
@@ -111,6 +117,13 @@
         & svg {
             width: var(--min-target-area);
         }
+
+        @media (forced-colors: active) {
+            & {
+                fill: ActiveText;
+            }
+        }
+
     }
 
     &__link {
