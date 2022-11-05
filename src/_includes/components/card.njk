@@ -1,7 +1,5 @@
 {% macro createCard(title, description, url, image, tags) %}
-  <li
-    class="card">
-    {# TODO: replace with image parameter #}
+  <li class="card">
     <img class="card__image" src="../../assets/images/{{ image }}" alt=""/>
     <a href="{{ url }}" class="card__link">
       <h3 class="card__title">{{ title }}</h3>

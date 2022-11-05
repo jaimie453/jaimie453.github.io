@@ -15,12 +15,9 @@
     @include flex-center;
     padding: var(--space-base);
     @include hover-underline-style(false);
-
-    .socials--footer & {
-      font-size: var(--font-size-s);
-    }
   }
 
+  // kinda breaks component encapsulation, but whatever
   @media screen and (max-width: $nav-menu-max-width) {
     .header--open &__list-item {
       display: initial;
@@ -34,11 +31,5 @@
       padding: 0;
       width: 100%;
     }
-  }
-
-  &--header {
-  }
-
-  &--footer {
   }
 }

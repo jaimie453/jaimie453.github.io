@@ -2,10 +2,6 @@
 // Resets and base element styling
 // -----------------------------------------------------------------------------
 
-//
-//  Reset
-//
-
 *,
 *::before,
 *::after {
@@ -17,7 +13,6 @@
 img,
 picture,
 video,
-canvas,
 svg {
   display: block;
   max-width: 100%;
@@ -25,105 +20,9 @@ svg {
 
 button {
   all: unset;
+  font: inherit;
   cursor: pointer;
 }
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-  filter: grayscale(1);
-}
-
-fieldset {
-  border: none;
-}
-
-html {
-  font-size: 100%;
-  overflow-x: hidden;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right)
-    env(safe-area-inset-bottom) env(safe-area-inset-left);
-  background-color: var(--background-color);
-
-  @media (prefers-reduced-motion: no-preference) {
-    scroll-behavior: smooth;
-  }
-}
-
-body {
-  color: var(--text-color-base);
-  font-family: Montserrat, Verdana, Arial, sans-serif;
-  line-height: 1.5;
-  overflow-wrap: break-word;
-  max-width: var(--page-max-width);
-  margin: auto;
-  padding: var(--space-base);
-  padding-bottom: var(--space-s);
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@media screen and (max-width: $page-max-width) {
-  body {
-    padding: var(--space-m);
-    padding-bottom: var(--space-s);
-  }
-}
-
-html,
-body {
-  min-height: 100vh;
-}
-
-@media print {
-  .header {
-    display: none;
-  }
-
-  .footer {
-    display: none;
-  }
-}
-
-main {
-  padding-bottom: var(--space-xxl);
-  padding-top: var(--space-xxl);
-  // @media (prefers-reduced-motion: no-preference) {
-  //   animation: fade-in 0.3s ease-in-out;
-  // }
-}
-
-pre,
-code {
-  font-family: Montserrat, Arial, sans-serif;
-}
-
-code {
-  font-family: "Source Code Pro";
-  line-height: 1.25;
-  font-size: var(--font-size-s);
-  color: var(--text-color-lightest);
-  overflow-wrap: break-word;
-  display: block;
-}
-
-pre code {
-  display: block;
-}
-
-//
-//  Interactive styling
-//
 
 :focus-visible {
   @include outline-style;
@@ -144,8 +43,38 @@ a {
   }
 }
 
-// move to utilities
-.wrap-text {
-  display: inline-block;
-  word-wrap: anywhere;
+html {
+  font-size: 100%;
+  overflow-x: hidden;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+  background-color: var(--background-color);
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  color: var(--text-color-base);
+  font-family: Montserrat, Verdana, Arial, sans-serif;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+
+  max-width: var(--page-max-width);
+  margin: auto;
+  padding: var(--space-base);
+  padding-bottom: var(--space-s);
+}
+
+@media screen and (max-width: $page-max-width) {
+  body {
+    padding: var(--space-m);
+    padding-bottom: var(--space-s);
+  }
+}
+
+html,
+body {
+  min-height: 100vh;
 }

@@ -11,8 +11,4 @@
 @import "layout/layout", "layout/header", "layout/footer";
 
 // 4. Components
-@import //'components/theme-switcher',
-  "components/socials",
-  "components/card";
-
-// 5. Page-specific styles
+@import "components/socials", "components/card";

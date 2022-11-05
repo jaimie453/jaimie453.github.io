@@ -65,11 +65,11 @@
 //
 
 @mixin light-theme-variables {
+  // have to use sass variables here b/c of mix()
   $text-color-darkest: #000;
   $text-color-lightest: #454545;
   $text-color-base: mix($text-color-darkest, $text-color-lightest);
 
-  // #E3E4EA;
   --background-color: #e4e4e4;
   --ui-color: #828282;
   --text-color-darkest: #{$text-color-darkest};
@@ -78,11 +78,11 @@
 }
 
 @mixin dark-theme-variables {
+  // have to use sass variables here b/c of mix()
   $text-color-darkest: #fff;
   $text-color-lightest: #adadad;
   $text-color-base: mix($text-color-darkest, $text-color-lightest);
 
-  // #1C1B22
   --background-color: #1c1c1c;
   --ui-color: #696969;
   --text-color-darkest: #{$text-color-darkest};

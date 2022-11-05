@@ -116,6 +116,13 @@
   @return clamp(#{$min}, #{$vw-step}vw + #{$r-step}rem, #{$max});
 }
 
+/// generates a list of font-sizes (in px) to be used as a min-max range for the fluid font sizes
+///
+/// @param {Number} $font-size-start - (px) start by applying steps to this value
+/// @param {Number List} $font-size-steps
+///
+/// @return {Number List}
+
 @function generate-font-size-range($font-size-start, $font-size-steps) {
   $font-size-range: ($font-size-start);
 
@@ -128,12 +135,20 @@
   @return $font-size-range;
 }
 
-@function generate-fluid-font-sizes($font-size-range) {
-  $fluid-font-sizes: ();
+/// generates a list of fluid font-sizes (using clamp()) of length(font-size-range) - 1
+///
+/// @param {Number List} $font-size-steps
+/// @param {Number} $min-viewport-width - (px) stop fluid sizing function below this viewport width
+/// @param {Number} $max-viewport-width - (px) stop fluid sizing function above this viewport width
+///
+/// @return {Number List}
 
-  // TODO: change to input parameters
-  $min-viewport-width: 610;
-  $max-viewport-width: 1597;
+@function generate-fluid-font-sizes(
+  $font-size-range,
+  $min-viewport-width,
+  $max-viewport-width
+) {
+  $fluid-font-sizes: ();
 
   @for $i from 1 through length($font-size-range) - 1 {
     $min-font-size: nth($font-size-range, $i);

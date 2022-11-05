@@ -3,19 +3,23 @@
 // -----------------------------------------------------------------------------
 
 // 0 - 1597
-// used for font-size scaling, spacing, and some widths/media queries
+// used for font-size scaling and spacing
 $fibonacci: generate-fibonacci-sequence(18);
 
 //
 //  Width variables
 //
 
-$page-max-width: #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 1))}rem; // 987
-$article-max-width: #{convert-px-to-rem(nth($fibonacci, length($fibonacci) - 2))}rem; // 610
-$footer-socials-max-width: 49.5rem; // socials will be present on the nav menu above this width
+$page-max-width: #{convert-px-to-rem(987)}rem;
+$article-max-width: #{convert-px-to-rem(610)}rem;
+
+// socials will be present on the nav menu above this width
 // will need to be bumped with additional main nav items
-$nav-menu-max-width: 36rem; // nav menu will be shown below this width
+$footer-socials-max-width: 49.5rem;
+
+// nav menu will be shown below this width
 // will need to be bumped with additional main nav items
+$nav-menu-max-width: 36rem;
 
 //
 //  Font-size variables
@@ -27,7 +31,15 @@ $font-size-range: generate-font-size-range(
   $font-size-start,
   slice($fibonacci, 4, 10)
 );
-$fluid-font-sizes: generate-fluid-font-sizes($font-size-range);
+
+$min-viewport-width: 610;
+$max-viewport-width: 1597;
+
+$fluid-font-sizes: generate-fluid-font-sizes(
+  $font-size-range,
+  $min-viewport-width,
+  $max-viewport-width
+);
 
 //  Map of
 //    "size-label": html element

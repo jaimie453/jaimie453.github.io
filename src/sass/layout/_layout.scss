@@ -1,34 +1,41 @@
 // -----------------------------------------------------------------------------
-// This file contains all styles related to the layout of the site/application.
+// This file contains all styles related to the layout of the site.
 // -----------------------------------------------------------------------------
 
-.skip-nav {
-  width: 100%;
-  overflow: hidden;
-  height: 0;
+main {
+  padding-bottom: var(--space-xxl);
+  padding-top: var(--space-xxl);
+}
 
-  @media (prefers-reduced-motion: no-preference) {
-    & {
-      transition: height 100ms ease-in-out;
-    }
+@media print {
+  .header {
+    display: none;
   }
 
-  &:focus-within {
-    height: var(--min-target-area);
-    overflow: visible;
+  .footer {
+    display: none;
   }
 }
 
-// should probably go in layout.scss or something
-.card-grid {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-l);
+article p {
+  & p {
+    padding-bottom: var(--space-m);
+  }
 
-  @media screen and (min-width: $article-max-width) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
+  & ul {
+    padding-bottom: var(--space-m);
+    padding-left: var(--space-l);
+
+    @media screen and (min-width: $nav-menu-max-width) {
+      & {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xxs);
+      }
+    }
+  }
+
+  & :not(h1, h2, h3, h4) {
+    max-width: var(--article-max-width);
   }
 }

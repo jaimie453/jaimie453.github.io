@@ -1,0 +1,13 @@
+// -----------------------------------------------------------------------------
+// Reusable utility classes. Perform one function
+// -----------------------------------------------------------------------------
+
+.wrap-text {
+  display: inline-block;
+  word-wrap: anywhere;
+}
+
+// applied to html on button click
+.hide-scroll {
+  overflow-y: hidden;
+}

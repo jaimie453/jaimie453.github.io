@@ -1,6 +1,6 @@
 [
   {
-    "title": "KSU Course Planner",
+    "title": "Course Planner",
     "description": "An attempt at a more user friendly course catalog and scheduler for Kent State University students built with Vue.js, Flask, and MySQL. Worked on front-end, user experience, and authentication.",
     "url": "https://github.com/ThatManTrey/ScheduleBuilderCap",
     "image": "placeholder.jpg",
