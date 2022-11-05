@@ -191,6 +191,16 @@ h1,
   overflow-y: hidden;
 }
 
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 main {
   padding-bottom: var(--space-xxl);
   padding-top: var(--space-xxl);
