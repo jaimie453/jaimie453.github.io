@@ -8,9 +8,11 @@
     "watch:eleventy": "eleventy --serve",
     "build:sass": "sass src/sass:public/css",
     "build:eleventy": "eleventy",
+    "prettier": "npx prettier --write .",
     "start": "npm-run-all build:sass --parallel watch:*",
-    "build": "npm-run-all build:*",
-    "deploy": "gh-pages -d public"
+    "build": "npm-run-all build:* prettier",
+    "deploy": "gh-pages -d public",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -26,8 +28,13 @@
   "devDependencies": {
     "@11ty/eleventy": "^1.0.2",
     "gh-pages": "^4.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "npm-run-all": "^4.1.5",
     "prettier": "2.7.1",
     "sass": "^1.55.0"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
