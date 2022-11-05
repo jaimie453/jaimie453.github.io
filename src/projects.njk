@@ -7,11 +7,11 @@ layout: "layouts/base.njk"
 <p class="font-size-m">
   Collection of interesting projects I've worked on over the years. Code can generally be found on
   <a href="https://github.com/jaimie453">my Github</a>, as well as linked inside
-                                      the project itself.
+                                          the project itself.
 </p>
 <ul class="card-grid">
   {% import "components/card.njk" as projectCard %}
   {% for project in projects %}
-    {{ projectCard.createCard(project.title, project.description, project.url, project.image, project.tags) }}
+    {{ projectCard.createCard(project.title, project.description, project.url, project.image, project.tags, true) }}
   {% endfor %}
 </ul>
