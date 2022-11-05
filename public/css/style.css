@@ -139,6 +139,10 @@ h4 {
   padding: var(--space-s) 0;
 }
 
+main p {
+  padding-bottom: var(--space-m);
+}
+
 small {
   color: var(--text-color-lightest);
 }
@@ -178,6 +182,15 @@ h1,
   font-size: var(--font-size-3xl);
 }
 
+.wrap-text {
+  display: inline-block;
+  word-wrap: anywhere;
+}
+
+.hide-scroll {
+  overflow-y: hidden;
+}
+
 main {
   padding-bottom: var(--space-xxl);
   padding-top: var(--space-xxl);
@@ -191,21 +204,18 @@ main {
     display: none;
   }
 }
-article p p {
-  padding-bottom: var(--space-m);
-}
-article p ul {
+article ul {
   padding-bottom: var(--space-m);
   padding-left: var(--space-l);
 }
 @media screen and (min-width: 36rem) {
-  article p ul {
+  article ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-xxs);
   }
 }
-article p :not(h1, h2, h3, h4) {
+article :not(h1, h2, h3, h4) {
   max-width: var(--article-max-width);
 }
 

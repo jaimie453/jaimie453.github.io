@@ -17,11 +17,7 @@ main {
   }
 }
 
-article p {
-  & p {
-    padding-bottom: var(--space-m);
-  }
-
+article {
   & ul {
     padding-bottom: var(--space-m);
     padding-left: var(--space-l);

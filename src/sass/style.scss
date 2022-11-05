@@ -5,7 +5,7 @@
   "abstracts/tests", "abstracts/variables";
 
 // 2. Base stuff
-@import "base/root", "base/base", "base/typography";
+@import "base/root", "base/base", "base/typography", "base/utilities";
 
 // 3. Layout-related sections
 @import "layout/layout", "layout/header", "layout/footer";
