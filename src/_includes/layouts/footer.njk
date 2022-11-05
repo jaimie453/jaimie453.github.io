@@ -1,10 +1,9 @@
 <footer class="footer">
-    <p>
-        <small>© Jaimie Bowen 2022{% if currentYear > 2022 %}–{{ currentYear }}
-            {% endif %}
-        </small>
-    </p>
-    <div class="footer__socials">
-        {% include "../components/socials.njk" %}
-    </div>
+  <p>
+    <small
+      >© Jaimie Bowen 2022{% if currentYear > 2022 %}–{{ currentYear }}
+      {% endif %}
+    </small>
+  </p>
+  <div class="footer__socials">{% include "../components/socials.njk" %}</div>
 </footer>

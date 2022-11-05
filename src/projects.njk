@@ -5,12 +5,11 @@ layout: "templates/base.njk"
 
 <h1>Projects</h1>
 <p class="font-size-m">
-  Collection of interesting projects I've worked on over the years. Code can generally be found on
-  <a href="https://github.com/jaimie453">my Github</a>, as
-      well as linked inside the project itself.
+  Collection of interesting projects I've worked on over the years. Code can
+  generally be found on
+  <a href="https://github.com/jaimie453">my Github</a>, as well as linked inside
+  the project itself.
 </p>
 <ul class="card-grid">
-  {% for i in range(0, 8) -%}
-    {% include "components/card.njk" %}
-  {%- endfor %}
+  {% for i in range(0, 8) -%} {% include "components/card.njk" %} {%- endfor %}
 </ul>

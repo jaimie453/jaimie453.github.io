@@ -131,7 +131,7 @@
 @function generate-fluid-font-sizes($font-size-range) {
   $fluid-font-sizes: ();
 
-  // todo: change to input parameters
+  // TODO: change to input parameters
   $min-viewport-width: 610;
   $max-viewport-width: 1597;
 

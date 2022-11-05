@@ -5,18 +5,17 @@ layout: "templates/base.njk"
 
 <h1>Jaimie Bowen</h1>
 <p class="font-size-m">
-    Front-end developer with a focus on usability and accessiblity. I love working at the intersection of
-    programming and design, and have experience building components and internal tools for design
-    systems.
+  Front-end developer with a focus on usability and accessiblity. I love working
+  at the intersection of programming and design, and have experience building
+  components and internal tools for design systems.
 </p>
 <p class="font-size-m">
-    Read more <a href="{{ '/about' | url }}">about me</a> or view <span class="wrap-text"><a href="{{ '/assets/resume.pdf' | url }}">my resume</a>.</span>
+  Read more <a href="{{ '/about' | url }}">about me</a> or view
+  <span class="wrap-text"
+    ><a href="{{ '/assets/resume.pdf' | url }}">my resume</a>.</span
+  >
 </p>
 <h2>Projects</h2>
 <ul class="card-grid">
-
-{% for i in range(0, 4) -%}
-  {% include "components/card.njk" %} 
-{%- endfor %}
-
+  {% for i in range(0, 4) -%} {% include "components/card.njk" %} {%- endfor %}
 </ul>
