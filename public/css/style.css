@@ -70,7 +70,8 @@ fieldset {
 html {
   font-size: 100%;
   overflow-x: hidden;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
   background-color: var(--background-color);
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -159,7 +160,9 @@ a {
     transition: color 100ms ease-in-out;
   }
 }
-a:hover, a:active, a:focus-visible {
+a:hover,
+a:active,
+a:focus-visible {
   color: var(--text-color-darkest);
 }
 
@@ -355,7 +358,8 @@ h1,
   display: none;
   font-weight: 500;
 }
-.nav__menu-trigger:hover, .nav__menu-trigger:focus {
+.nav__menu-trigger:hover,
+.nav__menu-trigger:focus {
   color: var(--text-color-darkest);
 }
 @media screen and (max-width: 36rem) {
@@ -429,7 +433,8 @@ h1,
     transition: all 150ms ease-in-out;
   }
 }
-.nav__link:hover, .nav__link:focus-visible {
+.nav__link:hover,
+.nav__link:focus-visible {
   text-decoration-color: currentColor;
 }
 @media screen and (max-width: 36rem) {
@@ -505,7 +510,8 @@ h1,
     transition: all 150ms ease-in-out;
   }
 }
-.socials__link:hover, .socials__link:focus-visible {
+.socials__link:hover,
+.socials__link:focus-visible {
   text-decoration-color: currentColor;
 }
 .socials--footer .socials__link {
@@ -552,7 +558,8 @@ h1,
     transition: all 150ms ease-in-out;
   }
 }
-.card__link:hover, .card__link:focus-visible {
+.card__link:hover,
+.card__link:focus-visible {
   text-decoration-color: transparent;
 }
 .card__link::after {

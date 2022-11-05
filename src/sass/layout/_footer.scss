@@ -3,21 +3,21 @@
 // -----------------------------------------------------------------------------
 
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: var(--font-size-s);
-    color: var(--text-color-lightest);
-    flex-wrap: wrap;
-    min-height: var(--min-target-area);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-s);
+  color: var(--text-color-lightest);
+  flex-wrap: wrap;
+  min-height: var(--min-target-area);
 
+  &__socials {
+    display: none;
+  }
+
+  @media screen and (min-width: $nav-menu-max-width) and (max-width: $footer-socials-max-width) {
     &__socials {
-        display: none;
+      display: flex;
     }
-
-    @media screen and (min-width: $nav-menu-max-width) and (max-width: $footer-socials-max-width) {
-        &__socials {
-            display: flex;
-        }
-    }
+  }
 }

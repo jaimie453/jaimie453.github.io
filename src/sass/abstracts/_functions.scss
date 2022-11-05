@@ -17,7 +17,7 @@
       $sequence: append($sequence, $value);
     }
 
-    $i: $i+1;
+    $i: $i + 1;
   }
 
   @return $sequence;
@@ -43,7 +43,12 @@
 ///
 /// @return {Number} - viewport-step with 2 digits of precision
 
-@function get-fluid-text-viewport-step($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width) {
+@function get-fluid-text-viewport-step(
+  $min-font-size,
+  $max-font-size,
+  $min-viewport-width,
+  $max-viewport-width
+) {
   $font-size-difference: $max-font-size - $min-font-size;
   $viewport-difference: $max-viewport-width - $min-viewport-width;
   $step: calc((100 * $font-size-difference) / $viewport-difference);
@@ -61,8 +66,14 @@
 ///
 /// @return {Number} - relative-step in rem with 2 digits of precision
 
-@function get-fluid-text-relative-step($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width) {
-  $combined-difference: ($max-font-size * $min-viewport-width) - ($min-font-size * $max-viewport-width);
+@function get-fluid-text-relative-step(
+  $min-font-size,
+  $max-font-size,
+  $min-viewport-width,
+  $max-viewport-width
+) {
+  $combined-difference: ($max-font-size * $min-viewport-width) -
+    ($min-font-size * $max-viewport-width);
   $viewport-difference: $min-viewport-width - $max-viewport-width;
   $step: convert-px-to-rem(calc($combined-difference / $viewport-difference));
 
@@ -81,9 +92,24 @@
 /// @return {String}
 ///   returns clamp(#{min-font-size}rem, #{viewport-step}vw + #{relative-step}rem , #{max-font-size}rem)
 
-@function get-fluid-text-size($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width) {
-  $vw-step: get-fluid-text-viewport-step($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width);
-  $r-step: get-fluid-text-relative-step($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width);
+@function get-fluid-text-size(
+  $min-font-size,
+  $max-font-size,
+  $min-viewport-width,
+  $max-viewport-width
+) {
+  $vw-step: get-fluid-text-viewport-step(
+    $min-font-size,
+    $max-font-size,
+    $min-viewport-width,
+    $max-viewport-width
+  );
+  $r-step: get-fluid-text-relative-step(
+    $min-font-size,
+    $max-font-size,
+    $min-viewport-width,
+    $max-viewport-width
+  );
   $min: #{convert-px-to-rem($min-font-size)}rem;
   $max: #{convert-px-to-rem($max-font-size)}rem;
 
@@ -91,7 +117,7 @@
 }
 
 @function generate-font-size-range($font-size-start, $font-size-steps) {
-  $font-size-range: ($font-size-start, );
+  $font-size-range: ($font-size-start);
 
   @for $i from 1 through length($font-size-steps) {
     $step: nth($font-size-steps, $i);
@@ -113,7 +139,12 @@
     $min-font-size: nth($font-size-range, $i);
     $max-font-size: nth($font-size-range, $i + 1);
 
-    $fluid-font-size: get-fluid-text-size($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width);
+    $fluid-font-size: get-fluid-text-size(
+      $min-font-size,
+      $max-font-size,
+      $min-viewport-width,
+      $max-viewport-width
+    );
     $fluid-font-sizes: append($fluid-font-sizes, $fluid-font-size);
   }
 

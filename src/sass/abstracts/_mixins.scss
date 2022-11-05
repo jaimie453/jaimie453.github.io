@@ -2,7 +2,6 @@
 // This file contains Sass mixins.
 // -----------------------------------------------------------------------------
 
-
 //
 //  Grouped styles
 //
@@ -35,7 +34,6 @@
   } @else {
     text-decoration-color: transparent;
   }
-  
 
   @media (prefers-reduced-motion: no-preference) {
     transition: all 150ms ease-in-out;
@@ -43,18 +41,18 @@
 
   &:hover,
   &:focus-visible {
-      @if ($show-initial-underline) {
-        text-decoration-color: transparent;
-      } @else {
-        text-decoration-color: currentColor;
-      }
+    @if ($show-initial-underline) {
+      text-decoration-color: transparent;
+    } @else {
+      text-decoration-color: currentColor;
+    }
   }
 }
 
 @mixin outline-style {
-  outline: .1875rem solid var(--text-color-darkest);
-  outline-offset: .1875rem;
-  
+  outline: 0.1875rem solid var(--text-color-darkest);
+  outline-offset: 0.1875rem;
+
   @media (prefers-reduced-motion: no-preference) {
     & {
       transition: outline-offset 150ms linear;
@@ -92,7 +90,7 @@
   --text-color-base: #{$text-color-base};
 }
 
-@mixin font-size-variables ($font-size-values, $font-size-labels) {
+@mixin font-size-variables($font-size-values, $font-size-labels) {
   @for $i from 1 through length($font-size-values) {
     $label: nth(nth($font-size-labels, $i), 1);
     $font-size-name: font-size-#{$label};
@@ -110,12 +108,11 @@
   }
 }
 
-
 //
 //  Rulesets
 //
 
-@mixin font-size-rulesets ($font-size-values, $font-size-labels) {
+@mixin font-size-rulesets($font-size-values, $font-size-labels) {
   @for $i from 1 through length($font-size-values) {
     $element: nth(nth($font-size-labels, $i), 2);
     $label: nth(nth($font-size-labels, $i), 1);

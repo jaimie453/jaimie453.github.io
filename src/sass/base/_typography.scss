@@ -22,8 +22,6 @@ h4 {
   padding: var(--space-s) 0;
 }
 
-
-
 main p {
   padding-bottom: var(--space-m);
 }
@@ -31,7 +29,6 @@ main p {
 article ul {
   padding-bottom: var(--space-m);
   padding-left: var(--space-l);
-
 
   @media screen and (min-width: $nav-menu-max-width) {
     & {

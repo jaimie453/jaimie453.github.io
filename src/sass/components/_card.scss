@@ -1,50 +1,50 @@
 .card {
-    position: relative;
+  position: relative;
 
-    &:focus-within {
-        @include outline-style;
-    }
-    
-    &__image {
-        aspect-ratio: 2.2 / 1;
-        width: 100%;
-        object-fit: cover;
-        filter: grayscale(1);
-        margin-bottom: var(--space-m);
-    }
+  &:focus-within {
+    @include outline-style;
+  }
 
-    &__link {
-        @include hover-underline-style(true);
+  &__image {
+    aspect-ratio: 2.2 / 1;
+    width: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+    margin-bottom: var(--space-m);
+  }
 
-        &::after {
-            content: " ";
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            bottom: 0;
-        }
+  &__link {
+    @include hover-underline-style(true);
 
-        // putting outline on the entire card
-        &:focus-visible {
-            outline: 0;
-        }
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
     }
 
-    &__title {
-        padding-top: 0;
-        padding-bottom: var(--space-xs);
+    // putting outline on the entire card
+    &:focus-visible {
+      outline: 0;
     }
+  }
 
-    &__body {
-        padding-bottom: var(--space-xxs);
-    }
+  &__title {
+    padding-top: 0;
+    padding-bottom: var(--space-xs);
+  }
 
-    &__tags {
-        list-style: none;
-        font-size: var(--font-size-s);
-        color: var(--text-color-lightest);
-        display: flex;
-        gap: var(--space-xs);
-    }
+  &__body {
+    padding-bottom: var(--space-xxs);
+  }
+
+  &__tags {
+    list-style: none;
+    font-size: var(--font-size-s);
+    color: var(--text-color-lightest);
+    display: flex;
+    gap: var(--space-xs);
+  }
 }

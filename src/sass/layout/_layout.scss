@@ -3,32 +3,32 @@
 // -----------------------------------------------------------------------------
 
 .skip-nav {
-    width: 100%;
-    overflow: hidden;
-    height: 0;
+  width: 100%;
+  overflow: hidden;
+  height: 0;
 
-    @media (prefers-reduced-motion: no-preference) {
-        & {
-            transition: height 100ms ease-in-out;
-        }
+  @media (prefers-reduced-motion: no-preference) {
+    & {
+      transition: height 100ms ease-in-out;
     }
+  }
 
-    &:focus-within {
-        height: var(--min-target-area);
-        overflow: visible;
-    }
+  &:focus-within {
+    height: var(--min-target-area);
+    overflow: visible;
+  }
 }
 
 // should probably go in layout.scss or something
 .card-grid {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-l);
-    
-    @media screen and (min-width: $article-max-width) {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-xl);
-    }
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+
+  @media screen and (min-width: $article-max-width) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
 }
