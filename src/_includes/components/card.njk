@@ -1,6 +1,6 @@
 {% macro createCard(title, description, url, image, tags) %}
   <li class="card">
-    <img class="card__image" src="../../assets/images/{{ image }}" alt=""/>
+    <img class="card__image" src="../../assets/images/{{ image }}" loading="lazy" alt=""/>
     <a href="{{ url }}" class="card__link">
       <h3 class="card__title">{{ title }}</h3>
     </a>
