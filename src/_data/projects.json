@@ -5,54 +5,5 @@
     "url": "https://github.com/ThatManTrey/ScheduleBuilderCap",
     "image": "placeholder.jpg",
     "tags": ["vue", "flask", "user experience"]
-  },
-  {
-    "title": "Project Title 2",
-    "description": "This is a longer description about the project. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed. This is another sentence. This is a longer description about the project.",
-    "url": "https://github.com/jaimie453/jaimie453.github.io",
-    "image": "placeholder.jpg",
-    "tags": ["vue", "flask", "user experience"]
-  },
-  {
-    "title": "Project Title 3",
-    "description": "This is a longer description about the project. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed. This is another sentence. This is a longer description about the project.",
-    "url": "https://github.com/jaimie453/jaimie453.github.io",
-    "image": "placeholder.jpg",
-    "tags": ["vue", "flask", "user experience"]
-  },
-  {
-    "title": "Project Title 4",
-    "description": "This is a longer description about the project. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed. This is another sentence. This is a longer description about the project.",
-    "url": "https://github.com/jaimie453/jaimie453.github.io",
-    "image": "placeholder.jpg",
-    "tags": ["vue", "flask", "user experience"]
-  },
-  {
-    "title": "Project Title 5",
-    "description": "This is a longer description about the project. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed. This is another sentence. This is a longer description about the project.",
-    "url": "https://github.com/jaimie453/jaimie453.github.io",
-    "image": "placeholder.jpg",
-    "tags": ["vue", "flask", "user experience"]
-  },
-  {
-    "title": "Project Title 6",
-    "description": "This is a longer description about the project. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed. This is another sentence. This is a longer description about the project.",
-    "url": "https://github.com/jaimie453/jaimie453.github.io",
-    "image": "placeholder.jpg",
-    "tags": ["vue", "flask", "user experience"]
-  },
-  {
-    "title": "Project Title 7",
-    "description": "This is a longer description about the project. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed. This is another sentence. This is a longer description about the project.",
-    "url": "https://github.com/jaimie453/jaimie453.github.io",
-    "image": "placeholder.jpg",
-    "tags": ["vue", "flask", "user experience"]
-  },
-  {
-    "title": "Project Title 8",
-    "description": "This is a longer description about the project. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed. This is another sentence. This is a longer description about the project.",
-    "url": "https://github.com/jaimie453/jaimie453.github.io",
-    "image": "placeholder.jpg",
-    "tags": ["vue", "flask", "user experience"]
   }
 ]
