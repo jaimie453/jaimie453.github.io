@@ -1,8 +1,10 @@
 .card {
-  position: relative;
-
   &:focus-within {
     @include outline-style;
+  }
+
+  &__clickable-area {
+    position: relative;
   }
 
   &__image {

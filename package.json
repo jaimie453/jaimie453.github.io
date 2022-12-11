@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jaimie453/jaimie453.github.io.git"
+    "url": "git+https://github.com/jaimie453/portfolio.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jaimie453/jaimie453.github.io/issues"
+    "url": "https://github.com/jaimie453/portfolio/issues"
   },
-  "homepage": "https://github.com/jaimie453/jaimie453.github.io#readme",
+  "homepage": "https://github.com/jaimie453/portfolio#readme",
   "devDependencies": {
     "@11ty/eleventy": "^1.0.2",
     "gh-pages": "^4.0.0",

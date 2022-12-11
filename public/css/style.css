@@ -462,9 +462,6 @@ article :not(h1, h2, h3, h4) {
   }
 }
 
-.card {
-  position: relative;
-}
 .card:focus-within {
   outline: 0.1875rem solid var(--text-color-darkest);
   outline-offset: 0.1875rem;
@@ -473,6 +470,9 @@ article :not(h1, h2, h3, h4) {
   .card:focus-within {
     transition: outline-offset 150ms linear;
   }
+}
+.card__clickable-area {
+  position: relative;
 }
 .card__image {
   aspect-ratio: 2.2/1;
