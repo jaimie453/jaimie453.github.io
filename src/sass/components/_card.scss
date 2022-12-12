@@ -1,36 +1,6 @@
 .card {
-  &:focus-within {
-    @include outline-style;
-  }
-
-  &__clickable-area {
-    position: relative;
-  }
-
-  &__image {
-    aspect-ratio: 2.2 / 1;
-    width: 100%;
-    object-fit: cover;
-    filter: grayscale(1);
-    margin-bottom: var(--space-m);
-  }
-
   &__link {
     @include hover-underline-style(true);
-
-    &::after {
-      content: " ";
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      bottom: 0;
-    }
-
-    // putting outline on the entire card
-    &:focus-visible {
-      outline: 0;
-    }
   }
 
   &__title {
@@ -40,6 +10,7 @@
 
   &__body {
     padding-bottom: var(--space-xxs);
+    max-width: var(--article-max-width);
   }
 
   &__tags {

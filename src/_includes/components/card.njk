@@ -1,17 +1,14 @@
-{% macro createCard(title, description, url, image, tags, useH2 = false) %}
+{% macro createCard(title, description, siteUrl, tags, useH2 = false) %}
   <li class="card">
-    <div class="card__clickable-area">
-      <img class="card__image" src="../../assets/images/{{ image }}" alt=""/>
-      <a
-        href="{{ url }}" class="card__link">
-        {# for use on project/articles pages #}
-        {% if useH2 %}
-          <h2 class="card__title font-size-xl">{{ title }}</h2>
-        {% else %}
-          <h3 class="card__title">{{ title }}</h3>
-        {% endif %}
-      </a>
-    </div>
+    <a
+      href="{{ siteUrl }}" class="card__link">
+      {# for use on project/articles pages #}
+      {% if useH2 %}
+        <h2 class="card__title font-size-xl">{{ title }}</h2>
+      {% else %}
+        <h3 class="card__title font-size-l">{{ title }}</h3>
+      {% endif %}
+    </a>
     <p class="card__body">
       {{ description }}
     </p>

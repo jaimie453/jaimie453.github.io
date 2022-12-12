@@ -48,7 +48,6 @@ html {
   overflow-x: hidden;
   padding: env(safe-area-inset-top) env(safe-area-inset-right)
     env(safe-area-inset-bottom) env(safe-area-inset-left);
-  background-color: var(--background-color);
 
   @media (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;
@@ -60,11 +59,14 @@ body {
   font-family: Montserrat, Verdana, Arial, sans-serif;
   line-height: 1.5;
   overflow-wrap: break-word;
+  background-color: var(--background-color);
 
   max-width: var(--page-max-width);
   margin: auto;
   padding: var(--space-base);
   padding-bottom: var(--space-s);
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (max-width: $page-max-width) {
