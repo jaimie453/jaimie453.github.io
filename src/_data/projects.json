@@ -2,7 +2,7 @@
   {
     "title": "KSU Course Planner",
     "description": "A more user friendly course catalog and scheduler for Kent State University students. Worked on front-end, user experience, and authentication.",
-    "siteUrl": "https://github.com/ThatManTrey/ScheduleBuilderCap",
+    "siteUrl": "https://ksucourseplanner.pythonanywhere.com/#/home",
     "repoUrl": "https://github.com/ThatManTrey/ScheduleBuilderCap",
     "image": "placeholder.jpg",
     "tags": ["vue", "flask", "user experience"]
