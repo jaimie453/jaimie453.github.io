@@ -4,7 +4,6 @@
   }
 
   &__title {
-    padding-top: 0;
     padding-bottom: var(--space-xs);
   }
 
@@ -26,11 +25,5 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--space-l);
-
-  @media screen and (min-width: $article-max-width) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
-  }
+  gap: var(--space-base);
 }

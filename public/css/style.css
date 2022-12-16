@@ -479,7 +479,6 @@ article :not(h1, h2, h3, h4) {
   text-decoration-color: transparent;
 }
 .card__title {
-  padding-top: 0;
   padding-bottom: var(--space-xs);
 }
 .card__body {
@@ -498,14 +497,7 @@ article :not(h1, h2, h3, h4) {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--space-l);
-}
-@media screen and (min-width: 38.125rem) {
-  .card-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
-  }
+  gap: var(--space-base);
 }
 
 /*# sourceMappingURL=style.css.map */

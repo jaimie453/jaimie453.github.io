@@ -20,7 +20,7 @@ layout: "layouts/base.njk"
   {% import "components/card.njk" as projectCard %}
   {% for project in projects %}
     {% if loop.index0 < 4 %}
-      {{ projectCard.createCard(project.title, project.description, project.siteUrl, project.tags) }}
+      {{ projectCard.createCard(project.title, project.description, project.repoUrl, project.tags) }}
     {% endif %}
   {% endfor %}
 </ul>
