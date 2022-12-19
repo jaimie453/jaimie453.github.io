@@ -1,6 +1,7 @@
 .card {
   &__link {
     @include hover-underline-style(true);
+    display: inline-block;
   }
 
   &__title {

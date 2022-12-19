@@ -16,7 +16,7 @@
     display: none;
   }
 
-  @media screen and (min-width: $nav-menu-max-width) and (max-width: $footer-socials-max-width) {
+  @media screen and (min-width: $nav-menu-max-width) {
     &__socials {
       display: flex;
     }

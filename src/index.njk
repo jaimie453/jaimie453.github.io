@@ -3,24 +3,28 @@ title: Jaimie Bowen — Front-end Developer
 layout: "layouts/base.njk"
 ---
 
-<h1>Jaimie Bowen</h1>
-<p class="font-size-m">
-  Front-end developer with a focus on usability and accessibility. I love working at the intersection of programming and
-  design, and have experience building components and internal tools for design systems.
-</p>
-<p class="font-size-m">
-  Read more
-  <a href="{{ '/about' | url }}">about me</a>
-  or view
-  <span class="wrap-text">
-    <a href="{{ '/assets/resume.pdf' | url }}">my resume</a>.</span>
-</p>
-<h2>Projects</h2>
-<ul class="card-grid">
-  {% import "components/card.njk" as projectCard %}
-  {% for project in projects %}
-    {% if loop.index0 < 4 %}
-      {{ projectCard.createCard(project.title, project.description, project.repoUrl, project.tags) }}
-    {% endif %}
-  {% endfor %}
-</ul>
+<section>
+  <h1>Jaimie Bowen</h1>
+  <p class="font-size-m">
+    Front-end developer with a focus on usability and accessibility. I love working at the intersection of programming and
+    design, and have experience building components and internal tools for design systems.
+  </p>
+  <p class="font-size-m">
+    Read more
+    <a href="{{ '/about' | url }}">about me</a>
+    or view
+    <span class="wrap-text">
+      <a href="{{ '/assets/resume.pdf' | url }}">my resume</a>.</span>
+  </p>
+</section>
+<section>
+  <h2>Projects</h2>
+  <ul class="card-grid">
+    {% import "components/card.njk" as projectCard %}
+    {% for project in projects %}
+      {% if loop.index0 < 4 %}
+        {{ projectCard.createCard(project.title, project.description, project.repoUrl, project.tags) }}
+      {% endif %}
+    {% endfor %}
+  </ul>
+</section>

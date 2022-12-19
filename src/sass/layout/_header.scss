@@ -58,23 +58,6 @@
     }
   }
 
-  &__content {
-    flex: 1;
-    display: flex;
-
-    @media screen and (max-width: $nav-menu-max-width) {
-      & {
-        display: none;
-      }
-
-      .header--open & {
-        display: flex;
-        flex-direction: column;
-        // animation: fade-in 0.3s ease-in-out;
-      }
-    }
-  }
-
   &__menu-trigger {
     display: none;
     font-weight: 500;
@@ -98,15 +81,34 @@
     }
   }
 
+  &__content {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+
+    @media screen and (max-width: $nav-menu-max-width) {
+      & {
+        display: none;
+      }
+
+      .header--open & {
+        display: flex;
+        flex-direction: column;
+        // animation: fade-in 0.3s ease-in-out;
+      }
+    }
+  }
+
   &__list {
     list-style: none;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    gap: var(--space-m);
 
     @media screen and (max-width: $nav-menu-max-width) {
       .header--open & {
-        margin-top: var(--space-xl);
+        margin-top: var(--space-xxl);
         gap: var(--space-s);
         flex-direction: column;
         align-items: flex-start;
@@ -115,29 +117,13 @@
   }
 
   &__list-item {
-    height: 100%;
+    height: var(--min-target-area);
     display: flex;
 
     @media screen and (max-width: $nav-menu-max-width) {
       .header--open & {
         width: 100%;
-      }
-    }
-  }
-
-  &__logo {
-    fill: var(--text-color-darkest);
-    @include flex-center;
-    flex-shrink: 0;
-    margin-right: var(--space-m);
-
-    & svg {
-      width: var(--min-target-area);
-    }
-
-    @media (forced-colors: active) {
-      & {
-        fill: ActiveText;
+        height: 100%;
       }
     }
   }
@@ -164,18 +150,11 @@
   }
 
   &__socials {
-    margin-left: auto;
-
-    @media screen and (max-width: $footer-socials-max-width) {
-      & {
-        display: none;
-      }
-    }
+    display: none;
 
     @media screen and (max-width: $nav-menu-max-width) {
       .header--open & {
         display: initial;
-        margin-left: 0;
         margin-top: var(--space-xxl);
       }
     }

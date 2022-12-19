@@ -4,19 +4,11 @@
     </div>
     <nav class="nav">
         <div class="nav__menu">
-            <a class="nav__logo" href="{{ '/' | url }}" aria-label="Home" {% if page.url == "/" %} aria-current="page" {% endif %}>
-                {% include "../../assets/images/rose.svg" %}
-            </a>
+            {% include "../components/logo.njk" %}
             <button class="nav__menu-trigger" type="button" id="navMenuTrigger" aria-expanded="false" onclick="toggleMenu();">Menu</button>
         </div>
         <div class="nav__content">
-            <ul
-                class="nav__list">
-                {# <li class="nav__list-item">
-                                    <a class="nav__link" href="{{ '/projects' | url }}" {% if page.url == "/projects/" %} aria-current="page" {% endif %}>
-                                        Projects
-                                    </a>
-                                 </li> #}
+            <ul class="nav__list">
                 <li class="nav__list-item">
                     <a class="nav__link" href="{{ '/assets/resume.pdf' | url }}">Resume</a>
                 </li>
