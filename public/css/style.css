@@ -67,18 +67,8 @@ button {
 }
 
 a {
-  color: currentColor;
-  text-decoration-thickness: 0.02em;
-}
-@media (prefers-reduced-motion: no-preference) {
-  a {
-    transition: color 100ms ease-in-out;
-  }
-}
-a:hover,
-a:active,
-a:focus-visible {
   color: var(--text-color-darkest);
+  text-decoration-thickness: 0.02em;
 }
 
 html {
