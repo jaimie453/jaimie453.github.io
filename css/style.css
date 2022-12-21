@@ -74,7 +74,8 @@ a {
 html {
   font-size: 100%;
   overflow-x: hidden;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 @media (prefers-reduced-motion: no-preference) {
   html {
@@ -181,23 +182,12 @@ h4 {
 p {
   padding-bottom: var(--space-m);
 }
-section p:not(.font-size-m) {
+p:not(.font-size-m) {
   max-width: var(--article-max-width);
 }
-section:last-child p:last-child, article p:last-child {
+section:last-child p:last-child,
+article p:last-child {
   padding-bottom: 0;
-}
-
-article ul {
-  padding-bottom: var(--space-m);
-  padding-left: var(--space-l);
-}
-@media screen and (min-width: 36rem) {
-  article ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xxs);
-  }
 }
 
 .wrap-text {
@@ -244,7 +234,8 @@ article ul {
     transition: all 150ms ease-in-out;
   }
 }
-.socials__link:hover, .socials__link:focus-visible {
+.socials__link:hover,
+.socials__link:focus-visible {
   text-decoration-color: currentColor;
 }
 @media screen and (max-width: 36rem) {
@@ -271,7 +262,8 @@ article ul {
     transition: all 150ms ease-in-out;
   }
 }
-.card__link:hover, .card__link:focus-visible {
+.card__link:hover,
+.card__link:focus-visible {
   text-decoration-color: transparent;
 }
 .card__title {
@@ -329,6 +321,19 @@ article ul {
   }
 }
 
+.bullet-list {
+  padding-bottom: var(--space-m);
+  padding-left: var(--space-l);
+  max-width: var(--article-max-width);
+}
+@media screen and (min-width: 36rem) {
+  .bullet-list--2-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xxs);
+  }
+}
+
 .header {
   min-height: var(--min-target-area);
 }
@@ -383,7 +388,8 @@ article ul {
   display: none;
   font-weight: 500;
 }
-.nav__menu-trigger:hover, .nav__menu-trigger:focus {
+.nav__menu-trigger:hover,
+.nav__menu-trigger:focus {
   color: var(--text-color-darkest);
 }
 @media screen and (max-width: 36rem) {
@@ -457,7 +463,8 @@ article ul {
     transition: all 150ms ease-in-out;
   }
 }
-.nav__link:hover, .nav__link:focus-visible {
+.nav__link:hover,
+.nav__link:focus-visible {
   text-decoration-color: currentColor;
 }
 @media screen and (max-width: 36rem) {
