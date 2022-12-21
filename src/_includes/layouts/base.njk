@@ -24,6 +24,7 @@
   <body>
     {% include "../components/header.njk" %}
     <div class="page-content">
+      {% include "../components/page-overlay.njk" %}
       <main id="main">
         {{ content | safe }}
       </main>

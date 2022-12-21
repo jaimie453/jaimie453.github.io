@@ -824,6 +824,12 @@
       </nav>
     </header>
     <div class="page-content">
+      <div class="page-overlay" id="pageOverlay"></div>
+      <script>
+        // TODO: check for reduced motion preference before doing this
+        let pageOverlay = document.getElementById("pageOverlay");
+        pageOverlay.classList.add("page-overlay--fade-out");
+      </script>
       <main id="main">
         <section>
           <h1>Jaimie Bowen</h1>
@@ -832,6 +838,7 @@
             love working at the intersection of programming and design, and have
             experience building components and internal tools for design
             systems.
+            <a href="#">test</a>
           </p>
           <p class="font-size-m">
             Read more
