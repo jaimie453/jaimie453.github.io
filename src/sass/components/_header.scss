@@ -7,19 +7,17 @@
 
   @media screen and (max-width: $nav-menu-max-width) {
     &--open {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      padding: var(--space-m);
-      background-color: var(--background-color);
-      z-index: 1;
-      overflow: auto;
+      // position: absolute;
+      // top: 0;
+      // bottom: 0;
+      // right: 0;
+      // left: 0;
+      // padding: var(--space-m);
+      // background-color: var(--background-color);
+      // z-index: 1;
+      // overflow: auto;
 
-      & + main {
-        height: 0;
-        overflow: hidden;
+      & + .page-content {
       }
     }
   }
@@ -75,8 +73,8 @@
       }
 
       .header--open & {
-        display: flex;
-        flex-direction: column;
+        // display: flex;
+        // flex-direction: column;
       }
 
       // & {

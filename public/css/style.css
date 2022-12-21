@@ -74,7 +74,8 @@ a {
 html {
   font-size: 100%;
   overflow-x: hidden;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 @media (prefers-reduced-motion: no-preference) {
   html {
@@ -190,7 +191,8 @@ p {
 p:not(.font-size-m) {
   max-width: var(--article-max-width);
 }
-section:last-child p:last-child, article p:last-child {
+section:last-child p:last-child,
+article p:last-child {
   padding-bottom: 0;
 }
 
@@ -238,7 +240,8 @@ section:last-child p:last-child, article p:last-child {
     transition: all 150ms ease-in-out;
   }
 }
-.socials__link:hover, .socials__link:focus-visible {
+.socials__link:hover,
+.socials__link:focus-visible {
   text-decoration-color: currentColor;
 }
 .socials--2-columns .socials__list-item {
@@ -263,7 +266,8 @@ section:last-child p:last-child, article p:last-child {
     transition: all 150ms ease-in-out;
   }
 }
-.card__link:hover, .card__link:focus-visible {
+.card__link:hover,
+.card__link:focus-visible {
   text-decoration-color: transparent;
 }
 .card__title {
@@ -337,24 +341,6 @@ section:last-child p:last-child, article p:last-child {
 .header {
   min-height: var(--min-target-area);
 }
-@media screen and (max-width: 36rem) {
-  .header--open {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    padding: var(--space-m);
-    background-color: var(--background-color);
-    z-index: 1;
-    overflow: auto;
-  }
-  .header--open + main {
-    height: 0;
-    overflow: hidden;
-  }
-}
-
 .nav {
   display: flex;
   width: 100%;
@@ -373,7 +359,8 @@ section:last-child p:last-child, article p:last-child {
   display: none;
   font-weight: 500;
 }
-.nav__menu-trigger:hover, .nav__menu-trigger:focus {
+.nav__menu-trigger:hover,
+.nav__menu-trigger:focus {
   color: var(--text-color-darkest);
 }
 @media screen and (max-width: 36rem) {
@@ -395,10 +382,6 @@ section:last-child p:last-child, article p:last-child {
 @media screen and (max-width: 36rem) {
   .nav__content {
     display: none;
-  }
-  .header--open .nav__content {
-    display: flex;
-    flex-direction: column;
   }
 }
 .nav__list {
@@ -447,7 +430,8 @@ section:last-child p:last-child, article p:last-child {
     transition: all 150ms ease-in-out;
   }
 }
-.nav__link:hover, .nav__link:focus-visible {
+.nav__link:hover,
+.nav__link:focus-visible {
   text-decoration-color: currentColor;
 }
 @media screen and (max-width: 36rem) {

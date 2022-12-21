@@ -24,6 +24,16 @@ const menuTrigger = document.getElementById("navMenuTrigger");
 let resizeTimeout;
 
 function toggleMenu() {
+  const pageOverlay = document.getElementById("pageOverlay");
+
+  if (header.classList.contains("header--open")) {
+    pageOverlay.classList.remove("page-overlay--fade-in");
+    pageOverlay.classList.add("page-overlay--fade-out");
+  } else {
+    pageOverlay.classList.remove("page-overlay--fade-out");
+    pageOverlay.classList.add("page-overlay--fade-in");
+  }
+
   header.classList.toggle("header--open");
   const isMenuOpen = header.classList.contains("header--open");
   menuTrigger.setAttribute("aria-expanded", isMenuOpen);
