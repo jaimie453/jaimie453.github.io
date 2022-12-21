@@ -793,7 +793,7 @@
             </li>
           </ul>
           <div class="nav__socials">
-            <ul class="socials">
+            <ul class="socials socials--2-columns">
               <li class="socials__list-item">
                 <a
                   class="socials__link"
@@ -823,91 +823,99 @@
         </div>
       </nav>
     </header>
-    <main id="main">
-      <article>
-        <h1>About</h1>
-        <p>
-          Hi, I'm Jaimie Bowen, a 23 year old front-end developer based out of
-          Lakewood, Ohio. I graduated from Kent State University with a major in
-          Computer Science in 2021, and have been working full time as a
-          developer since.
-        </p>
-        <p>
-          While I was into programming from a young age, I struggled to find my
-          niche until I delved into front-end development. I love that my role
-          allows me to work closely with designers to craft a pleasant user
-          experience for everyone.
-        </p>
-        <p>
-          I enjoy learning about everything front-end related, but I'm
-          especially interested in the following areas:
-        </p>
-        <ul class="bullet-list bullet-list--2-columns">
-          <li>CSS architecture</li>
-          <li>Accessibility</li>
-          <li>Web performance</li>
-          <li>Usability</li>
-          <li>Design systems</li>
-          <li>Technical writing</li>
-        </ul>
-        <p>
-          Outside of coding, I usually spend my free time reading, learning
-          languages, cycling, or playing video games.
-        </p>
-        <h2>This site</h2>
-        <p>
-          This site was built with Eleventy and is hosted on Github Pages.
-          <a
-            href="https://github.com/jaimie453/jaimie453.github.io"
-            target="_blank"
-            >View source code</a
-          >.
-        </p>
+    <div class="page-content">
+      <div class="page-overlay" id="pageOverlay"></div>
+      <script>
+        // TODO: check for reduced motion preference before doing this
+        let pageOverlay = document.getElementById("pageOverlay");
+        pageOverlay.classList.add("page-overlay--fade-out");
+      </script>
+      <main id="main">
+        <article>
+          <h1>About</h1>
+          <p>
+            Hi, I'm Jaimie Bowen, a 23 year old front-end developer based out of
+            Lakewood, Ohio. I graduated from Kent State University with a major
+            in Computer Science in 2021, and have been working full time as a
+            developer since.
+          </p>
+          <p>
+            While I was into programming from a young age, I struggled to find
+            my niche until I delved into front-end development. I love that my
+            role allows me to work closely with designers to craft a pleasant
+            user experience for everyone.
+          </p>
+          <p>
+            I enjoy learning about everything front-end related, but I'm
+            especially interested in the following areas:
+          </p>
+          <ul class="bullet-list bullet-list--2-columns">
+            <li>CSS architecture</li>
+            <li>Accessibility</li>
+            <li>Web performance</li>
+            <li>Usability</li>
+            <li>Design systems</li>
+            <li>Technical writing</li>
+          </ul>
+          <p>
+            Outside of coding, I usually spend my free time reading, learning
+            languages, cycling, or playing video games.
+          </p>
+          <h2>This site</h2>
+          <p>
+            This site was built with Eleventy and is hosted on Github Pages.
+            <a
+              href="https://github.com/jaimie453/jaimie453.github.io"
+              target="_blank"
+              >View source code</a
+            >.
+          </p>
 
-        <p>
-          Lily SVG courtesy of
-          <a
-            href="https://www.etsy.com/listing/934354008/lily-flower-cut-file-stargazer-lily-svg"
-            target="_blank"
-          >
-            NicoletteSketches on Etsy</a
-          >.
-        </p>
-      </article>
-    </main>
-    <footer class="footer">
-      <span>
-        <small>© Jaimie Bowen 2022 </small>
-      </span>
-      <div class="footer__socials">
-        <ul class="socials">
-          <li class="socials__list-item">
+          <p>
+            Lily SVG courtesy of
             <a
-              class="socials__link"
-              href="https://github.com/jaimie453"
+              href="https://www.etsy.com/listing/934354008/lily-flower-cut-file-stargazer-lily-svg"
               target="_blank"
-              >Github</a
             >
-          </li>
-          <li class="socials__list-item">
-            <a
-              class="socials__link"
-              href="https://www.linkedin.com/in/jaimie-bowen-8275151a2/"
-              target="_blank"
-              >LinkedIn</a
-            >
-          </li>
-          <li class="socials__list-item">
-            <a
-              class="socials__link"
-              href="mailto:hello@jaimiebowen.dev"
-              target="_blank"
-              >Email</a
-            >
-          </li>
-        </ul>
-      </div>
-    </footer>
+              NicoletteSketches on Etsy</a
+            >.
+          </p>
+        </article>
+      </main>
+      <footer class="footer">
+        <span>
+          <small>© Jaimie Bowen 2022 </small>
+        </span>
+        <div class="footer__socials">
+          <ul class="socials">
+            <li class="socials__list-item">
+              <a
+                class="socials__link"
+                href="https://github.com/jaimie453"
+                target="_blank"
+                >Github</a
+              >
+            </li>
+            <li class="socials__list-item">
+              <a
+                class="socials__link"
+                href="https://www.linkedin.com/in/jaimie-bowen-8275151a2/"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </li>
+            <li class="socials__list-item">
+              <a
+                class="socials__link"
+                href="mailto:hello@jaimiebowen.dev"
+                target="_blank"
+                >Email</a
+              >
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
     <script src="/assets/js/index.js"></script>
   </body>
 </html>

@@ -1,3 +1,5 @@
+"use strict";
+
 //
 // show the correct favicon in light/dark mode
 //
@@ -23,8 +25,6 @@ let resizeTimeout;
 
 function toggleMenu() {
   header.classList.toggle("header--open");
-  htmlTag.classList.toggle("hide-scroll");
-
   const isMenuOpen = header.classList.contains("header--open");
   menuTrigger.setAttribute("aria-expanded", isMenuOpen);
 
@@ -54,7 +54,7 @@ function handleResize() {
   resizeTimeout = setTimeout(() => {
     const fontSizeInPx = window.getComputedStyle(htmlTag).fontSize;
     const fontSizeInRem = parseFloat(
-      fontSizeInPx.substr(0, fontSizeInPx.indexOf("px"))
+      fontSizeInPx.substring(0, fontSizeInPx.indexOf("px"))
     );
     const windowWidthInRem = window.innerWidth / fontSizeInRem;
     const navMenuMaxWidth = 36; // rem value in sass
@@ -73,7 +73,6 @@ function handleFocusOutside(event) {
 
 function closeMenu() {
   header.classList.remove("header--open");
-  htmlTag.classList.remove("hide-scroll");
 
   menuTrigger.setAttribute("aria-expanded", false);
   menuTrigger.innerHTML = "Menu";
@@ -81,4 +80,50 @@ function closeMenu() {
   document.removeEventListener("keydown", handleMenuEscape);
   header.removeEventListener("focusout", handleFocusOutside);
   window.removeEventListener("resize", handleResize);
+}
+
+//
+// handle page fade
+//
+// TODO: check for reduced motion preference before doing this
+document.addEventListener("DOMContentLoaded", () => {
+  handleLinkClicks();
+});
+
+function handleLinkClicks() {
+  document.addEventListener("click", (event) => {
+    let clickTarget = event.target;
+
+    // get parent <a> if a child element was clicked
+    while (clickTarget && clickTarget.nodeName !== "A") {
+      clickTarget = clickTarget.parentNode;
+    }
+
+    if (!clickTarget) {
+      return;
+    } else if (isInternalLink(clickTarget)) {
+      fadeOutPage(event, clickTarget.href);
+    }
+  });
+}
+
+// ignore id links on the current page e.g. localhost/#main
+function isInternalLink(link) {
+  const inSameDomain = link.origin === window.location.origin;
+  const linksToIdOnCurrentPage =
+    link.pathname === window.location.pathname && link.href.includes("#");
+  const isResumeLink = link.href.includes("resume.pdf");
+
+  return inSameDomain && !linksToIdOnCurrentPage && !isResumeLink;
+}
+
+function fadeOutPage(linkEvent, href) {
+  let pageOverlay = document.getElementById("pageOverlay");
+
+  pageOverlay.addEventListener("animationend", () => {
+    window.location = href;
+  });
+
+  linkEvent.preventDefault();
+  pageOverlay.classList.add("page-overlay--fade-in");
 }

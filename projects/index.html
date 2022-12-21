@@ -793,7 +793,7 @@
             </li>
           </ul>
           <div class="nav__socials">
-            <ul class="socials">
+            <ul class="socials socials--2-columns">
               <li class="socials__list-item">
                 <a
                   class="socials__link"
@@ -823,92 +823,100 @@
         </div>
       </nav>
     </header>
-    <main id="main">
-      <h1>Projects</h1>
-      <p class="font-size-m">
-        Collection of interesting side projects I've worked on. Any live demos
-        can be found within the linked github repo.
-      </p>
-      <ul class="card-grid">
-        <li class="card">
-          <a
-            href="https://github.com/ThatManTrey/ScheduleBuilderCap"
-            class="card__link"
-            target="_blank"
-          >
-            <h2 class="card__title font-size-xl">KSU Course Planner</h2>
-          </a>
-          <p class="card__body">
-            A more user friendly course catalog and scheduler for Kent State
-            University students. Worked on front-end, user experience, and
-            authentication.
-          </p>
-          <p class="visually-hidden">Tagged:</p>
-          <ul class="card__tags">
-            <li>vue</li>
-
-            <li>flask</li>
-
-            <li>user experience</li>
-          </ul>
-        </li>
-
-        <li class="card">
-          <a
-            href="https://github.com/jaimie453/WP2FinalProject"
-            class="card__link"
-            target="_blank"
-          >
-            <h2 class="card__title font-size-xl">Everyone Travels</h2>
-          </a>
-          <p class="card__body">
-            A sample travel website built as the final project for the Web
-            Programming 2 course at Kent State University.
-          </p>
-          <p class="visually-hidden">Tagged:</p>
-          <ul class="card__tags">
-            <li>php</li>
-
-            <li>jquery</li>
-
-            <li>sass</li>
-          </ul>
-        </li>
-      </ul>
-    </main>
-    <footer class="footer">
-      <span>
-        <small>© Jaimie Bowen 2022 </small>
-      </span>
-      <div class="footer__socials">
-        <ul class="socials">
-          <li class="socials__list-item">
+    <div class="page-content">
+      <div class="page-overlay" id="pageOverlay"></div>
+      <script>
+        // TODO: check for reduced motion preference before doing this
+        let pageOverlay = document.getElementById("pageOverlay");
+        pageOverlay.classList.add("page-overlay--fade-out");
+      </script>
+      <main id="main">
+        <h1>Projects</h1>
+        <p class="font-size-m">
+          Collection of interesting side projects I've worked on. Any live demos
+          can be found within the linked github repo.
+        </p>
+        <ul class="card-grid">
+          <li class="card">
             <a
-              class="socials__link"
-              href="https://github.com/jaimie453"
+              href="https://github.com/ThatManTrey/ScheduleBuilderCap"
+              class="card__link"
               target="_blank"
-              >Github</a
             >
+              <h2 class="card__title font-size-xl">KSU Course Planner</h2>
+            </a>
+            <p class="card__body">
+              A more user friendly course catalog and scheduler for Kent State
+              University students. Worked on front-end, user experience, and
+              authentication.
+            </p>
+            <p class="visually-hidden">Tagged:</p>
+            <ul class="card__tags">
+              <li>vue</li>
+
+              <li>flask</li>
+
+              <li>user experience</li>
+            </ul>
           </li>
-          <li class="socials__list-item">
+
+          <li class="card">
             <a
-              class="socials__link"
-              href="https://www.linkedin.com/in/jaimie-bowen-8275151a2/"
+              href="https://github.com/jaimie453/WP2FinalProject"
+              class="card__link"
               target="_blank"
-              >LinkedIn</a
             >
-          </li>
-          <li class="socials__list-item">
-            <a
-              class="socials__link"
-              href="mailto:hello@jaimiebowen.dev"
-              target="_blank"
-              >Email</a
-            >
+              <h2 class="card__title font-size-xl">Everyone Travels</h2>
+            </a>
+            <p class="card__body">
+              A sample travel website built as the final project for the Web
+              Programming 2 course at Kent State University.
+            </p>
+            <p class="visually-hidden">Tagged:</p>
+            <ul class="card__tags">
+              <li>php</li>
+
+              <li>jquery</li>
+
+              <li>sass</li>
+            </ul>
           </li>
         </ul>
-      </div>
-    </footer>
+      </main>
+      <footer class="footer">
+        <span>
+          <small>© Jaimie Bowen 2022 </small>
+        </span>
+        <div class="footer__socials">
+          <ul class="socials">
+            <li class="socials__list-item">
+              <a
+                class="socials__link"
+                href="https://github.com/jaimie453"
+                target="_blank"
+                >Github</a
+              >
+            </li>
+            <li class="socials__list-item">
+              <a
+                class="socials__link"
+                href="https://www.linkedin.com/in/jaimie-bowen-8275151a2/"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </li>
+            <li class="socials__list-item">
+              <a
+                class="socials__link"
+                href="mailto:hello@jaimiebowen.dev"
+                target="_blank"
+                >Email</a
+              >
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
     <script src="/assets/js/index.js"></script>
   </body>
 </html>
