@@ -70,3 +70,22 @@ html,
 body {
   min-height: 100vh;
 }
+
+main {
+  padding-bottom: var(--space-xxl);
+  padding-top: var(--space-xxl);
+}
+
+main section:not(:last-child) {
+  padding-bottom: var(--space-m);
+}
+
+@media print {
+  .header {
+    display: none;
+  }
+
+  .footer {
+    display: none;
+  }
+}

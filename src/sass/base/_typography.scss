@@ -6,24 +6,8 @@
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
-  @include heading-font-style;
-}
-
-h1 {
-  padding-bottom: var(--space-xs);
-}
-
-h2,
-h3,
 h4 {
-  padding: var(--space-s) 0;
-}
-
-main p {
-  padding-bottom: var(--space-m);
+  @include heading-font-style;
 }
 
 small {
@@ -32,43 +16,45 @@ small {
 
 @include font-size-rulesets($fluid-font-sizes, $font-size-labels);
 
-// pre {
-//   overflow-x: auto;
-//   white-space: pre-wrap;
-//   word-wrap: break-word;
-//   padding: var(--space-xxs) 0;
-// }
+//
+// Layout
+//
 
-// .code-block {
-//   font-size: var(--font-size-s);
-//   border-bottom: 0.15em solid rgb(97, 97, 97);
-//   padding-bottom: 0;
-// }
+h1 {
+  padding-bottom: var(--space-xs);
+}
 
-// blockquote {
-//   font-style: italic;
-//   color: var(--text-color-lightest);
-//   font-size: var(--font-size-base);
-//   margin-block-end: var(--space-m);
-//   margin-left: var(--space-base);
-//   border-left: 0.15em solid var(--ui-color);
-//   padding-left: var(--space-s);
-// }
+h2,
+h3,
+h4 {
+  padding-bottom: var(--space-s);
+  padding-top: var(--space-s);
+}
 
-// pre,
-// code {
-//   font-family: Montserrat, Arial, sans-serif;
-// }
+p {
+  padding-bottom: var(--space-m);
 
-// code {
-//   font-family: "Source Code Pro";
-//   line-height: 1.25;
-//   font-size: var(--font-size-s);
-//   color: var(--text-color-lightest);
-//   overflow-wrap: break-word;
-//   display: block;
-// }
+  section &:not(.font-size-m) {
+    max-width: var(--article-max-width);
+  }
 
-// pre code {
-//   display: block;
-// }
+  section:last-child &:last-child,
+  article &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+article {
+  & ul {
+    padding-bottom: var(--space-m);
+    padding-left: var(--space-l);
+
+    @media screen and (min-width: $nav-menu-max-width) {
+      & {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xxs);
+      }
+    }
+  }
+}
