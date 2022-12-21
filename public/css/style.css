@@ -182,24 +182,12 @@ h4 {
 p {
   padding-bottom: var(--space-m);
 }
-section p:not(.font-size-m) {
+p:not(.font-size-m) {
   max-width: var(--article-max-width);
 }
 section:last-child p:last-child,
 article p:last-child {
   padding-bottom: 0;
-}
-
-article ul {
-  padding-bottom: var(--space-m);
-  padding-left: var(--space-l);
-}
-@media screen and (min-width: 36rem) {
-  article ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xxs);
-  }
 }
 
 .wrap-text {
@@ -330,6 +318,19 @@ article ul {
   }
   .logo__flower {
     display: none;
+  }
+}
+
+.bullet-list {
+  padding-bottom: var(--space-m);
+  padding-left: var(--space-l);
+  max-width: var(--article-max-width);
+}
+@media screen and (min-width: 36rem) {
+  .bullet-list--2-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xxs);
   }
 }
 

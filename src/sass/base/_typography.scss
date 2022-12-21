@@ -34,27 +34,12 @@ h4 {
 p {
   padding-bottom: var(--space-m);
 
-  section &:not(.font-size-m) {
+  &:not(.font-size-m) {
     max-width: var(--article-max-width);
   }
 
   section:last-child &:last-child,
   article &:last-child {
     padding-bottom: 0;
-  }
-}
-
-article {
-  & ul {
-    padding-bottom: var(--space-m);
-    padding-left: var(--space-l);
-
-    @media screen and (min-width: $nav-menu-max-width) {
-      & {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-xxs);
-      }
-    }
   }
 }
