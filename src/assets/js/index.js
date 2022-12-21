@@ -1,3 +1,5 @@
+"use strict";
+
 //
 // show the correct favicon in light/dark mode
 //
@@ -23,8 +25,6 @@ let resizeTimeout;
 
 function toggleMenu() {
   header.classList.toggle("header--open");
-  htmlTag.classList.toggle("hide-scroll");
-
   const isMenuOpen = header.classList.contains("header--open");
   menuTrigger.setAttribute("aria-expanded", isMenuOpen);
 
@@ -54,7 +54,7 @@ function handleResize() {
   resizeTimeout = setTimeout(() => {
     const fontSizeInPx = window.getComputedStyle(htmlTag).fontSize;
     const fontSizeInRem = parseFloat(
-      fontSizeInPx.substr(0, fontSizeInPx.indexOf("px"))
+      fontSizeInPx.substring(0, fontSizeInPx.indexOf("px"))
     );
     const windowWidthInRem = window.innerWidth / fontSizeInRem;
     const navMenuMaxWidth = 36; // rem value in sass
@@ -73,7 +73,6 @@ function handleFocusOutside(event) {
 
 function closeMenu() {
   header.classList.remove("header--open");
-  htmlTag.classList.remove("hide-scroll");
 
   menuTrigger.setAttribute("aria-expanded", false);
   menuTrigger.innerHTML = "Menu";

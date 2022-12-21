@@ -17,16 +17,15 @@
     @include hover-underline-style(false);
   }
 
-  // kinda breaks component encapsulation, but whatever
-  @media screen and (max-width: $nav-menu-max-width) {
-    .header--open &__list-item {
+  &--2-columns {
+    & .socials__list-item {
       display: initial;
       margin-left: 0;
       flex-basis: 50%;
       min-width: 8em;
     }
 
-    .header--open &__link {
+    .socials__link {
       justify-content: flex-start;
       padding: 0;
       width: 100%;

@@ -1,0 +1,16 @@
+.skip-nav {
+  width: 100%;
+  overflow: hidden;
+  height: 0;
+
+  @media (prefers-reduced-motion: no-preference) {
+    & {
+      transition: height 100ms ease-in-out;
+    }
+  }
+
+  &:focus-within {
+    height: var(--min-target-area);
+    overflow: visible;
+  }
+}

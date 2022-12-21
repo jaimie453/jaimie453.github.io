@@ -1,7 +1,5 @@
 <header class="header" id="header">
-    <div class="skip-nav">
-        <a class="skip-nav__link" href="#main">Skip to main content</a>
-    </div>
+    {% include "../components/skip-nav.njk" %}
     <nav class="nav">
         <div class="nav__menu">
             {% include "../components/logo.njk" %}
@@ -19,6 +17,7 @@
                 </li>
             </ul>
             <div class="nav__socials">
+                {% set use2Columns = true %}
                 {% include "../components/socials.njk" %}
             </div>
         </div>

@@ -238,18 +238,16 @@ article p:last-child {
 .socials__link:focus-visible {
   text-decoration-color: currentColor;
 }
-@media screen and (max-width: 36rem) {
-  .header--open .socials__list-item {
-    display: initial;
-    margin-left: 0;
-    flex-basis: 50%;
-    min-width: 8em;
-  }
-  .header--open .socials__link {
-    justify-content: flex-start;
-    padding: 0;
-    width: 100%;
-  }
+.socials--2-columns .socials__list-item {
+  display: initial;
+  margin-left: 0;
+  flex-basis: 50%;
+  min-width: 8em;
+}
+.socials--2-columns .socials__link {
+  justify-content: flex-start;
+  padding: 0;
+  width: 100%;
 }
 
 .card__link {
@@ -355,21 +353,6 @@ article p:last-child {
   }
 }
 
-.skip-nav {
-  width: 100%;
-  overflow: hidden;
-  height: 0;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .skip-nav {
-    transition: height 100ms ease-in-out;
-  }
-}
-.skip-nav:focus-within {
-  height: var(--min-target-area);
-  overflow: visible;
-}
-
 .nav {
   display: flex;
   width: 100%;
@@ -425,7 +408,7 @@ article p:last-child {
   gap: var(--space-m);
 }
 @media screen and (max-width: 36rem) {
-  .header--open .nav__list {
+  .nav__list {
     margin-top: var(--space-xxl);
     gap: var(--space-s);
     flex-direction: column;
@@ -437,7 +420,7 @@ article p:last-child {
   display: flex;
 }
 @media screen and (max-width: 36rem) {
-  .header--open .nav__list-item {
+  .nav__list-item {
     width: 100%;
     height: 100%;
   }
@@ -468,7 +451,7 @@ article p:last-child {
   text-decoration-color: currentColor;
 }
 @media screen and (max-width: 36rem) {
-  .header--open .nav__link {
+  .nav__link {
     padding: var(--space-base) 0;
     height: 100%;
     font-size: var(--font-size-xl);
@@ -481,7 +464,7 @@ article p:last-child {
   display: none;
 }
 @media screen and (max-width: 36rem) {
-  .header--open .nav__socials {
+  .nav__socials {
     display: initial;
     margin-top: var(--space-xxl);
   }
@@ -504,6 +487,21 @@ article p:last-child {
   .footer__socials {
     display: flex;
   }
+}
+
+.skip-nav {
+  width: 100%;
+  overflow: hidden;
+  height: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .skip-nav {
+    transition: height 100ms ease-in-out;
+  }
+}
+.skip-nav:focus-within {
+  height: var(--min-target-area);
+  overflow: visible;
 }
 
 /*# sourceMappingURL=style.css.map */

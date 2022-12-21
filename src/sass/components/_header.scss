@@ -25,23 +25,6 @@
   }
 }
 
-.skip-nav {
-  width: 100%;
-  overflow: hidden;
-  height: 0;
-
-  @media (prefers-reduced-motion: no-preference) {
-    & {
-      transition: height 100ms ease-in-out;
-    }
-  }
-
-  &:focus-within {
-    height: var(--min-target-area);
-    overflow: visible;
-  }
-}
-
 .nav {
   display: flex;
   width: 100%;
@@ -94,8 +77,18 @@
       .header--open & {
         display: flex;
         flex-direction: column;
-        // animation: fade-in 0.3s ease-in-out;
       }
+
+      // & {
+      //   opacity: 0;
+      //   transition: opacity 0.3s;
+      //   display: flex;
+      //   flex-direction: column;
+      // }
+
+      // .header--open & {
+      //   opacity: 1;
+      // }
     }
   }
 
@@ -107,7 +100,7 @@
     gap: var(--space-m);
 
     @media screen and (max-width: $nav-menu-max-width) {
-      .header--open & {
+      & {
         margin-top: var(--space-xxl);
         gap: var(--space-s);
         flex-direction: column;
@@ -121,7 +114,7 @@
     display: flex;
 
     @media screen and (max-width: $nav-menu-max-width) {
-      .header--open & {
+      & {
         width: 100%;
         height: 100%;
       }
@@ -138,7 +131,7 @@
     height: 100%;
 
     @media screen and (max-width: $nav-menu-max-width) {
-      .header--open & {
+      & {
         padding: var(--space-base) 0;
         height: 100%;
         font-size: var(--font-size-xl);
@@ -153,7 +146,7 @@
     display: none;
 
     @media screen and (max-width: $nav-menu-max-width) {
-      .header--open & {
+      & {
         display: initial;
         margin-top: var(--space-xxl);
       }
