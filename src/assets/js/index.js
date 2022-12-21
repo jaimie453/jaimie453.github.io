@@ -21,10 +21,17 @@ window.matchMedia("(prefers-color-scheme: dark)").onchange = (event) => {
 const header = document.getElementById("header");
 const htmlTag = document.getElementById("html");
 const menuTrigger = document.getElementById("navMenuTrigger");
+//const pageOverlay = document.getElementById("pageOverlay");
 let resizeTimeout;
 
 function toggleMenu() {
-  const pageOverlay = document.getElementById("pageOverlay");
+  pageOverlay.addEventListener("animationend", (event) => {
+    if (event.animationName === "fade-out") {
+      htmlTag.classList.remove("hide-scroll");
+    } else {
+      htmlTag.classList.add("hide-scroll");
+    }
+  });
 
   if (header.classList.contains("header--open")) {
     pageOverlay.classList.remove("page-overlay--fade-in");
@@ -44,6 +51,7 @@ function toggleMenu() {
     header.addEventListener("focusout", handleFocusOutside);
     window.addEventListener("resize", handleResize);
   } else {
+    htmlTag.classList.remove("hide-scroll");
     menuTrigger.innerHTML = "Menu";
     document.removeEventListener("keydown", handleMenuEscape);
     header.removeEventListener("focusout", handleFocusOutside);
@@ -83,6 +91,7 @@ function handleFocusOutside(event) {
 
 function closeMenu() {
   header.classList.remove("header--open");
+  htmlTag.classList.remove("hide-scroll");
 
   menuTrigger.setAttribute("aria-expanded", false);
   menuTrigger.innerHTML = "Menu";
@@ -96,6 +105,7 @@ function closeMenu() {
 // handle page fade
 //
 // TODO: check for reduced motion preference before doing this
+
 document.addEventListener("DOMContentLoaded", () => {
   handleLinkClicks();
 });
