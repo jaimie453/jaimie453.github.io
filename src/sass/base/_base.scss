@@ -79,13 +79,3 @@ main {
 main section:not(:last-child) {
   padding-bottom: var(--space-m);
 }
-
-@media print {
-  .header {
-    display: none;
-  }
-
-  .footer {
-    display: none;
-  }
-}
