@@ -52,6 +52,8 @@
       & {
         display: inline-block;
         padding: 0 var(--space-s);
+        height: var(--min-target-area);
+        align-self: center;
       }
     }
 
@@ -70,11 +72,12 @@
     @media screen and (max-width: $nav-menu-max-width) {
       & {
         display: none;
+        @include fade;
       }
 
-      .header--open & {
-        // display: flex;
-        // flex-direction: column;
+      &--open {
+        display: flex;
+        flex-direction: column;
       }
 
       // & {

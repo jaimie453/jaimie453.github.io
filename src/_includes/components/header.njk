@@ -3,9 +3,9 @@
     <nav class="nav">
         <div class="nav__menu">
             {% include "../components/logo.njk" %}
-            <button class="nav__menu-trigger" type="button" id="navMenuTrigger" aria-expanded="false" onclick="toggleMenu();">Menu</button>
+            <button class="nav__menu-trigger" type="button" id="navMenuTrigger" aria-expanded="false">Menu</button>
         </div>
-        <div class="nav__content">
+        <div class="nav__content" id="navContent">
             <ul class="nav__list">
                 <li class="nav__list-item">
                     <a class="nav__link" href="{{ '/resume.pdf' | url }}">Resume</a>

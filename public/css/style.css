@@ -122,9 +122,6 @@ main section:not(:last-child) {
   flex-direction: column;
   position: relative;
 }
-.page-content--hide :not(.page-overlay) {
-  display: none;
-}
 
 h1,
 h2,
@@ -203,10 +200,6 @@ section:last-child p:last-child, article p:last-child {
   word-wrap: anywhere;
 }
 
-.hide-scroll {
-  overflow-y: hidden;
-}
-
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -217,6 +210,32 @@ section:last-child p:last-child, article p:last-child {
   width: 1px;
 }
 
+.fade-out {
+  opacity: 0;
+  animation-name: fade-out;
+}
+
+.fade-in {
+  opacity: 1;
+  animation-name: fade-in;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .socials {
   list-style: none;
   display: flex;
@@ -366,6 +385,8 @@ section:last-child p:last-child, article p:last-child {
   .nav__menu-trigger {
     display: inline-block;
     padding: 0 var(--space-s);
+    height: var(--min-target-area);
+    align-self: center;
   }
 }
 @media (forced-colors: active) {
@@ -381,6 +402,12 @@ section:last-child p:last-child, article p:last-child {
 @media screen and (max-width: 36rem) {
   .nav__content {
     display: none;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+  }
+  .nav__content--open {
+    display: flex;
+    flex-direction: column;
   }
 }
 .nav__list {
@@ -486,42 +513,17 @@ section:last-child p:last-child, article p:last-child {
   overflow: visible;
 }
 
-.page-overlay {
-  position: absolute;
-  left: -50px;
-  right: -50px;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-  background-color: var(--background-color);
-  animation-duration: 300ms;
-  animation-timing-function: ease-in-out;
-}
-
-.page-overlay--fade-out {
-  opacity: 0;
-  animation-name: fade-out;
-}
-
-.page-overlay--fade-in {
-  opacity: 1;
-  animation-name: fade-in;
-}
-
-@keyframes fade-out {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
+@media (prefers-reduced-motion: no-preference) {
+  .page-overlay {
+    position: absolute;
+    left: -50px;
+    right: -50px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    background-color: var(--background-color);
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
   }
 }
 

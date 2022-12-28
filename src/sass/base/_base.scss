@@ -85,8 +85,4 @@ main section:not(:last-child) {
   display: flex;
   flex-direction: column;
   position: relative;
-
-  &--hide :not(.page-overlay) {
-    display: none;
-  }
 }

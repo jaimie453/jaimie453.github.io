@@ -3,13 +3,11 @@
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta
-    http-equiv="X-UA-Compatible" content="ie=edge"/> 
-    <meta name="description" content="Front-end developer with a passion for building simple, intuitive user interfaces."/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/> 
+    <meta name="description" content="Front-end developer with a focus on usability and accessibility."/>
     <meta name="color-scheme" content="dark light"/>
     <title>About | Jaimie Bowen</title>
-    <link
-    rel="stylesheet" href="/css/style.css"/> 
+    <link rel="stylesheet" href="/css/style.css"/> 
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
@@ -704,9 +702,9 @@
 </svg>
 
 </a>
-            <button class="nav__menu-trigger" type="button" id="navMenuTrigger" aria-expanded="false" onclick="toggleMenu();">Menu</button>
+            <button class="nav__menu-trigger" type="button" id="navMenuTrigger" aria-expanded="false">Menu</button>
         </div>
-        <div class="nav__content">
+        <div class="nav__content" id="navContent">
             <ul class="nav__list">
                 <li class="nav__list-item">
                     <a class="nav__link" href="/resume.pdf">Resume</a>
@@ -736,14 +734,13 @@
         </div>
     </nav>
 </header>
-    <div class="page-content">
+    <div class="page-content" id="pageContent">
       <div class="page-overlay" id="pageOverlay"></div>
-<script>
-    // TODO: check for reduced motion preference before doing this
-    let pageOverlay = document.getElementById("pageOverlay");
-    pageOverlay
-        .classList
-        .add("page-overlay--fade-out");
+<script type="module">
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(!prefersReducedMotion) {
+        pageOverlay.classList.add("fade-out");
+    }
 </script>
       <main id="main">
         
@@ -805,6 +802,9 @@
 </ul></div>
 </footer>
     </div>
-    <script src="/assets/js/index.js"></script>
+
+    <script src="/assets/js/favicon.js" type="module"></script>
+    <script src="/assets/js/page-overlay.js" type="module"></script>
+    <script type="module" src="/assets/js/menu.js"></script>
   </body>
 </html>

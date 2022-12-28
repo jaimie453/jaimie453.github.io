@@ -7,11 +7,44 @@
   word-wrap: anywhere;
 }
 
-// applied to html on button click
-.hide-scroll {
-  overflow-y: hidden;
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
-.visually-hidden {
-  @include visually-hidden;
+//
+//  Page overlay classes
+//
+
+.fade-out {
+  opacity: 0;
+  animation-name: fade-out;
+}
+
+.fade-in {
+  opacity: 1;
+  animation-name: fade-in;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
