@@ -1,7 +1,6 @@
 //
 // handle page fade
 //
-// TODO: check for reduced motion preference before doing this
 
 document.addEventListener("DOMContentLoaded", () => {
   handleLinkClicks();

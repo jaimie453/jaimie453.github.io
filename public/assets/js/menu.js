@@ -1,6 +1,12 @@
 //
-// handle mobile nav menu interaction
+//  Handle mobile nav menu interaction
 //
+//  The menu follows the disclosure ARIA pattern,
+//  https://www.w3.org/WAI/ARIA/apg/example-index/disclosure/disclosure-navigation.html
+//  since it's the closest thing to a full screen menu
+//    - closes with Esc and when focus exits the nav
+//    - page content is still present, just not visible
+//  a dialog (traps focus) could also work
 
 navMenuTrigger.addEventListener("click", toggleMenu);
 
