@@ -77,7 +77,8 @@ a {
 html {
   font-size: 100%;
   overflow-x: hidden;
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 @media (prefers-reduced-motion: no-preference) {
   html {
@@ -194,7 +195,8 @@ p {
 p:not(.font-size-m) {
   max-width: var(--article-max-width);
 }
-section:last-child p:last-child, article p:last-child {
+section:last-child p:last-child,
+article p:last-child {
   padding-bottom: 0;
 }
 
@@ -264,7 +266,8 @@ section:last-child p:last-child, article p:last-child {
     transition: all 150ms ease-in-out;
   }
 }
-.socials__link:hover, .socials__link:focus-visible {
+.socials__link:hover,
+.socials__link:focus-visible {
   text-decoration-color: currentColor;
 }
 .socials--2-columns .socials__list-item {
@@ -289,7 +292,8 @@ section:last-child p:last-child, article p:last-child {
     transition: all 150ms ease-in-out;
   }
 }
-.card__link:hover, .card__link:focus-visible {
+.card__link:hover,
+.card__link:focus-visible {
   text-decoration-color: transparent;
 }
 .card__title {
@@ -379,8 +383,10 @@ section:last-child p:last-child, article p:last-child {
   font-weight: 500;
   animation-duration: 300ms;
   animation-timing-function: ease-in-out;
+  will-change: opacity;
 }
-.nav__menu-trigger:hover, .nav__menu-trigger:focus {
+.nav__menu-trigger:hover,
+.nav__menu-trigger:focus {
   color: var(--text-color-darkest);
 }
 @media screen and (max-width: 36rem) {
@@ -406,6 +412,7 @@ section:last-child p:last-child, article p:last-child {
     display: none;
     animation-duration: 300ms;
     animation-timing-function: ease-in-out;
+    will-change: opacity;
   }
   .nav__content--open {
     display: flex;
@@ -458,7 +465,8 @@ section:last-child p:last-child, article p:last-child {
     transition: all 150ms ease-in-out;
   }
 }
-.nav__link:hover, .nav__link:focus-visible {
+.nav__link:hover,
+.nav__link:focus-visible {
   text-decoration-color: currentColor;
 }
 @media screen and (max-width: 36rem) {
@@ -526,6 +534,7 @@ section:last-child p:last-child, article p:last-child {
     background-color: var(--background-color);
     animation-duration: 300ms;
     animation-timing-function: ease-in-out;
+    will-change: opacity;
   }
 }
 
