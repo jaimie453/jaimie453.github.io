@@ -383,6 +383,7 @@ article p:last-child {
   font-weight: 500;
   animation-duration: 300ms;
   animation-timing-function: ease-in-out;
+  will-change: opacity;
 }
 .nav__menu-trigger:hover,
 .nav__menu-trigger:focus {
@@ -411,6 +412,7 @@ article p:last-child {
     display: none;
     animation-duration: 300ms;
     animation-timing-function: ease-in-out;
+    will-change: opacity;
   }
   .nav__content--open {
     display: flex;
@@ -532,6 +534,7 @@ article p:last-child {
     background-color: var(--background-color);
     animation-duration: 300ms;
     animation-timing-function: ease-in-out;
+    will-change: opacity;
   }
 }
 

@@ -63,6 +63,8 @@
 @mixin fade {
   animation-duration: 300ms;
   animation-timing-function: ease-in-out;
+  // safari animation fix?
+  will-change: opacity;
 }
 
 //
