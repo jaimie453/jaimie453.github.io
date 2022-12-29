@@ -39,7 +39,7 @@ function isInternalLink(link) {
 }
 
 function fadeOutPage(linkEvent, href) {
-  const isMenuOpen = header.classList.contains("header--open");
+  const isMenuOpen = navContent.classList.contains("nav__content--open");
 
   let fadeOutTarget = isMenuOpen ? navContent : pageOverlay;
   fadeOutTarget.addEventListener("animationend", () => {

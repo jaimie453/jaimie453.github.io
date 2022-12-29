@@ -22,6 +22,10 @@ button {
   all: unset;
   font: inherit;
   cursor: pointer;
+
+  &[disabled] {
+    cursor: default;
+  }
 }
 
 :focus-visible {

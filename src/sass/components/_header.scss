@@ -2,27 +2,6 @@
 // This file contains all styles related to the header of the site.
 // -----------------------------------------------------------------------------
 
-.header {
-  min-height: var(--min-target-area);
-
-  @media screen and (max-width: $nav-menu-max-width) {
-    &--open {
-      // position: absolute;
-      // top: 0;
-      // bottom: 0;
-      // right: 0;
-      // left: 0;
-      // padding: var(--space-m);
-      // background-color: var(--background-color);
-      // z-index: 1;
-      // overflow: auto;
-
-      & + .page-content {
-      }
-    }
-  }
-}
-
 .nav {
   display: flex;
   width: 100%;
@@ -42,6 +21,7 @@
   &__menu-trigger {
     display: none;
     font-weight: 500;
+    @include fade;
 
     &:hover,
     &:focus {
@@ -79,17 +59,6 @@
         display: flex;
         flex-direction: column;
       }
-
-      // & {
-      //   opacity: 0;
-      //   transition: opacity 0.3s;
-      //   display: flex;
-      //   flex-direction: column;
-      // }
-
-      // .header--open & {
-      //   opacity: 1;
-      // }
     }
   }
 
