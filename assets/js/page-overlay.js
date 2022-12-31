@@ -2,9 +2,26 @@
 // handle page fade
 //
 
+fadeInPage();
 document.addEventListener("DOMContentLoaded", () => {
   handleLinkClicks();
 });
+
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted) {
+    fadeInPage();
+  }
+});
+
+function fadeInPage() {
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+  if (!prefersReducedMotion) {
+    pageOverlay.classList.remove("fade-in");
+    pageOverlay.classList.add("fade-out");
+  }
+}
 
 function handleLinkClicks() {
   document.addEventListener("click", (event) => {
@@ -41,9 +58,12 @@ function fadeOutPage(linkEvent, href) {
   const isMenuOpen = navContent.classList.contains("nav__content--open");
 
   let fadeOutTarget = isMenuOpen ? navContent : pageOverlay;
-  fadeOutTarget.addEventListener("animationend", () => {
+  const onAnimationEnd = () => {
     window.location = href;
-  });
+    fadeOutTarget.removeEventListener("animationend", onAnimationEnd);
+  };
+
+  fadeOutTarget.addEventListener("animationend", onAnimationEnd);
 
   linkEvent.preventDefault();
 

@@ -8,7 +8,7 @@
       name="description"
       content="Front-end developer with a focus on usability and accessibility."
     />
-    <meta name="color-scheme" content="dark light" />
+
     <title>Projects | Jaimie Bowen</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -826,14 +826,7 @@
     </header>
     <div class="page-content" id="pageContent">
       <div class="page-overlay" id="pageOverlay"></div>
-      <script type="module">
-        const prefersReducedMotion = window.matchMedia(
-          "(prefers-reduced-motion: reduce)"
-        ).matches;
-        if (!prefersReducedMotion) {
-          pageOverlay.classList.add("fade-out");
-        }
-      </script>
+      <script src="/assets/js/page-overlay.js" type="module"></script>
       <main id="main">
         <h1>Projects</h1>
         <p class="font-size-m">
@@ -923,7 +916,6 @@
     </div>
 
     <script src="/assets/js/favicon.js" type="module"></script>
-    <script src="/assets/js/page-overlay.js" type="module"></script>
-    <script type="module" src="/assets/js/menu.js"></script>
+    <script src="/assets/js/menu.js" type="module"></script>
   </body>
 </html>
