@@ -2,9 +2,24 @@
 // handle page fade
 //
 
+fadeInPage();
 document.addEventListener("DOMContentLoaded", () => {
   handleLinkClicks();
 });
+
+window.addEventListener('pageshow', (event) => {
+  if (event.persisted) {
+    fadeInPage();
+  }
+});
+
+function fadeInPage() {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!prefersReducedMotion) {
+    pageOverlay.classList.remove("fade-in");
+    pageOverlay.classList.add("fade-out");
+  }
+}
 
 function handleLinkClicks() {
   document.addEventListener("click", (event) => {
