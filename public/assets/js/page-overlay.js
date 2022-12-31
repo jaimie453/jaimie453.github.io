@@ -41,9 +41,12 @@ function fadeOutPage(linkEvent, href) {
   const isMenuOpen = navContent.classList.contains("nav__content--open");
 
   let fadeOutTarget = isMenuOpen ? navContent : pageOverlay;
-  fadeOutTarget.addEventListener("animationend", () => {
+  const onAnimationEnd = () => {
     window.location = href;
-  });
+    fadeOutTarget.removeEventListener("animationend", onAnimationEnd);
+  };
+
+  fadeOutTarget.addEventListener("animationend", onAnimationEnd);
 
   linkEvent.preventDefault();
 
