@@ -281,6 +281,7 @@ article p:last-child {
   margin-left: 0;
   flex-basis: 50%;
   min-width: 8em;
+  flex-grow: 1;
 }
 .socials--2-columns .socials__link {
   justify-content: flex-start;
@@ -289,18 +290,7 @@ article p:last-child {
 }
 
 .card__link {
-  text-underline-offset: 0.3em;
-  text-decoration-color: currentColor;
   display: inline-block;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .card__link {
-    transition: all 150ms ease-in-out;
-  }
-}
-.card__link:hover,
-.card__link:focus-visible {
-  text-decoration-color: transparent;
 }
 .card__title {
   padding-bottom: var(--space-xs);
@@ -336,10 +326,12 @@ article p:last-child {
 }
 .logo__moon {
   width: var(--logo-size);
+  height: var(--logo-size);
   fill: var(--text-color-darkest);
 }
 .logo__flower {
   width: calc(var(--logo-size) * 0.66);
+  height: calc(var(--logo-size) * 0.66);
   position: absolute;
   bottom: -5%;
   right: -5%;

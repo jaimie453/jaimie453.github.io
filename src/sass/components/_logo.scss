@@ -7,11 +7,13 @@
 
   &__moon {
     width: var(--logo-size);
+    height: var(--logo-size);
     fill: var(--text-color-darkest);
   }
 
   &__flower {
     width: calc(var(--logo-size) * 0.66);
+    height: calc(var(--logo-size) * 0.66);
     position: absolute;
     bottom: -5%;
     right: -5%;
