@@ -17,7 +17,8 @@
     font-size: var(--font-size-s);
     color: var(--text-color-lightest);
     display: flex;
-    gap: var(--space-s);
+    flex-wrap: wrap;
+    column-gap: var(--space-s);
   }
 }
 

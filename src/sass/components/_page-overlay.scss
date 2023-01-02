@@ -1,8 +1,8 @@
 @media (prefers-reduced-motion: no-preference) {
   .page-overlay {
     position: absolute;
-    left: -50px;
-    right: -50px;
+    left: calc(var(--space-m) * -1);
+    right: calc(var(--space-m) * -1);
     height: 100%;
     z-index: 2;
     pointer-events: none;

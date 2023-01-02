@@ -4,6 +4,7 @@
   margin-right: var(--space-m);
   position: relative;
   --logo-size: var(--font-size-3xl);
+  width: fit-content;
 
   &__moon {
     width: var(--logo-size);

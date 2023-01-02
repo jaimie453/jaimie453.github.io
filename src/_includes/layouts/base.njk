@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" id="html">
   <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/> 
-    <meta name="description" content="Front-end developer with a focus on usability and accessibility."/>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Front-end developer with a focus on usability and accessibility.">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ '/css/style.css' | url }}"/> 
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       rel='preload'
       as='style'
       href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400&display=swap'>
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400&display=swap"/>
-    <link rel="icon" id="faviconPng" type="image/png" href="{{ '/assets/images/favicon-dark.png' }}"/>
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+    <link rel="icon" id="faviconPng" type="image/png" href="{{ '/assets/images/favicon-dark.png' }}">
   </head>
   <body>
     {% include "../components/header.njk" %}
@@ -28,8 +27,6 @@
       </main>
       {% include "../components/footer.njk" %}
     </div>
-
     <script src="{{ '/assets/js/favicon.js' }}" type="module"></script>
-    <script src="{{ '/assets/js/menu.js' }}" type="module"></script>
   </body>
 </html>

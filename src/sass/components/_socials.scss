@@ -4,6 +4,7 @@
   align-items: center;
   flex-wrap: wrap;
   height: 100%;
+  column-gap: var(--space-m);
 
   &__list-item {
     height: var(--min-target-area);
@@ -13,23 +14,6 @@
   &__link {
     height: 100%;
     @include flex-center;
-    padding: var(--space-base);
     @include hover-underline-style(false);
-  }
-
-  &--2-columns {
-    & .socials__list-item {
-      display: initial;
-      margin-left: 0;
-      flex-basis: 50%;
-      min-width: 8em;
-      flex-grow: 1;
-    }
-
-    .socials__link {
-      justify-content: flex-start;
-      padding: 0;
-      width: 100%;
-    }
   }
 }

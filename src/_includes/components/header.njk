@@ -1,25 +1,16 @@
 <header>
     {% include "../components/skip-nav.njk" %}
     <nav class="nav" id="nav">
-        <div class="nav__menu">
-            {% include "../components/logo.njk" %}
-            <button class="nav__menu-trigger" type="button" id="navMenuTrigger" aria-expanded="false" aria-controls="navContent">Menu</button>
-        </div>
-        <div class="nav__content" id="navContent">
-            <ul class="nav__list">
-                <li class="nav__list-item">
-                    <a class="nav__link" href="{{ '/resume.pdf' | url }}">Resume</a>
-                </li>
-                <li class="nav__list-item">
-                    <a class="nav__link" href="{{ '/about' | url }}" {% if page.url == "/about/" %} aria-current="page" {% endif %}>
-                        About
-                    </a>
-                </li>
-            </ul>
-            <div class="nav__socials">
-                {% set use2Columns = true %}
-                {% include "../components/socials.njk" %}
-            </div>
-        </div>
+        {% include "../components/logo.njk" %}
+        <ul class="nav__list">
+            <li class="nav__list-item">
+                <a class="nav__link" href="{{ '/resume.pdf' | url }}">Resume</a>
+            </li>
+            <li class="nav__list-item">
+                <a class="nav__link" href="{{ '/about' | url }}" {% if page.url == "/about/" %} aria-current="page" {% endif %}>
+                    About
+                </a>
+            </li>
+        </ul>
     </nav>
 </header>
