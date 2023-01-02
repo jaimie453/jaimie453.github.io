@@ -7,7 +7,7 @@
   @include font-size-variables($fluid-font-sizes, $font-size-labels);
   @include spacing-variables($space-values, $space-labels);
 
-  --min-target-area: #{convert-px-to-rem(44)}rem;
+  --min-target-area: #{convert-px-to-rem(48)}rem;
   --page-max-width: #{$page-max-width};
   --article-max-width: #{$article-max-width};
 

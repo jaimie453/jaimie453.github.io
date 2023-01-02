@@ -14,11 +14,11 @@
     align-items: center;
     justify-content: flex-end;
     flex-wrap: wrap;
-    gap: var(--space-m);
+    column-gap: var(--space-l);
 
     @media screen and (max-width: $nav-menu-max-width) {
       & {
-        gap: var(--space-s);
+        column-gap: var(--space-m);
       }
     }
   }
@@ -34,7 +34,6 @@
     @include flex-center;
 
     font-size: var(--font-size-m);
-    padding: 0 var(--space-s);
     height: 100%;
   }
 }
