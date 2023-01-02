@@ -3,22 +3,24 @@
 //
 
 fadeInPage();
-document.addEventListener("DOMContentLoaded", () => {
-  handleLinkClicks();
-});
 
 window.addEventListener("pageshow", (event) => {
+  // re-run fade-in only when the page is cached
   if (event.persisted) {
+    //alert("cached");
     fadeInPage();
   }
+
+  handleLinkClicks();
 });
 
 function fadeInPage() {
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
+
+  pageOverlay.classList.remove("fade-in");
   if (!prefersReducedMotion) {
-    pageOverlay.classList.remove("fade-in");
     pageOverlay.classList.add("fade-out");
   }
 }
@@ -55,22 +57,13 @@ function isInternalLink(link) {
 }
 
 function fadeOutPage(linkEvent, href) {
-  const isMenuOpen = navContent.classList.contains("nav__content--open");
-
-  let fadeOutTarget = isMenuOpen ? navContent : pageOverlay;
   const onAnimationEnd = () => {
     window.location = href;
-    fadeOutTarget.removeEventListener("animationend", onAnimationEnd);
+    pageOverlay.removeEventListener("animationend", onAnimationEnd);
   };
 
-  fadeOutTarget.addEventListener("animationend", onAnimationEnd);
+  pageOverlay.addEventListener("animationend", onAnimationEnd);
 
   linkEvent.preventDefault();
-
-  if (isMenuOpen) {
-    navContent.classList.remove("fade-in");
-    navContent.classList.add("fade-out");
-  } else {
-    pageOverlay.classList.add("fade-in");
-  }
+  pageOverlay.classList.add("fade-in");
 }
