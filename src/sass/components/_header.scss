@@ -35,5 +35,9 @@
 
     font-size: var(--font-size-m);
     height: 100%;
+
+    &[aria-current='page'] {
+      @include hover-underline-style(true);
+    }
   }
 }

@@ -37,6 +37,18 @@ a {
   text-decoration-thickness: 0.02em;
 }
 
+hr {
+  border: 0;
+  background-color: var(--ui-color);
+  height: #{convert-px-to-rem(1)}rem;
+  margin: var(--space-m);
+  margin-left: 0;
+}
+
+// -----------------------------------------------------------------------------
+// Layout
+// -----------------------------------------------------------------------------
+
 html {
   font-size: 100%;
   padding: env(safe-area-inset-top) env(safe-area-inset-right)

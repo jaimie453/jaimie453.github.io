@@ -4,7 +4,12 @@
     {% include "../components/logo.njk" %}
     <ul class="nav__list">
       <li class="nav__list-item">
-        <a class="nav__link" href="{{ '/resume.pdf' | url }}">Resume</a>
+        <a
+          class="nav__link"
+          href="{{ '/resume' | url }}"
+          {% if page.url == "/resume/" %}aria-current="page"{% endif %}
+          >Resume</a
+        >
       </li>
       <li class="nav__list-item">
         <a

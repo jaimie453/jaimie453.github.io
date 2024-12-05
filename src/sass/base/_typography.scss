@@ -35,12 +35,15 @@ h4 {
 p {
   padding-bottom: var(--space-m);
 
-  &:not(.font-size-m) {
-    max-width: var(--article-max-width);
-  }
-
   section:last-child &:last-child,
   article &:last-child {
     padding-bottom: 0;
+  }
+}
+
+article {
+  p,
+  .bullet-list {
+    max-width: var(--article-max-width);
   }
 }

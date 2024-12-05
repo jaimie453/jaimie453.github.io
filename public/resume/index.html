@@ -8,7 +8,7 @@
       name="description"
       content="Front-end developer with a focus on usability and accessibility."
     />
-    <title>Projects | Jaimie Bowen</title>
+    <title>Resume | Jaimie Bowen</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -774,7 +774,7 @@
 
         <ul class="nav__list">
           <li class="nav__list-item">
-            <a class="nav__link" href="/resume">Resume</a>
+            <a class="nav__link" href="/resume" aria-current="page">Resume</a>
           </li>
           <li class="nav__list-item">
             <a class="nav__link" href="/about"> About </a>
@@ -788,57 +788,141 @@
       <script src="/assets/js/page-overlay.js" type="module"></script>
 
       <main id="main">
-        <h1>Projects</h1>
-        <p class="font-size-m">
-          Collection of interesting side projects I've worked on. Any live demos
-          can be found within the linked github repo.
-        </p>
-        <ul class="card-grid">
-          <li class="card">
+        <section>
+          <h1>Resume</h1>
+          <p class="font-size-m">
+            Since I decided to be special and use a custom design for my resume,
+            and because
             <a
-              href="https://github.com/ThatManTrey/ScheduleBuilderCap"
-              class="card__link"
-              target="_blank"
+              href="https://www.ccdaily.com/2022/12/the-problem-with-pdfs-its-an-accessibility-thing/"
             >
-              <h2 class="card__title font-size-xl">KSU Course Planner</h2>
-            </a>
-            <p class="card__body">
-              A more user friendly course catalog and scheduler for Kent State
-              University students. Worked on front-end, user experience, and
-              authentication.
-            </p>
-            <p class="visually-hidden">Tagged:</p>
-            <ul class="card__tags">
-              <li>vue</li>
-
-              <li>flask</li>
-
-              <li>ux</li>
-            </ul>
-          </li>
-
-          <li class="card">
-            <a
-              href="https://github.com/jaimie453/WP2FinalProject"
-              class="card__link"
-              target="_blank"
+              making PDFs accessible</a
             >
-              <h2 class="card__title font-size-xl">Everyone Travels</h2>
-            </a>
-            <p class="card__body">
-              A sample travel website built as the final project for the Web
-              Programming 2 course at Kent State University.
-            </p>
-            <p class="visually-hidden">Tagged:</p>
-            <ul class="card__tags">
-              <li>php</li>
-
-              <li>jquery</li>
-
-              <li>sass</li>
-            </ul>
-          </li>
-        </ul>
+            is nauseating, I don't tend to update the
+            <a href="/resume.pdf">PDF version</a>
+            of my resume very often.
+          </p>
+          <p class="font-size-m">
+            Below you can find a more detailed web-version of my resume that I
+            try to keep up to date.
+          </p>
+          <hr />
+          <h2>Experience</h2>
+          <div>
+            <h3>Front-end developer</h3>
+            <small>BAM Technologies (Sep 2024 — Present)</small>
+          </div>
+          <p>
+            Hired onto a cross-platform team to improve the accessibility of a
+            company-wide design system.
+          </p>
+          <ul class="bullet-list">
+            <li>
+              Develop and maintain components and styles used by 100s of
+              developers across the company.
+            </li>
+            <li>
+              Architect a style guide to document all the elements of the design
+              system.
+            </li>
+            <li>
+              Work on internal tools, such as a CSS class search and front-end
+              APIs, to improve developer productivity when using our system.
+            </li>
+            <li>
+              Create processes for manual auditing the accessibility status of
+              components.
+            </li>
+          </ul>
+          <div>
+            <h3>UI developer</h3>
+            <small>BAM Technologies (Nov 2021 — Sep 2024)</small>
+          </div>
+          <p>
+            Promoted to architect a design system and standarize the Airforce
+            MyVector platform's UI
+          </p>
+          <ul class="bullet-list">
+            <li>
+              Developed accessible UI components used by 30+ developers and act
+              as the primary contact between developers and designers on
+              front-end related issues.
+            </li>
+            <li>
+              Updated platform dashboard UI to improve site navigation and
+              cohesion.
+            </li>
+            <li>
+              Worked with UI/UX designers to create UX standards for tooltips,
+              modals, and more.
+            </li>
+            <li>
+              Refactored platform layout used by 50+ applications to provide
+              better UX and accessibility.
+            </li>
+            <li>
+              Pushed for stricter accessibility testing to ensure Section 508
+              compliance.
+            </li>
+          </ul>
+          <div>
+            <h3>Full-stack developer</h3>
+            <small>BAM Technologies (May 2021 — Nov 2021)</small>
+          </div>
+          <p>Performed full-stack development for the MyVector platform</p>
+          <ul class="bullet-list">
+            <li>
+              Successfully planned, developed, and released Relocations
+              application from Sprint 0.
+            </li>
+            <li>
+              Modified application features to improve usability according to
+              client feedback.
+            </li>
+          </ul>
+          <div>
+            <h3>Student developer</h3>
+            <small>Kent State University (June 2020 — May 2021)</small>
+          </div>
+          <p>
+            Built web applications for multiple KSU departments using .NET,
+            Angular, and MSSQL.
+          </p>
+          <ul class="bullet-list">
+            <li>
+              Developed call center application to improve productivity of the
+              Financial Aid department.
+            </li>
+            <li>
+              Optimized processes for the university's housing application used
+              by over 6000 students.
+            </li>
+          </ul>
+          <h2>Skills</h2>
+          <p>
+            I've used various technologies over the years, but the following
+            skills are my strongest as a front-end developer:
+          </p>
+          <ul class="bullet-list">
+            <li>
+              JavaScript & TypeScript (prefer the latter and use it daily)
+            </li>
+            <li>HTML (with a focus on semantics)</li>
+            <li>CSS & Sass (knowledgeable)</li>
+            <li>Angular (main framework the past few years)</li>
+            <li>WAI-ARIA (well read on specs and design patterns)</li>
+            <li>Accessibility testing (WCAG 2.2 & Section 508 criteria)</li>
+            <li>Documentation (contribute wherever possible)</li>
+            <li>Usability (familiar from working with designers)</li>
+          </ul>
+          <h2>Certifications</h2>
+          <h3>DHS Trusted Tester</h3>
+          <small>Issued Mar 2023 — Credential ID: TT-2303-04046</small>
+          <p>
+            A course by the U.S. Department of Homeland Security on testing for
+            Section 508 compliance.
+          </p>
+        </section>
       </main>
       <footer class="footer">
         © Jaimie Bowen 2022–2024
