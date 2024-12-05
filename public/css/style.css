@@ -211,7 +211,7 @@ article p:last-child {
 }
 
 article p,
-article .bullet-list {
+article .list {
   max-width: var(--article-max-width);
 }
 
@@ -348,18 +348,18 @@ article .bullet-list {
 .logo__background {
   fill: var(--background-color);
 }
-
 @media (forced-colors: active) {
   .logo__moon {
     fill: LinkText;
   }
 }
-.bullet-list {
+
+.list {
   padding-bottom: var(--space-m);
   padding-left: var(--space-l);
 }
 @media screen and (min-width: 36rem) {
-  .bullet-list--2-columns {
+  .list--2-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-xxs);
