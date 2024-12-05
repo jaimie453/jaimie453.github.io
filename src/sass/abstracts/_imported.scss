@@ -227,8 +227,8 @@
       '\A ';
   }
 
-  $message: 'Started tests for function `#{map-get($data, ' function ')}()` \A '+
-    '----------\A '+ $output + '\A '+ '----------\A '+
+  $message: 'Started tests for function `#{map-get($data, 'function')}()` \A '+
+    '----------\A ' + $output + '\A '+ '----------\A '+
     'Finished: #{map-get($data, "pass")} test(s) passing out of #{$length}';
 
   @if map-get($data, 'fail') > 0 {

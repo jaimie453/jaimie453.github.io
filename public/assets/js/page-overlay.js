@@ -7,7 +7,6 @@ fadeInPage();
 window.addEventListener('pageshow', (event) => {
   // re-run fade-in only when the page is cached
   if (event.persisted) {
-    //alert("cached");
     fadeInPage();
   }
 
@@ -16,7 +15,7 @@ window.addEventListener('pageshow', (event) => {
 
 function fadeInPage() {
   const prefersReducedMotion = window.matchMedia(
-    '(prefers-reduced-motion: reduce)'
+    '(prefers-reduced-motion: reduce)',
   ).matches;
 
   pageOverlay.classList.remove('fade-in');
@@ -35,7 +34,7 @@ function handleLinkClicks() {
     }
 
     const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
+      '(prefers-reduced-motion: reduce)',
     ).matches;
 
     if (!clickTarget) {

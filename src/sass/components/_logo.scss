@@ -24,14 +24,11 @@
   &__background {
     fill: var(--background-color);
   }
+}
 
-  @media (forced-colors: active) {
-    &__moon {
-      fill: ActiveText;
-    }
-
-    &__flower {
-      display: none;
-    }
+@media (forced-colors: active) {
+  // can't apply ActiveText when visited for some reason
+  .logo__moon {
+    fill: LinkText;
   }
 }

@@ -1,7 +1,6 @@
 {% macro createCard(title, description, siteUrl, tags, useH2 = false) %}
   <li class="card">
-    <a
-      href="{{ siteUrl }}" class="card__link" target="_blank">
+    <a href="{{ siteUrl }}" class="card__link" target="_blank">
       {# for use on project/articles pages #}
       {% if useH2 %}
         <h2 class="card__title font-size-xl">{{ title }}</h2>
@@ -9,9 +8,7 @@
         <h3 class="card__title font-size-l">{{ title }}</h3>
       {% endif %}
     </a>
-    <p class="card__body">
-      {{ description }}
-    </p>
+    <p class="card__body">{{ description }}</p>
     <p class="visually-hidden">Tagged:</p>
     <ul class="card__tags">
       {% for tag in tags %}

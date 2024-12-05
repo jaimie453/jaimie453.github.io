@@ -10,7 +10,8 @@ h4 {
   @include heading-font-style;
 }
 
-small {
+small,
+.text-lightest {
   color: var(--text-color-lightest);
 }
 

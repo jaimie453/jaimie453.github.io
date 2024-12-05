@@ -1,16 +1,20 @@
 <header>
-    {% include "../components/skip-nav.njk" %}
-    <nav class="nav" id="nav">
-        {% include "../components/logo.njk" %}
-        <ul class="nav__list">
-            <li class="nav__list-item">
-                <a class="nav__link" href="{{ '/resume.pdf' | url }}">Resume</a>
-            </li>
-            <li class="nav__list-item">
-                <a class="nav__link" href="{{ '/about' | url }}" {% if page.url == "/about/" %} aria-current="page" {% endif %}>
-                    About
-                </a>
-            </li>
-        </ul>
-    </nav>
+  {% include "../components/skip-nav.njk" %}
+  <nav class="nav" id="nav">
+    {% include "../components/logo.njk" %}
+    <ul class="nav__list">
+      <li class="nav__list-item">
+        <a class="nav__link" href="{{ '/resume.pdf' | url }}">Resume</a>
+      </li>
+      <li class="nav__list-item">
+        <a
+          class="nav__link"
+          href="{{ '/about' | url }}"
+          {% if page.url == "/about/" %}aria-current="page"{% endif %}
+        >
+          About
+        </a>
+      </li>
+    </ul>
+  </nav>
 </header>

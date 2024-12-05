@@ -58,6 +58,12 @@
       transition: outline-offset 150ms linear;
     }
   }
+
+  @media (forced-colors: active) {
+    & {
+      outline-color: Highlight;
+    }
+  }
 }
 
 @mixin fade {
