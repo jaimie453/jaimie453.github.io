@@ -15,7 +15,7 @@ $tests-fibonacci: (
   10: 0 1 1 2 3 5 8 13 21 34
 );
 
-@include run(test("generate-fibonacci-sequence", $tests-fibonacci));
+@include run(test('generate-fibonacci-sequence', $tests-fibonacci));
 
 //
 // get-fluid-text-viewport-step($min-font-size, $max-font-size, $min-viewport-width, $max-viewport-width)
@@ -29,7 +29,7 @@ $tests-get-fluid-text-viewport-step: (
 );
 
 @include run(
-  test("get-fluid-text-viewport-step", $tests-get-fluid-text-viewport-step)
+  test('get-fluid-text-viewport-step', $tests-get-fluid-text-viewport-step)
 );
 
 //
@@ -44,7 +44,7 @@ $tests-get-fluid-text-relative-step: (
 );
 
 @include run(
-  test("get-fluid-text-relative-step", $tests-get-fluid-text-relative-step)
+  test('get-fluid-text-relative-step', $tests-get-fluid-text-relative-step)
 );
 
 // Returning the right values, but calculations aren't equal for some reason

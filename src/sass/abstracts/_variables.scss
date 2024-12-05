@@ -41,13 +41,13 @@ $fluid-font-sizes: generate-fluid-font-sizes(
 //    "size-label": html element
 //  for font-sizes
 $font-size-labels: (
-  "s": small,
-  "base": body,
-  "m": h5,
-  "l": h4,
-  "xl": h3,
-  "2xl": h2,
-  "3xl": h1,
+  's': small,
+  'base': body,
+  'm': h5,
+  'l': h4,
+  'xl': h3,
+  '2xl': h2,
+  '3xl': h1,
 );
 
 //
@@ -56,4 +56,4 @@ $font-size-labels: (
 
 // 3 - 89
 $space-values: slice($fibonacci, 5, 13);
-$space-labels: "xxs", "xs", "s", "base", "m", "l", "xl", "xxl", "3xl";
+$space-labels: 'xxs', 'xs', 's', 'base', 'm', 'l', 'xl', 'xxl', '3xl';

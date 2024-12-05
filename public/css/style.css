@@ -130,7 +130,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: lighter;
   font-style: italic;
   text-transform: uppercase;
@@ -374,7 +374,7 @@ article p:last-child {
   display: flex;
 }
 .nav__link {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: lighter;
   font-style: italic;
   text-transform: uppercase;

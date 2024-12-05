@@ -4,7 +4,7 @@
 
 fadeInPage();
 
-window.addEventListener("pageshow", (event) => {
+window.addEventListener('pageshow', (event) => {
   // re-run fade-in only when the page is cached
   if (event.persisted) {
     //alert("cached");
@@ -16,26 +16,26 @@ window.addEventListener("pageshow", (event) => {
 
 function fadeInPage() {
   const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
+    '(prefers-reduced-motion: reduce)'
   ).matches;
 
-  pageOverlay.classList.remove("fade-in");
+  pageOverlay.classList.remove('fade-in');
   if (!prefersReducedMotion) {
-    pageOverlay.classList.add("fade-out");
+    pageOverlay.classList.add('fade-out');
   }
 }
 
 function handleLinkClicks() {
-  document.addEventListener("click", (event) => {
+  document.addEventListener('click', (event) => {
     let clickTarget = event.target;
 
     // get parent <a> if a child element was clicked
-    while (clickTarget && clickTarget.nodeName !== "A") {
+    while (clickTarget && clickTarget.nodeName !== 'A') {
       clickTarget = clickTarget.parentNode;
     }
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      '(prefers-reduced-motion: reduce)'
     ).matches;
 
     if (!clickTarget) {
@@ -50,8 +50,8 @@ function handleLinkClicks() {
 function isInternalLink(link) {
   const inSameDomain = link.origin === window.location.origin;
   const linksToIdOnCurrentPage =
-    link.pathname === window.location.pathname && link.href.includes("#");
-  const isResumeLink = link.href.includes("resume.pdf");
+    link.pathname === window.location.pathname && link.href.includes('#');
+  const isResumeLink = link.href.includes('resume.pdf');
 
   return inSameDomain && !linksToIdOnCurrentPage && !isResumeLink;
 }
@@ -59,11 +59,11 @@ function isInternalLink(link) {
 function fadeOutPage(linkEvent, href) {
   const onAnimationEnd = () => {
     window.location = href;
-    pageOverlay.removeEventListener("animationend", onAnimationEnd);
+    pageOverlay.removeEventListener('animationend', onAnimationEnd);
   };
 
-  pageOverlay.addEventListener("animationend", onAnimationEnd);
+  pageOverlay.addEventListener('animationend', onAnimationEnd);
 
   linkEvent.preventDefault();
-  pageOverlay.classList.add("fade-in");
+  pageOverlay.classList.add('fade-in');
 }

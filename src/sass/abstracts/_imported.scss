@@ -86,13 +86,13 @@
     $tests: append(
       $tests,
       (
-        "input": $arguments,
-        "expected": $expected-result,
-        "actual": $actual-result,
-        "pass": $passed,
-        "fail": not $passed,
+        'input': $arguments,
+        'expected': $expected-result,
+        'actual': $actual-result,
+        'pass': $passed,
+        'fail': not $passed,
       ),
-      "comma"
+      'comma'
     );
 
     @if $passed {
@@ -101,11 +101,11 @@
   }
 
   @return (
-    "function": $function,
-    "length": length($tests),
-    "tests": $tests,
-    "pass": $passing-tests,
-    "fail": length($tests) - $passing-tests
+    'function': $function,
+    'length': length($tests),
+    'tests': $tests,
+    'pass': $passing-tests,
+    'fail': length($tests) - $passing-tests
   );
 }
 
@@ -212,26 +212,26 @@
 ///   ----------
 ///   Finished: 0 test(s) failing out of 4
 @mixin run($data) {
-  $output: "";
-  $length: map-get($data, "length");
-  $tests: map-get($data, "tests");
+  $output: '';
+  $length: map-get($data, 'length');
+  $tests: map-get($data, 'tests');
 
   @each $test in $tests {
     $output: $output +
-      "Test #{index($tests, $test)} out of #{$length}... " +
+      'Test #{index($tests, $test)} out of #{$length}... ' +
       if(
-        map-get($test, "pass"),
-        "✔",
+        map-get($test, 'pass'),
+        '✔',
         '✘\A   Expected : `#{map-get($test, "expected")}`\A   Actual   : `#{map-get($test, "actual")}`'
       ) +
-      "\A ";
+      '\A ';
   }
 
-  $message: "Started tests for function `#{map-get($data, " function ")}()` \A "+
-    "----------\A "+ $output + "\A "+ "----------\A "+
+  $message: 'Started tests for function `#{map-get($data, ' function ')}()` \A '+
+    '----------\A '+ $output + '\A '+ '----------\A '+
     'Finished: #{map-get($data, "pass")} test(s) passing out of #{$length}';
 
-  @if map-get($data, "fail") > 0 {
+  @if map-get($data, 'fail') > 0 {
     // @error doesn't respect \a formatting
     @warn $message;
     @error "Tests failed.";
