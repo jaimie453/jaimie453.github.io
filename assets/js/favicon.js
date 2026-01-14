@@ -4,13 +4,13 @@
 
 const usingDarkMode =
   window.matchMedia &&
-  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 if (!usingDarkMode) {
-  faviconPng.href = "/assets/images/favicon-light.png";
+  faviconPng.href = '/assets/images/favicon-light.png';
 }
 
-window.matchMedia("(prefers-color-scheme: dark)").onchange = (event) => {
-  const theme = event.matches ? "dark" : "light";
+window.matchMedia('(prefers-color-scheme: dark)').onchange = (event) => {
+  const theme = event.matches ? 'dark' : 'light';
   faviconPng.href = `/assets/images/favicon-${theme}.png`;
 };

@@ -68,10 +68,23 @@ button[disabled] {
     transition: outline-offset 150ms linear;
   }
 }
+@media (forced-colors: active) {
+  :focus-visible {
+    outline-color: Highlight;
+  }
+}
 
 a {
   color: var(--text-color-darkest);
   text-decoration-thickness: 0.02em;
+}
+
+hr {
+  border: 0;
+  background-color: var(--ui-color);
+  height: 0.0625rem;
+  margin: var(--space-m);
+  margin-left: 0;
 }
 
 html {
@@ -130,7 +143,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: lighter;
   font-style: italic;
   text-transform: uppercase;
@@ -138,7 +151,8 @@ h4 {
   line-height: 1;
 }
 
-small {
+small,
+.text-lightest {
   color: var(--text-color-lightest);
 }
 
@@ -191,12 +205,14 @@ h4 {
 p {
   padding-bottom: var(--space-m);
 }
-p:not(.font-size-m) {
-  max-width: var(--article-max-width);
-}
 section:last-child p:last-child,
 article p:last-child {
   padding-bottom: 0;
+}
+
+article p,
+article .list {
+  max-width: var(--article-max-width);
 }
 
 .wrap-text {
@@ -212,6 +228,10 @@ article p:last-child {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+.padding-none {
+  padding: 0;
 }
 
 .fade-out {
@@ -330,20 +350,16 @@ article p:last-child {
 }
 @media (forced-colors: active) {
   .logo__moon {
-    fill: ActiveText;
-  }
-  .logo__flower {
-    display: none;
+    fill: LinkText;
   }
 }
 
-.bullet-list {
+.list {
   padding-bottom: var(--space-m);
   padding-left: var(--space-l);
-  max-width: var(--article-max-width);
 }
 @media screen and (min-width: 36rem) {
-  .bullet-list--2-columns {
+  .list--2-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--space-xxs);
@@ -374,7 +390,7 @@ article p:last-child {
   display: flex;
 }
 .nav__link {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: lighter;
   font-style: italic;
   text-transform: uppercase;
@@ -396,6 +412,19 @@ article p:last-child {
 .nav__link:hover,
 .nav__link:focus-visible {
   text-decoration-color: currentColor;
+}
+.nav__link[aria-current='page'] {
+  text-underline-offset: 0.3em;
+  text-decoration-color: currentColor;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .nav__link[aria-current='page'] {
+    transition: all 150ms ease-in-out;
+  }
+}
+.nav__link[aria-current='page']:hover,
+.nav__link[aria-current='page']:focus-visible {
+  text-decoration-color: transparent;
 }
 
 .footer {
